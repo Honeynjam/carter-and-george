@@ -1,4 +1,6 @@
-import { Html, Head, Main, NextScript } from "next/document";
+import { Head, Html, Main, NextScript } from "next/document";
+
+import { GTMNoScript } from "components/base/GoogleTagManager";
 
 export default function Document() {
   return (
@@ -7,6 +9,7 @@ export default function Document() {
       <body className="antialiased">
         <Main />
         <NextScript />
+        <GTMNoScript />
       </body>
     </Html>
   );

@@ -1,3 +1,8 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["next", "next/core-web-vitals", "prettier"],
+  "rules": {
+    "no-unused-vars": 1,
+    "react/no-unescaped-entities": 0,
+    "no-undef": 2
+  }
 }
