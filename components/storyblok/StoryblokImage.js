@@ -4,7 +4,7 @@ import cn from "classnames";
 
 import { getImageDimentions, isSvg } from "utils/storyblokImageHelpers";
 
-const StoryblokImage = ({ image, className, svgClassName, ...props }) => {
+const StoryblokImage = ({ image, className, fill = false, svgClassName, ...props }) => {
   if (image.filename) {
     if (isSvg(image.filename)) {
       return (
@@ -17,6 +17,12 @@ const StoryblokImage = ({ image, className, svgClassName, ...props }) => {
             alt={image.alt || ""}
           />
         </div>
+      );
+    }
+
+    if (fill) {
+      return (
+        <Image {...props} fill className={className} src={image.filename} alt={image.alt || ""} />
       );
     }
 

@@ -5,7 +5,9 @@ import { GTMNoScript } from "components/base/GoogleTagManager";
 export default function Document() {
   return (
     <Html lang="en">
-      <Head />
+      <Head>
+        <link rel="stylesheet" href="https://use.typekit.net/wyr7rga.css" />
+      </Head>
       <body className="antialiased">
         <Main />
         <NextScript />

@@ -1,15 +1,13 @@
 import { StoryblokComponent, getStoryblokApi, useStoryblokState } from "@storyblok/react";
 
-import { skipPageCreationWithinCatchAllPage } from "config/storyblok";
-
 import getGlobalDocs from "utils/getGlobalDocs";
 
 import Seo from "components/base/Seo";
 import Layout from "components/global/Layout";
 
-export default function Page({ story, globalDocs, preview }) {
+export default function Page({ story, globalDocs, articles, preview }) {
   story = useStoryblokState(story);
-  // console.log(story);
+
   if (story.content) {
     return (
       <>
@@ -21,8 +19,8 @@ export default function Page({ story, globalDocs, preview }) {
           socialImage={story.content.seo_og_image}
           noindex={story.content.seo_index !== "true"}
         />
-        <Layout {...globalDocs} preview={preview}>
-          <StoryblokComponent blok={story.content} />
+        <Layout navbarType="white" {...globalDocs} preview={preview}>
+          <StoryblokComponent articles={articles} blok={story.content} />
         </Layout>
       </>
     );
@@ -30,13 +28,7 @@ export default function Page({ story, globalDocs, preview }) {
 }
 
 export async function getStaticProps({ params, preview = null }) {
-  let slug = params.slug ? params.slug.join("/") : null;
-
-  // special rule for home page
-  // I can't define it as a root folder within Storyblok for some reason - it's erroring out
-  if (slug === "home" && !preview) {
-    return { notFound: true };
-  }
+  let slug = params.slug;
 
   let sbParams = {
     // version: preview ? "draft" : "published",
@@ -49,7 +41,7 @@ export async function getStaticProps({ params, preview = null }) {
 
   let data = null;
   try {
-    let doc = await storyblokApi.get(`cdn/stories/${slug}`, sbParams);
+    let doc = await storyblokApi.get(`cdn/stories/blog/${slug}`, sbParams);
     data = doc.data;
   } catch (e) {
     if (e?.status === 404) {
@@ -57,12 +49,28 @@ export async function getStaticProps({ params, preview = null }) {
     }
   }
 
+  const { data: articles } = await storyblokApi.get("cdn/stories/", {
+    version: preview ? "draft" : "published",
+    starts_with: "blog",
+    resolve_relations: ["blog_post.category"],
+    excluding_slugs: `blog/categories/*,${data.story.full_slug}`,
+    is_startpage: 0,
+    per_page: 3,
+    sort_by: "content.published_at:desc",
+    filter_query: {
+      category: {
+        in: `${data.story.content.category.uuid}`,
+      },
+    },
+  });
+
   const globalDocs = await getGlobalDocs(preview);
 
   return {
     props: {
       story: data ? data.story : false,
       globalDocs,
+      articles: articles.stories.length > 0 ? articles.stories : false,
       key: data ? data.story.id : false,
       preview,
     },
@@ -73,27 +81,17 @@ export async function getStaticProps({ params, preview = null }) {
 export async function getStaticPaths() {
   const storyblokApi = getStoryblokApi();
 
-  let sbParams = {
+  let { data: articlesData } = await storyblokApi.get(`cdn/links`, {
     version: "published",
-  };
-
-  let { data } = await storyblokApi.get(`cdn/links`, sbParams);
-
-  let paths = [];
-  Object.keys(data.links).forEach((linkKey) => {
-    const slug = data.links[linkKey].slug;
-
-    if (data.links[linkKey].is_folder || slug === "home") {
-      return;
-    }
-
-    if (skipPageCreationWithinCatchAllPage.some((v) => slug.includes(v))) {
-      return;
-    }
-
-    let splittedSlug = slug.split("/");
-    paths.push({ params: { slug: splittedSlug } });
+    starts_with: "blog",
+    is_startpage: 0,
   });
+
+  const articles = articlesData?.stories;
+
+  const paths = [];
+  articles?.map((item) => paths.push({ params: { slug: item.slug } }));
+
   return {
     paths: paths,
     fallback: "blocking",

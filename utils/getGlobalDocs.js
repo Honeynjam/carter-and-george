@@ -4,7 +4,8 @@ const getGlobalDocs = async (preview = false) => {
   const storyblokApi = getStoryblokApi();
   let { data: globalDocs } = await storyblokApi.get(`cdn/stories/`, {
     starts_with: "global",
-    version: preview ? "draft" : "published",
+    // version: preview ? "draft" : "published",
+    version: "draft",
   });
 
   const navbar = globalDocs.stories.find((story) => story.slug === "navbar");

@@ -2,7 +2,7 @@ import cn from "classnames";
 
 const Container = ({ children, size = "default", className = "", noPadding = false, ...props }) => {
   const containerSize = cn({
-    "max-w-[1174px]": size === "default",
+    "max-w-[1440px]": size === "default",
     "": size === "full",
     "max-w-5xl": size == "xl",
     "max-w-[960px]": size == "lg",
@@ -12,7 +12,7 @@ const Container = ({ children, size = "default", className = "", noPadding = fal
   });
 
   const paddingClass = cn({
-    "px-6 sm:px-7 lg:px-8": !noPadding,
+    "px-6 md:px-8 lg:px-16": !noPadding,
   });
 
   return (

@@ -1,6 +1,6 @@
 export const nonPageFolders = ["global/"];
 
-export const pageWithCodeFolders = [];
+export const pageWithCodeFolders = ["blog/", "patient-stories/"];
 
 export const rootPageWithUniqueLayout = [];
 
