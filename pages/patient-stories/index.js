@@ -20,8 +20,7 @@ export default function PatientStoriesFolder({
   preview,
 }) {
   story = useStoryblokState(story);
-  console.log(patientStories);
-  console.log(quotes);
+
   return (
     <>
       <Seo
@@ -37,22 +36,22 @@ export default function PatientStoriesFolder({
           <div className="mt-2xl text-center">
             <GoogleRating center />
             <h1 className="my-6 text-4xl font-semibold">{story.content.title}</h1>
-            <p className="text-normal mx-auto max-w-3xl text-balance">{story.content.subtitle}</p>
+            <p className="mx-auto max-w-3xl text-balance text-normal">{story.content.subtitle}</p>
           </div>
           <div className="my-xl grid gap-8 md:grid-cols-3">
             {story.content.stats.map((stat, index) => (
-              <div className="bg-stone rounded p-8 text-center" key={index}>
+              <div className="rounded bg-stone p-8 text-center" key={index}>
                 <h2 className="mb-2 text-4xl font-semibold">{stat.stat}</h2>
                 <p className="text-md font-semibold">{stat.name}</p>
               </div>
             ))}
           </div>
-          <div className="mt-xl mb-2xl grid grid-cols-2 gap-x-12 gap-y-20">
+          <div className="mb-2xl mt-xl grid grid-cols-2 gap-x-12 gap-y-20">
             {patientStories.map((story) => {
               return (
                 <StoryblokLink
                   link={story}
-                  className="border-stroke-light border-b px-8 pb-12"
+                  className="border-b border-stroke-light px-8 pb-12"
                   key={story.id}
                 >
                   <div className="relative">
@@ -66,12 +65,12 @@ export default function PatientStoriesFolder({
                   </div>
 
                   <div>
-                    <span className="text-eyebrow text-blue font-medium uppercase">
+                    <span className="text-eyebrow font-medium uppercase text-blue">
                       Patient Story
                     </span>
                     <h2 className="mb-2 mt-6 text-2xl font-semibold">{story.content.title}</h2>
                     <p>{story.content.subtitle}</p>
-                    <div className="text-button mt-8 flex items-center gap-2 font-medium">
+                    <div className="mt-8 flex items-center gap-2 text-button font-medium">
                       <span>Read the story</span> <CaretRight />
                     </div>
                   </div>
@@ -81,7 +80,7 @@ export default function PatientStoriesFolder({
 
             {quotes.map((quote) => {
               return (
-                <div className="border-stroke-light border-b px-8 pb-12" key={quote.id}>
+                <div className="border-b border-stroke-light px-8 pb-12" key={quote.id}>
                   <svg
                     width="116"
                     height="19"

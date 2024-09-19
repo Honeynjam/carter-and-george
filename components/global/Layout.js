@@ -4,9 +4,9 @@ import PreviewBanner from "../base/PreviewBanner";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 
-const Layout = ({ footer, navbar, globalSettings, navbarType, children, preview = false }) => {
+const Layout = ({ footer, navbar, navbarType, children, preview = false }) => {
   return (
-    <div className="text-gray-primary text-normal font-sans">
+    <div className="font-sans text-normal text-gray-primary">
       <Navbar type={navbarType} data={navbar} />
 
       <main>{children}</main>

@@ -7,9 +7,14 @@ import getGlobalDocs from "utils/getGlobalDocs";
 import Seo from "components/base/Seo";
 import Layout from "components/global/Layout";
 
+const determineNavbarType = (story) => {
+  if (story.content.component === "patient_story") {
+    return "white";
+  }
+};
 export default function Page({ story, globalDocs, preview }) {
   story = useStoryblokState(story);
-  // console.log(story);
+
   if (story.content) {
     return (
       <>
@@ -21,7 +26,8 @@ export default function Page({ story, globalDocs, preview }) {
           socialImage={story.content.seo_og_image}
           noindex={story.content.seo_index !== "true"}
         />
-        <Layout {...globalDocs} preview={preview}>
+
+        <Layout navbarType={determineNavbarType(story)} {...globalDocs} preview={preview}>
           <StoryblokComponent blok={story.content} />
         </Layout>
       </>
