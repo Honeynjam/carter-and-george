@@ -1,21 +1,38 @@
 import cn from "classnames";
 
+import { useGlobalContext } from "contexts/globalContext";
+
+import Button from "components/common/Button";
+
 const Newsletter = ({ className }) => {
+  const global = useGlobalContext();
+
   return (
-    <div className={cn(className, "bg-stone flex items-center gap-12 px-16 py-12")}>
-      <div>
-        <h2 className="text-2xl font-semibold">Never miss a beat</h2>
-        <p className="text-gray-secondary mt-2">
-          Subscribe to our newsletter for the latest tips in achieving your peak performance.
-        </p>
+    <div
+      className={cn(
+        className,
+        "flex flex-col gap-12 bg-stone px-6 py-8 lg:flex-row lg:items-center lg:px-16 lg:py-12"
+      )}
+    >
+      <div className="max-w-md">
+        <h2 className="text-2xl font-medium">{global.newsletter_title}</h2>
+        <p className="mt-2 text-gray-secondary">{global.newsletter_subtitle}</p>
       </div>
-      <div>
-        <h3>Subscribe to our newsletter</h3>
-        <form>
-          <input type="email" placeholder="Enter your email" />
-          <button type="submit">Subscribe</button>
+      <div className="flex-1">
+        <h3 className="text-medium font-medium">Subscribe to our newsletter</h3>
+        {/* TODO - hook to mailchimp */}
+        <form className="my-4 flex w-full flex-col gap-4 md:flex-row md:items-center">
+          <input className="py-3 md:w-1/3" type="email" placeholder="Enter your email" />
+          <input className="py-3 md:w-1/3" type="text" placeholder="Your local Practice" />
+          <Button>Subscribe</Button>
         </form>
-        <p>By clicking Sign Up you're confirming that you agree with our Terms and Conditions.</p>
+        <p className="text-smaller text-gray-secondary">
+          By clicking Sign Up you're confirming that you agree with our{" "}
+          <a className="underline" href="/terms">
+            Terms and Conditions
+          </a>
+          .
+        </p>
       </div>
     </div>
   );

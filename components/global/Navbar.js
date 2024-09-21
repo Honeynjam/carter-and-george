@@ -23,7 +23,7 @@ const Navbar = ({ type = "blur", data }) => {
       <AnnouncementBanner />
 
       <nav
-        className={cn("sticky top-0 z-50 py-4 lg:py-6", {
+        className={cn("relative z-50 py-4 lg:py-6", {
           "border-b border-stroke-light bg-white": type === "white",
           "bg-white/20 text-white backdrop-blur-xl": type === "blur",
         })}
