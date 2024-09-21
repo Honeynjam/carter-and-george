@@ -6,6 +6,8 @@ import Link from "next/link";
 import cn from "classnames";
 
 import AnnouncementBanner from "./AnnouncementBanner";
+import DesktopNavbarDropdown from "./Navbar/DesktopNavbarDropdown";
+import MobileMenu from "./Navbar/MobileMenu";
 
 import { linkResolver } from "utils/linkResolver";
 
@@ -21,8 +23,8 @@ const Navbar = ({ type = "blur", data }) => {
       <AnnouncementBanner />
 
       <nav
-        className={cn("relative z-20 h-[103px] p-8", {
-          "border-b border-stroke-light": type === "white",
+        className={cn("sticky top-0 z-50 py-4 lg:py-6", {
+          "border-b border-stroke-light bg-white": type === "white",
           "bg-white/20 text-white backdrop-blur-xl": type === "blur",
         })}
       >
@@ -31,15 +33,23 @@ const Navbar = ({ type = "blur", data }) => {
             <div className="flex items-center gap-6">
               <Link href="/">
                 <Image
-                  width={55}
-                  height={55}
+                  width={179}
+                  height={75}
                   className="object-contain"
-                  src={type === "white" ? "/images/logo-colour.png" : "/images/logo-white.png"}
+                  src={type === "white" ? "/images/full-logo-colour.png" : "/images/full-logo.png"}
                   alt="logo"
                 />
               </Link>
+            </div>
+            {/* Mobile */}
+            <MobileMenu data={data} />
+            {/* Desktop */}
+            <div className="flex items-center gap-6 max-lg:hidden">
               <div className="flex items-center gap-6">
                 {data.content.menu.map((item) => {
+                  if (item.component === "navbar_dropdown") {
+                    return <DesktopNavbarDropdown key={item.id} blok={item} />;
+                  }
                   return (
                     <div key={item.text} className="text-button font-medium uppercase">
                       {item.text}
@@ -47,21 +57,21 @@ const Navbar = ({ type = "blur", data }) => {
                   );
                 })}
               </div>
-            </div>
-            <div className="flex items-center gap-4">
-              <Button
-                outline
-                color={type === "white" ? "black" : "white"}
-                href={linkResolver(primaryButton.link)}
-              >
-                {secondaryButton.text}
-              </Button>
-              <Button
-                color={type === "white" ? "black" : "white"}
-                href={linkResolver(primaryButton.link)}
-              >
-                {primaryButton.text}
-              </Button>
+              <div className="flex items-center gap-4">
+                <Button
+                  outline
+                  color={type === "white" ? "black" : "white"}
+                  href={linkResolver(primaryButton.link)}
+                >
+                  {secondaryButton.text}
+                </Button>
+                <Button
+                  color={type === "white" ? "black" : "white"}
+                  href={linkResolver(primaryButton.link)}
+                >
+                  {primaryButton.text}
+                </Button>
+              </div>
             </div>
           </div>
         </Container>
