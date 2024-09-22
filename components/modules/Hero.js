@@ -1,18 +1,37 @@
+import GoogleRating from "components/base/GoogleRating";
 import Container from "components/common/Container";
+import { Eyebrow, Heading, Subtitle } from "components/common/Typography";
+import StoryblokImage from "components/storyblok/StoryblokImage";
 
-const Hero = ({ eyebrow, title, subtitle, image }) => {
+const Hero = ({ socialProof = false, eyebrow, title, subtitle, image }) => {
   return (
     <div className="relative z-10 mt-[-103px]">
       <div className="pt-[103px]">
-        <div className="py-3xl relative z-20">
+        <div className="relative z-20 py-xl md:py-2xl lg:py-3xl">
           <Container className="text-white">
-            <span className="text-eyebrow mb-4 uppercase">{eyebrow}</span>
-            <h1 className="mb-2 text-4xl font-semibold">{title}</h1>
-            <p className="text-normal">{subtitle}</p>
+            <div className="max-w-3xl">
+              {socialProof ? (
+                <div className="mb-8">
+                  <GoogleRating color="white" />
+                </div>
+              ) : null}
+
+              <Eyebrow className="mb-4" text={eyebrow} />
+              <Heading className="mb-4" level={1} size="4xl">
+                {title}
+              </Heading>
+              <Subtitle color="white" size="medium">
+                {subtitle}
+              </Subtitle>
+            </div>
           </Container>
         </div>
-        <div className="">
-          <img src={image} className="absolute inset-0 h-full w-full object-cover" />
+        <div>
+          <StoryblokImage
+            priority
+            image={image}
+            className="absolute inset-0 h-full w-full object-cover"
+          />
           <div className="absolute inset-0 h-full w-full bg-black bg-opacity-30"></div>
         </div>
       </div>

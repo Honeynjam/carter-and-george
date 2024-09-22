@@ -1,0 +1,48 @@
+import React from "react";
+
+import { storyblokEditable } from "@storyblok/react";
+
+import Button from "components/common/Button";
+import Container from "components/common/Container";
+import { Heading, Subtitle } from "components/common/Typography";
+import StoryblokImage from "components/storyblok/StoryblokImage";
+
+const DownloadForm = ({ blok }) => {
+  return (
+    <section {...storyblokEditable(blok)} className="bg-black py-side-padding md:py-xl lg:py-2xl">
+      <Container>
+        <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-20">
+          <div className="h-full">
+            <StoryblokImage className="h-full rounded object-cover" image={blok.image} />
+          </div>
+          <div className="">
+            <div className="lg:py-2xl">
+              <Heading className="mb-2" color="white" size="3xl" level={2}>
+                {blok.title}
+              </Heading>
+              <Subtitle alternate color="grey">
+                {blok.subtitle}
+              </Subtitle>
+              {/* TODO mailchimp */}
+              <form className="mt-6 flex max-w-xl items-center gap-4 py-4">
+                <input className="w-full py-3" type="email" placeholder="Enter your email" />
+                <Button outline color="white">
+                  Download
+                </Button>
+              </form>
+              <p className="text-smaller text-white">
+                By clicking Sign Up you're confirming that you agree with our{" "}
+                <a className="underline" href="/terms">
+                  Terms and Conditions
+                </a>
+                .
+              </p>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+};
+
+export default DownloadForm;

@@ -38,7 +38,7 @@ export default function BlogFolder({ story, articles, categories, globalDocs, pr
             />
             <h1 className="mt-4 text-4xl font-semibold">{story.content.name}</h1>
           </div>
-          <div className="border-stroke-light mt-20 flex items-center gap-4 border-b pb-4">
+          <div className="mt-20 flex items-center gap-4 border-b border-stroke-light pb-4">
             <Link href="/blog" className="text-small text-opacity-50">
               View all
             </Link>
@@ -56,7 +56,7 @@ export default function BlogFolder({ story, articles, categories, globalDocs, pr
             <BlogGrid data={featuredArticles} />
           </div>
           <Newsletter className="my-20" />
-          <div>
+          <div className="my-20">
             <BlogGrid data={otherArticles} />
           </div>
         </Container>
@@ -84,7 +84,8 @@ export async function getStaticProps({ preview = null, params }) {
   }
 
   const { data: articlesData } = await storyblokApi.get("cdn/stories/", {
-    version: preview ? "draft" : "published",
+    // version: preview ? "draft" : "published",
+    version: "draft",
     starts_with: "blog",
     resolve_relations: ["blog_post.categories"],
     is_startpage: 0,

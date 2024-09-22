@@ -4,20 +4,55 @@ import BlogPost from "../page-content-types/BlogPost";
 import FaqPage from "../page-content-types/FaqPage";
 import Page from "../page-content-types/Page";
 import PatientStory from "../page-content-types/PatientStory";
+import Service from "../page-content-types/Service";
 
 import RichText from "components/content-sections/RichText";
+import Video from "components/content-sections/Video";
+import HeroBlok from "components/hero-sections/Hero";
+import ApproachSection from "components/page-sections/ApproachSection";
+import ContentSection from "components/page-sections/ContentSection";
 import CtaSection from "components/page-sections/CtaSection";
+import DownloadForm from "components/page-sections/DownloadForm";
+import FaqSection from "components/page-sections/FaqSection";
+import FullWidthImage from "components/page-sections/FullWidthImage";
+import Grid from "components/page-sections/Grid";
+import ImageBulletList from "components/page-sections/ImageBulletList";
+import ScrollerSection from "components/page-sections/ScrollerSection";
+import ServiceCards from "components/page-sections/ServiceCards";
+import ServicesOverview from "components/page-sections/ServicesOverview";
+import TestimonialCarousel from "components/page-sections/TestimonialCarousel";
+import TestimonialCarouselWithMedia from "components/page-sections/TestimonialCarouselWithMedia";
+import TestimonialWithStats from "components/page-sections/TestimonialWithStats";
+import VideoSection from "components/page-sections/VideoSection";
 
 const components = {
   // custom types (don't lazy load)
   page: Page,
+  service: Service,
   faq_page: FaqPage,
   patient_story: PatientStory,
   blog_post: BlogPost,
   // content components
   rich_text: RichText,
+  video: Video,
+  // Hero Section Components
+  hero: HeroBlok,
   // Page section component
   cta_section: CtaSection,
+  services_overview: ServicesOverview,
+  scroller_section: ScrollerSection,
+  testimonial_carousel_with_media: TestimonialCarouselWithMedia,
+  grid: Grid,
+  faq_section: FaqSection,
+  full_width_image: FullWidthImage,
+  approach_section: ApproachSection,
+  image_bullet_list: ImageBulletList,
+  testimonial_carousel: TestimonialCarousel,
+  video_section: VideoSection,
+  content_section: ContentSection,
+  testimonial_with_stats: TestimonialWithStats,
+  download_form: DownloadForm,
+  service_cards: ServiceCards,
 };
 
 storyblokInit({

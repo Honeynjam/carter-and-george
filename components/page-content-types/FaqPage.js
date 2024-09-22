@@ -12,7 +12,7 @@ import { stringParameterize } from "utils/stringParameterize";
 
 import Container from "components/common/Container";
 
-const FaqItem = ({ data }) => {
+export const FaqItem = ({ data }) => {
   return (
     <Disclosure {...storyblokEditable(data)} as="div" className="pt-6">
       {({ open }) => (
@@ -20,7 +20,7 @@ const FaqItem = ({ data }) => {
           <dt>
             <Disclosure.Button className="flex w-full items-start justify-between text-left">
               <span className="text-medium font-semibold">{data.question}</span>
-              <span className="text-stroke-dark ml-6 flex h-7 items-center">
+              <span className="ml-6 flex h-7 items-center text-stroke-dark">
                 {open ? <Minus className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
               </span>
             </Disclosure.Button>
@@ -39,7 +39,7 @@ const FaqItem = ({ data }) => {
                 }}
                 transition={{ duration: 0.5, ease: [0.04, 0.62, 0.23, 0.98] }}
               >
-                <div className="text-gray-secondary prose max-w-none">{render(data.answer)}</div>
+                <div className="prose max-w-none text-gray-secondary">{render(data.answer)}</div>
               </m.dd>
             ) : null}
           </AnimatePresence>
@@ -82,7 +82,7 @@ const FaqPage = ({ blok }) => {
       <Container className="my-2xl">
         <div className="mb-20">
           <h1 className="mb-2 text-3xl">{blok.title}</h1>
-          <p className="text-normal max-w-2xl">{blok.subtitle}</p>
+          <p className="max-w-2xl text-normal">{blok.subtitle}</p>
         </div>
         <div className="flex items-start gap-20">
           <aside className="relative top-8 mb-20 hidden max-md:w-full md:sticky md:block md:min-w-[304px]">
@@ -109,7 +109,7 @@ const FaqPage = ({ blok }) => {
                     <li key={id} className="relative">
                       <div
                         className={cn(
-                          "bg-blue absolute -left-0.5 h-full w-0.5 transition-all duration-150",
+                          "absolute -left-0.5 h-full w-0.5 bg-blue transition-all duration-150",
                           {
                             "opacity-0": !isActive,
                             "opacity-100": isActive,
@@ -139,12 +139,12 @@ const FaqPage = ({ blok }) => {
                   <div {...storyblokEditable(section)} key={section._uid}>
                     <h2
                       id={stringParameterize(section.title)}
-                      className="js-faq-section-title border-stroke-light border-b pb-6 text-xl font-semibold"
+                      className="js-faq-section-title border-b border-stroke-light pb-6 text-xl font-semibold"
                     >
                       {section.title}
                     </h2>
                     <div>
-                      <dl className="divide-stroke-light space-y-6 divide-y">
+                      <dl className="space-y-6 divide-y divide-stroke-light">
                         {section.faqs.map((faq) => {
                           return <FaqItem key={faq._uid} data={faq} />;
                         })}

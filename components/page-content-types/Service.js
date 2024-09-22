@@ -1,6 +1,6 @@
 import { StoryblokComponent, storyblokEditable } from "@storyblok/react";
 
-const Page = ({ blok }) => (
+const Service = ({ blok }) => (
   <div {...storyblokEditable(blok)} key={blok._uid}>
     {blok.hero?.map((nestedBlok) => (
       <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
@@ -11,4 +11,4 @@ const Page = ({ blok }) => (
   </div>
 );
 
-export default Page;
+export default Service;

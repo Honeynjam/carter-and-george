@@ -2,16 +2,12 @@ import { StoryblokComponent, getStoryblokApi, useStoryblokState } from "@storybl
 
 import { skipPageCreationWithinCatchAllPage } from "config/storyblok";
 
+import { determineNavbarType } from "utils/determineNavbarType";
 import getGlobalDocs from "utils/getGlobalDocs";
 
 import Seo from "components/base/Seo";
 import Layout from "components/global/Layout";
 
-const determineNavbarType = (story) => {
-  if (story.content.component === "patient_story") {
-    return "white";
-  }
-};
 export default function Page({ story, globalDocs, preview }) {
   story = useStoryblokState(story);
 
@@ -47,7 +43,7 @@ export async function getStaticProps({ params, preview = null }) {
   let sbParams = {
     // version: preview ? "draft" : "published",
     version: "draft",
-    resolve_relations: ["blog_post.category"],
+    resolve_relations: ["blog_post.category", "service_cards.cards"],
     resolve_links: "url",
   };
 

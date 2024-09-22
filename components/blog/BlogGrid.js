@@ -11,21 +11,21 @@ export default function BlogGrid({ className, data, headerData = {} }) {
     <div className={cn(className)}>
       {/* Header */}
       {headerData.title ? (
-        <div className="mb-20">
-          <div className="flex items-center justify-between">
+        <div className="mb-12 md:mb-20">
+          <div className="flex flex-col justify-between gap-4 md:flex-row md:items-center">
             <div>
               <h2 className="mb-2 text-3xl font-semibold">{headerData.title}</h2>
-              <p className="text-gray-secondary text-normal">{headerData.subtitle}</p>
+              <p className="text-normal text-gray-secondary">{headerData.subtitle}</p>
             </div>
             <Button outline href={headerData.href}>
               View all
             </Button>
           </div>
-          <hr className="text-stroke-light mt-6" />
+          <hr className="mt-6 text-stroke-light" />
         </div>
       ) : null}
 
-      <div className="grid grid-cols-3 gap-x-8 gap-y-20">
+      <div className="grid gap-x-8 gap-y-20 md:grid-cols-3">
         {data.map((item) => {
           return (
             <div key={item.id}>

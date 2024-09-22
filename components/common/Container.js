@@ -5,7 +5,7 @@ const Container = ({ children, size = "default", className = "", noPadding = fal
     "max-w-[1440px]": size === "default",
     "": size === "full",
     "max-w-5xl": size == "xl",
-    "max-w-[960px]": size == "lg",
+    "max-w-4xl": size == "lg",
     "max-w-3xl": size == "md",
     "max-w-2xl": size == "sm",
     "max-w-[540px]": size == "xs",

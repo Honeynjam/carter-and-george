@@ -4,6 +4,7 @@ import getGlobalDocs from "utils/getGlobalDocs";
 import { linkResolver } from "utils/linkResolver";
 
 import Seo from "components/base/Seo";
+import BlogCard from "components/blog/BlogCard";
 import BlogGrid from "components/blog/BlogGrid";
 import Newsletter from "components/blog/Newsletter";
 import Container from "components/common/Container";
@@ -28,10 +29,28 @@ export default function BlogFolder({ story, articles, categories, globalDocs, pr
           eyebrow="Blog"
           title={story.content.title}
           subtitle={story.content.subtitle}
-          image={story.content.image.filename}
+          image={story.content.image}
         />
         <Container>
-          <div className="my-20">{/* Featured articles */}</div>
+          <div className="my-20">
+            <div className="grid gap-6 lg:grid-cols-2">
+              <div>
+                <BlogCard data={story.content.featured_articles[0]} />
+              </div>
+              <div className="grid grid-cols-1 gap-8 lg:border-l lg:border-stroke-light lg:pl-6">
+                {story.content.featured_articles.slice(1, 4).map((article) => {
+                  return (
+                    <BlogCard
+                      layout="horizontal"
+                      className="border-b border-stroke-light pb-6"
+                      key={article.uuid}
+                      data={article}
+                    />
+                  );
+                })}
+              </div>
+            </div>
+          </div>
           <div className="my-20">
             <h2 className="mb-4 text-lg font-semibold">Latest articles</h2>
             <hr className="text-stroke-light" />
@@ -42,11 +61,14 @@ export default function BlogFolder({ story, articles, categories, globalDocs, pr
           </div>
           <div className="">
             {categories.map((category) => {
+              const categoryArticles = articles
+                .filter((article) => article.content?.category?.uuid === category.uuid)
+                .slice(0, 3);
               return (
                 <BlogGrid
                   className="my-2xl"
                   key={category.id}
-                  data={articles.slice(0, 3)}
+                  data={categoryArticles}
                   headerData={{
                     title: category.content.name,
                     subtitle: category.content.subtitle,
@@ -69,6 +91,7 @@ export async function getStaticProps({ preview = null }) {
   let doc = await storyblokApi.get(`cdn/stories/blog/`, {
     // version: preview ? "draft" : "published",
     version: "draft",
+    resolve_relations: ["blog_hub.featured_articles"],
   });
   data = doc.data;
   try {

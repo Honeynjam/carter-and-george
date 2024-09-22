@@ -4,8 +4,8 @@ import cn from "classnames";
 
 import { getImageDimentions, isSvg } from "utils/storyblokImageHelpers";
 
-const StoryblokImage = ({ image, className, fill = false, svgClassName, ...props }) => {
-  if (image.filename) {
+const StoryblokImage = ({ image, className = "", fill = false, svgClassName, ...props }) => {
+  if (image?.filename) {
     if (isSvg(image.filename)) {
       return (
         <div className={cn("relative", className, svgClassName)}>

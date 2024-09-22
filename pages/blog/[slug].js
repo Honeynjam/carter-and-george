@@ -50,7 +50,8 @@ export async function getStaticProps({ params, preview = null }) {
   }
 
   const { data: articles } = await storyblokApi.get("cdn/stories/", {
-    version: preview ? "draft" : "published",
+    // version: preview ? "draft" : "published",
+    version: "draft",
     starts_with: "blog",
     resolve_relations: ["blog_post.category"],
     excluding_slugs: `blog/categories/*,${data.story.full_slug}`,

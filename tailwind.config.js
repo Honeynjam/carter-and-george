@@ -30,7 +30,7 @@ module.exports = {
       small: ["16px", "150%"],
       normal: ["18px", "150%"],
       md: ["20px", "150%"],
-      lg: ["24px", "150%"],
+      lg: ["24px", "120%"],
       xl: ["30px", "120%"],
       "2xl": ["36px", "120%"],
       "3xl": ["48px", "110%"],
@@ -65,6 +65,7 @@ module.exports = {
     },
     borderRadius: {
       DEFAULT: "3px",
+      full: "9999px",
     },
     extend: {
       spacing: {

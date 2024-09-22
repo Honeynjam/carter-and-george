@@ -4,17 +4,21 @@ import { storyblokEditable } from "@storyblok/react";
 
 import Button from "components/common/Button";
 import Container from "components/common/Container";
+import { Heading } from "components/common/Typography";
 import StoryblokImage from "components/storyblok/StoryblokImage";
 
 const CtaSection = ({ blok }) => {
   return (
     <section {...storyblokEditable(blok)}>
-      <div className="py-3xl relative overflow-hidden">
+      <div className="relative overflow-hidden py-xl md:py-2xl lg:py-3xl">
         <Container>
           <div className="relative z-30 max-w-2xl p-12 backdrop-blur-[75px]">
-            <h2 className="text-3xl font-semibold text-white">{blok.title}</h2>
+            <Heading color="white" size="3xl" level={2}>
+              {blok.title}
+            </Heading>
+
             <div className="mt-10">
-              <form className="flex items-center gap-4" href="#">
+              <form className="flex flex-col gap-4 md:flex-row md:items-center" href="#">
                 <input className="" placeholder="Postcode" />
                 <Button>Find your local clinic</Button>
               </form>
