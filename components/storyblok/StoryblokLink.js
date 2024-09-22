@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { linkResolver } from "utils/linkResolver";
 
-const StoryblokLink = ({ link, children, className, analytics = {} }) => {
+const StoryblokLink = ({ link, children, className = "", analytics = {} }) => {
   const handleAnalytics = () => {
     // todo
   };

@@ -2,6 +2,7 @@ import { apiPlugin, storyblokInit } from "@storyblok/react";
 
 import BlogPost from "../page-content-types/BlogPost";
 import FaqPage from "../page-content-types/FaqPage";
+import LeaderProfile from "../page-content-types/LeaderProfile";
 import Page from "../page-content-types/Page";
 import PatientStory from "../page-content-types/PatientStory";
 import Service from "../page-content-types/Service";
@@ -32,6 +33,7 @@ const components = {
   faq_page: FaqPage,
   patient_story: PatientStory,
   blog_post: BlogPost,
+  leader_profile: LeaderProfile,
   // content components
   rich_text: RichText,
   video: Video,

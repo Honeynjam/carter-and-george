@@ -43,7 +43,11 @@ export async function getStaticProps({ params, preview = null }) {
   let sbParams = {
     // version: preview ? "draft" : "published",
     version: "draft",
-    resolve_relations: ["blog_post.category", "service_cards.cards"],
+    resolve_relations: [
+      "blog_post.category",
+      "service_cards.cards",
+      "leader_profile.recommended_services",
+    ],
     resolve_links: "url",
   };
 
