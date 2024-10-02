@@ -39,6 +39,7 @@ const ImageBulletList = ({ blok }) => {
                 if (item.text) {
                   return (
                     <div
+                      key={item._uid}
                       className={cn("flex items-center gap-4 border-t py-4 text-md", {
                         "border-stroke-dark text-white": blok.background === "dark",
                         "border-stroke-light text-black": blok.background === "light",

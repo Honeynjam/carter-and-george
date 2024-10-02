@@ -24,7 +24,7 @@ const Button = ({
   );
   if (href) {
     return (
-      <Link className={classNames} href={href}>
+      <Link className={classNames} href={href} {...props}>
         {children}
       </Link>
     );

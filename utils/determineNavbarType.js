@@ -7,6 +7,10 @@ export const determineNavbarType = (story) => {
     return "white";
   }
 
+  if (story.content.component === "location") {
+    return "white";
+  }
+
   // Check hero blok
   if (story.content?.hero?.length > 0) {
     const hero = story.content.hero[0];

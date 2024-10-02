@@ -48,6 +48,7 @@ export async function getStaticProps({ params, preview = null }) {
       "service_cards.cards",
       "leader_profile.recommended_services",
       "blog_cards.blog_posts",
+      "location.services",
     ],
     resolve_links: "url",
   };

@@ -3,6 +3,7 @@ import { apiPlugin, storyblokInit } from "@storyblok/react";
 import BlogPost from "../page-content-types/BlogPost";
 import FaqPage from "../page-content-types/FaqPage";
 import LeaderProfile from "../page-content-types/LeaderProfile";
+import Location from "../page-content-types/Location";
 import Page from "../page-content-types/Page";
 import PatientStory from "../page-content-types/PatientStory";
 import Service from "../page-content-types/Service";
@@ -13,6 +14,7 @@ import HeroBlok from "components/hero-sections/Hero";
 import HeroTwoCols from "components/hero-sections/HeroTwoCols";
 import ApproachSection from "components/page-sections/ApproachSection";
 import BlogCards from "components/page-sections/BlogCards";
+import BulletsSection from "components/page-sections/BulletsSection";
 import ContentSection from "components/page-sections/ContentSection";
 import CtaContained from "components/page-sections/CtaContained";
 import CtaSection from "components/page-sections/CtaSection";
@@ -21,6 +23,7 @@ import FaqSection from "components/page-sections/FaqSection";
 import FullWidthImage from "components/page-sections/FullWidthImage";
 import Grid from "components/page-sections/Grid";
 import ImageBulletList from "components/page-sections/ImageBulletList";
+import LocationPricing from "components/page-sections/LocationPricing";
 import ProcessSection from "components/page-sections/ProcessSection";
 import ScrollerSection from "components/page-sections/ScrollerSection";
 import ServiceCards from "components/page-sections/ServiceCards";
@@ -38,13 +41,14 @@ const components = {
   patient_story: PatientStory,
   blog_post: BlogPost,
   leader_profile: LeaderProfile,
+  location: Location,
   // content components
   rich_text: RichText,
   video: Video,
   // Hero Section Components
   hero: HeroBlok,
   hero_two_cols: HeroTwoCols,
-  // Page section component
+  // Page section components
   cta_section: CtaSection,
   services_overview: ServicesOverview,
   scroller_section: ScrollerSection,
@@ -63,6 +67,9 @@ const components = {
   cta_contained: CtaContained,
   blog_cards: BlogCards,
   statement: Statement,
+  bullets_section: BulletsSection,
+  // Location components
+  location_pricing: LocationPricing,
 };
 
 storyblokInit({

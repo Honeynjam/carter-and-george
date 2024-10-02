@@ -48,7 +48,7 @@ const Navbar = ({ type = "blur", data }) => {
               <div className="flex items-center gap-6">
                 {data.content.menu.map((item) => {
                   if (item.component === "navbar_dropdown") {
-                    return <DesktopNavbarDropdown key={item.id} blok={item} />;
+                    return <DesktopNavbarDropdown key={item._uid} blok={item} />;
                   }
                   return (
                     <div key={item.text} className="text-button font-medium uppercase">

@@ -19,7 +19,7 @@ export const DesktopNavbarDropdown = ({ blok }) => {
             <PopoverButton className={cn("hover:text-primary relative font-semibold outline-none")}>
               <span className="flex items-center gap-1.5 text-button font-medium uppercase">
                 <span>{blok.text}</span>{" "}
-                <CaretDown className="ui-open:transform ui-open:rotate-180 duration-150" />
+                <CaretDown className="duration-150 ui-open:rotate-180 ui-open:transform" />
               </span>
             </PopoverButton>
 
@@ -73,10 +73,10 @@ export const DesktopNavbarDropdown = ({ blok }) => {
                         {blok.columns.map((column, idx) => {
                           if (column.component === "navbar_dropdown_single_column") {
                             return (
-                              <div className="block" key={column.id}>
+                              <div className="block" key={column._uid}>
                                 {column.links.map((item) => {
                                   return (
-                                    <div key={item.id} className="mb-12">
+                                    <div key={item._uid} className="mb-12">
                                       <h3 className="mb-2.5 flex items-center gap-2 text-md font-semibold">
                                         <span>{item.title}</span>
                                         <ArrowRight />
@@ -102,7 +102,7 @@ export const DesktopNavbarDropdown = ({ blok }) => {
                                 <div className="grid grid-cols-1 gap-4">
                                   {column.links.map((item) => {
                                     return (
-                                      <div key={item.id}>
+                                      <div key={item._uid}>
                                         <StoryblokLink
                                           className="mb-2.5 text-small font-semibold"
                                           link={item.link}
