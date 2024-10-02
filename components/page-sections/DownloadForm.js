@@ -1,5 +1,6 @@
 import React from "react";
 
+import { Check } from "@phosphor-icons/react";
 import { storyblokEditable } from "@storyblok/react";
 
 import Button from "components/common/Button";
@@ -23,6 +24,16 @@ const DownloadForm = ({ blok }) => {
               <Subtitle alternate color="grey">
                 {blok.subtitle}
               </Subtitle>
+              <div className="mt-8 grid grid-cols-1 gap-2.5">
+                {blok.bullet_points.map((item) => {
+                  return (
+                    <div className="flex items-center gap-4 text-white">
+                      <Check className="text-blue" />
+                      <span>{item.text}</span>
+                    </div>
+                  );
+                })}
+              </div>
               {/* TODO mailchimp */}
               <form className="mt-6 flex max-w-xl items-center gap-4 py-4">
                 <input className="w-full py-3" type="email" placeholder="Enter your email" />

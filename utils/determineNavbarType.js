@@ -14,5 +14,9 @@ export const determineNavbarType = (story) => {
     if (["hero"].includes(hero.component)) {
       return "blur";
     }
+
+    if (["hero_two_cols"].includes(hero.component)) {
+      return "white";
+    }
   }
 };

@@ -1,11 +1,16 @@
 import cn from "classnames";
 
-const RATING = "4.8";
-
-const GoogleRating = ({ center = false, color = "tertiary" }) => {
+const GoogleRating = ({ rating = "4.8", center = false, color = "tertiary" }) => {
   return (
     <div className={cn("flex items-center gap-[7px]", { "justify-center": center })}>
-      <span className="text-[12px] font-medium text-gray-tertiary">Rated {RATING} on</span>
+      <span
+        className={cn("text-[12px] font-medium", {
+          "text-gray-tertiary": color === "tertiary",
+          "text-white": color === "white",
+        })}
+      >
+        Rated {rating} on
+      </span>
 
       <svg
         className={color === "white" ? "text-white" : "text-gray-tertiary"}

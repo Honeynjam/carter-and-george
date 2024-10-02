@@ -1,8 +1,7 @@
 import React from "react";
-import { useEffect, useRef } from "react";
 
 import { storyblokEditable } from "@storyblok/react";
-import { m, useAnimation, useScroll, useTransform } from "framer-motion";
+import { useKeenSlider } from "keen-slider/react";
 
 import { linkResolver } from "utils/linkResolver";
 
@@ -12,32 +11,67 @@ import { Heading, Subtitle } from "components/common/Typography";
 import StoryblokImage from "components/storyblok/StoryblokImage";
 
 const ScrollerSection = ({ blok }) => {
-  const controls = useAnimation();
+  const [sliderRef, instanceRef] = useKeenSlider(
+    {
+      slides: {
+        perView: 1.4,
+        spacing: 32,
+      },
+      breakpoints: {
+        "(min-width: 1080px)": {
+          slides: {
+            perView: 2.3,
+            spacing: 48,
+          },
+        },
+      },
 
-  // useScroll hook to monitor the scroll position on the outer section
-  const { scrollYProgress } = useScroll({
-    container: useRef(null),
-  });
+      slideChanged(slider) {
+        // setCurrentSlide(slider.track.details.rel);
+      },
+      created() {
+        // setLoaded(true);
+      },
+    },
 
-  // Map scroll position to a transform value for the x-axis movement
-  const x = useTransform(scrollYProgress, [0, 1], [4000, -4000]);
-
-  // Apply animation effect based on scroll position
-  useEffect(() => {
-    controls.start({
-      x, // Link x-axis transform to scroll position
-      transition: { type: "spring", stiffness: 1 },
-    });
-  }, [controls, x]);
-
+    [
+      (slider) => {
+        let timeout;
+        let mouseOver = false;
+        function clearNextTimeout() {
+          clearTimeout(timeout);
+        }
+        function nextTimeout() {
+          clearTimeout(timeout);
+          if (mouseOver) return;
+          timeout = setTimeout(() => {
+            slider.next();
+          }, 4000);
+        }
+        slider.on("created", () => {
+          slider.container.addEventListener("mouseover", () => {
+            mouseOver = true;
+            clearNextTimeout();
+          });
+          slider.container.addEventListener("mouseout", () => {
+            mouseOver = false;
+            nextTimeout();
+          });
+          nextTimeout();
+        });
+        slider.on("dragStarted", clearNextTimeout);
+        slider.on("animationEnded", nextTimeout);
+        slider.on("updated", nextTimeout);
+      },
+    ]
+  );
   return (
     <section
-      className="overflow-hidden bg-black py-3xl"
+      className="overflow-hidden bg-black py-xl md:py-2xl lg:py-3xl"
       {...storyblokEditable(blok)}
-      ref={useScroll().container}
     >
       <Container>
-        <div className="flex items-end gap-20">
+        <div className="flex flex-col gap-8 md:flex-row md:items-end md:gap-20">
           <div className="max-w-3xl">
             <Heading className="mb-2" size="4xl" color="white">
               {blok.title}
@@ -57,35 +91,25 @@ const ScrollerSection = ({ blok }) => {
             })}
           </div>
         </div>
-      </Container>
-      <m.div
-        style={{ x }} // Bind the x-axis scroll movement to motion div
-        animate={controls}
-        className="mt-20 flex gap-12 overflow-x-auto"
-      >
-        {blok.cards.map((card, idx) => {
-          return (
-            <div key={idx} className="w-[400px]">
-              <StoryblokImage
-                className="aspect-[16/9] h-[240px] rounded object-cover"
-                image={card.image}
-              />
-              <hr className="mb-4 mt-8 text-stroke-dark" />
-              <span className="mb-6 block text-eyebrow text-gray-tertiary-alternate">
-                0{idx + 1}
-              </span>
-              <Heading className="mb-2" color="white" size="xl">
-                {blok.title}
-              </Heading>
-              <Subtitle alternate color="grey">
-                {blok.subtitle}
-              </Subtitle>
-            </div>
-          );
-        })}
-      </m.div>
-      {console.log(blok.buttons)}
-      <Container>
+        <div ref={sliderRef} className="keen-slider mt-20 !w-auto !overflow-visible">
+          {blok.cards.map((card, idx) => {
+            return (
+              <div key={idx} className="keen-slider__slide w-[400px]">
+                <StoryblokImage className="aspect-[16/9] rounded object-cover" image={card.image} />
+                <hr className="mb-4 mt-8 text-stroke-dark" />
+                <span className="mb-6 block text-eyebrow text-gray-tertiary-alternate">
+                  0{idx + 1}
+                </span>
+                <Heading className="mb-2" color="white" size="xl">
+                  {blok.title}
+                </Heading>
+                <Subtitle alternate color="grey">
+                  {blok.subtitle}
+                </Subtitle>
+              </div>
+            );
+          })}
+        </div>
         <div className="mt-12">
           {blok.buttons.map((button, index) => {
             return (

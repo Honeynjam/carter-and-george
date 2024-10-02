@@ -30,6 +30,7 @@ export const Heading = ({
         "text-md font-medium": size === "medium",
         "text-lg font-medium": size === "large",
         "text-xl font-semibold": size === "xl",
+        "text-lg font-medium md:text-xl lg:text-2xl": size === "2xl",
         "text-xl font-medium md:text-2xl lg:text-3xl": size === "3xl",
         "text-2xl font-medium md:text-3xl lg:text-4xl": size === "4xl",
       })}

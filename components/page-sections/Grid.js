@@ -21,13 +21,9 @@ const Grid = ({ blok }) => {
               {blok.title}
             </Heading>
             <p className="text-gray-secondary">{blok.subtitle}</p>
-            <div>
+            <div className="mt-12">
               {blok.buttons.map((button) => {
-                return (
-                  <Button className="mt-12" href={linkResolver(button.link)}>
-                    {button.text}
-                  </Button>
-                );
+                return <Button href={linkResolver(button.link)}>{button.text}</Button>;
               })}
             </div>
           </div>

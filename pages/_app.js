@@ -1,4 +1,5 @@
 import { LazyMotion, domAnimation } from "framer-motion";
+import "keen-slider/keen-slider.min.css";
 import "styles/globals.scss";
 
 import { GlobalContextWrapper } from "contexts/globalContext";

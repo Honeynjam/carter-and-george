@@ -6,6 +6,7 @@ import { storyblokEditable } from "@storyblok/react";
 
 import Container from "components/common/Container";
 import { Eyebrow, Heading, Subtitle } from "components/common/Typography";
+import StoryblokImage from "components/storyblok/StoryblokImage";
 
 const ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false });
 const VideoSection = ({ blok }) => {
@@ -21,7 +22,7 @@ const VideoSection = ({ blok }) => {
         <div className="grid grid-cols-4 gap-8">
           {blok.items.map((item) => {
             return (
-              <div>
+              <div key={item._uid}>
                 <span className="mb-6 block text-eyebrow uppercase text-gray-tertiary">
                   {item.eyebrow}
                 </span>
@@ -39,7 +40,9 @@ const VideoSection = ({ blok }) => {
             <div className="iframe-wrapper">
               <ReactPlayer controls={true} url={blok.video_url} />
             </div>
-          ) : null}
+          ) : (
+            <StoryblokImage className="aspect-[16/9] rounded object-cover" image={blok.image} />
+          )}
         </div>
       </Container>
     </section>

@@ -10,21 +10,25 @@ import Service from "../page-content-types/Service";
 import RichText from "components/content-sections/RichText";
 import Video from "components/content-sections/Video";
 import HeroBlok from "components/hero-sections/Hero";
+import HeroTwoCols from "components/hero-sections/HeroTwoCols";
 import ApproachSection from "components/page-sections/ApproachSection";
+import BlogCards from "components/page-sections/BlogCards";
 import ContentSection from "components/page-sections/ContentSection";
+import CtaContained from "components/page-sections/CtaContained";
 import CtaSection from "components/page-sections/CtaSection";
 import DownloadForm from "components/page-sections/DownloadForm";
 import FaqSection from "components/page-sections/FaqSection";
 import FullWidthImage from "components/page-sections/FullWidthImage";
 import Grid from "components/page-sections/Grid";
 import ImageBulletList from "components/page-sections/ImageBulletList";
+import ProcessSection from "components/page-sections/ProcessSection";
 import ScrollerSection from "components/page-sections/ScrollerSection";
 import ServiceCards from "components/page-sections/ServiceCards";
 import ServicesOverview from "components/page-sections/ServicesOverview";
+import Statement from "components/page-sections/Statement";
 import TestimonialCarousel from "components/page-sections/TestimonialCarousel";
 import TestimonialCarouselWithMedia from "components/page-sections/TestimonialCarouselWithMedia";
 import TestimonialWithStats from "components/page-sections/TestimonialWithStats";
-import VideoSection from "components/page-sections/VideoSection";
 
 const components = {
   // custom types (don't lazy load)
@@ -39,6 +43,7 @@ const components = {
   video: Video,
   // Hero Section Components
   hero: HeroBlok,
+  hero_two_cols: HeroTwoCols,
   // Page section component
   cta_section: CtaSection,
   services_overview: ServicesOverview,
@@ -50,11 +55,14 @@ const components = {
   approach_section: ApproachSection,
   image_bullet_list: ImageBulletList,
   testimonial_carousel: TestimonialCarousel,
-  video_section: VideoSection,
+  process_section: ProcessSection,
   content_section: ContentSection,
   testimonial_with_stats: TestimonialWithStats,
   download_form: DownloadForm,
   service_cards: ServiceCards,
+  cta_contained: CtaContained,
+  blog_cards: BlogCards,
+  statement: Statement,
 };
 
 storyblokInit({
