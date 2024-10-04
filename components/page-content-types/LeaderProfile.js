@@ -36,21 +36,25 @@ const LeaderProfile = ({ blok }) => (
             <div className="grid grid-cols-1 gap-12">
               {blok.recommended_services &&
                 blok.recommended_services?.map((item) => {
-                  return (
-                    <div key={item._uid} className="border-b border-stroke-light pb-8">
-                      <Heading className="mb-2" level={3} size="medium">
-                        {item.content.card_title}
-                      </Heading>
-                      <Subtitle>{truncate(item.content.card_subtitle, 100)}</Subtitle>
-                      <StoryblokLink
-                        className="mt-12 flex items-center gap-2.5 text-button font-medium uppercase"
-                        link={item}
-                      >
-                        <span>Find out more</span>
-                        <CaretRight />
-                      </StoryblokLink>
-                    </div>
-                  );
+                  if (item.content) {
+                    return (
+                      <div key={item._uid} className="border-b border-stroke-light pb-8">
+                        <Heading className="mb-2" level={3} size="medium">
+                          {item.content.card_title}
+                        </Heading>
+                        <Subtitle>{truncate(item.content.card_subtitle, 100)}</Subtitle>
+                        <StoryblokLink
+                          className="mt-12 flex items-center gap-2.5 text-button font-medium uppercase"
+                          link={item}
+                        >
+                          <span>Find out more</span>
+                          <CaretRight />
+                        </StoryblokLink>
+                      </div>
+                    );
+                  }
+
+                  return null;
                 })}
             </div>
           </div>
