@@ -34,8 +34,7 @@ export const DesktopNavbarDropdown = ({ blok }) => {
             >
               <PopoverPanel
                 className={cn(
-                  "fixed left-8 z-10 mt-10 flex w-screen max-w-max px-4 transition",
-                  {}
+                  "fixed left-8 z-10 mt-10 flex w-screen max-w-max px-4 text-black transition"
                 )}
               >
                 <Container noPadding>

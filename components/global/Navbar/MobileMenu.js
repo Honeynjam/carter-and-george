@@ -136,7 +136,7 @@ const MobileMenu = ({ data }) => {
                         "absolute inset-x-0 top-0 z-0 flex h-full min-h-screen origin-top flex-col justify-between bg-white px-6 pb-6 pt-24"
                       )}
                     >
-                      <div className="relative z-10 -mt-6 space-y-4 overflow-y-scroll pb-40">
+                      <div className="relative z-10 -mt-6 space-y-4 overflow-y-scroll pb-40 text-black">
                         {data.content.menu.map((item) => {
                           if (item.component === "navbar_dropdown") {
                             return <MobileNavbarDropdown key={item.id} blok={item} />;
