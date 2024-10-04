@@ -82,12 +82,12 @@ export async function getStaticProps({ params, preview = null }) {
 export async function getStaticPaths() {
   const storyblokApi = getStoryblokApi();
 
-  let { data: articlesData } = await storyblokApi.get(`cdn/links`, {
+  let { data: articlesData } = await storyblokApi.get(`cdn/stories/`, {
     // version: "published",
     version: "draft",
     starts_with: "blog",
     is_startpage: 0,
-    per_page: 1000,
+    per_page: 100,
   });
 
   const articles = articlesData?.stories;

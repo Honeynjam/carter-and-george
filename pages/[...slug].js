@@ -105,7 +105,6 @@ export async function getStaticPaths() {
     paths.push({ params: { slug: splittedSlug } });
   });
 
-  // console.log(paths);
   return {
     paths: paths,
     fallback: "blocking",

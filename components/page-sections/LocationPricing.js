@@ -5,7 +5,6 @@ import Container from "components/common/Container";
 import { Eyebrow, Heading } from "components/common/Typography";
 
 const LocationPricing = ({ blok }) => {
-  console.log(blok);
   return (
     <div
       {...storyblokEditable(blok)}
