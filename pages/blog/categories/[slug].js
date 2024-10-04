@@ -73,7 +73,8 @@ export async function getStaticProps({ preview = null, params }) {
   let categoryData = null;
   try {
     let doc = await storyblokApi.get(`cdn/stories/blog/categories/${slug}`, {
-      version: preview ? "draft" : "published",
+      // version: preview ? "draft" : "published",
+      version: "draft",
       resolve_relations: [],
     });
     categoryData = doc.data;
@@ -99,7 +100,8 @@ export async function getStaticProps({ preview = null, params }) {
   });
 
   const { data: categoriesData } = await storyblokApi.get("cdn/stories/", {
-    version: preview ? "draft" : "published",
+    // version: preview ? "draft" : "published",
+    version: "draft",
     starts_with: "blog/categories",
     resolve_relations: [],
     is_startpage: 0,
@@ -123,7 +125,8 @@ export async function getStaticPaths() {
   const storyblokApi = getStoryblokApi();
 
   const { data } = await storyblokApi.get("cdn/stories/", {
-    version: "published",
+    // version: "published",
+    version: "draft",
     starts_with: "blog/categories",
     is_startpage: 0,
   });

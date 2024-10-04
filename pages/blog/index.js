@@ -110,7 +110,8 @@ export async function getStaticProps({ preview = null }) {
   });
 
   const { data: categoriesData } = await storyblokApi.get("cdn/stories/", {
-    version: preview ? "draft" : "published",
+    // version: preview ? "draft" : "published",
+    version: "draft",
     starts_with: "blog/categories",
     resolve_relations: [],
     is_startpage: 0,

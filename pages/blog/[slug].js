@@ -83,7 +83,8 @@ export async function getStaticPaths() {
   const storyblokApi = getStoryblokApi();
 
   let { data: articlesData } = await storyblokApi.get(`cdn/links`, {
-    version: "published",
+    // version: "published",
+    version: "draft",
     starts_with: "blog",
     is_startpage: 0,
   });
