@@ -11,15 +11,15 @@ import StoryblokImage from "components/storyblok/StoryblokImage";
 const ImageBulletList = ({ blok }) => {
   return (
     <section
-      className={cn("py-xl lg:py-2xl", {
+      className={cn("py-side-padding md:py-xl lg:py-2xl", {
         "bg-black": blok.background === "dark",
         "bg-stone": blok.background === "light",
       })}
       {...storyblokEditable(blok)}
     >
       <Container>
-        <div className="grid gap-medium md:grid-cols-5 md:gap-xl">
-          <div className="md:col-span-3 md:py-xl">
+        <div className="grid gap-medium lg:grid-cols-12 lg:gap-xl">
+          <div className="lg:col-span-7 lg:py-xl">
             <div className="mb-12 max-w-xl">
               <Eyebrow text={blok.eyebrow} />
               <Heading
@@ -40,20 +40,27 @@ const ImageBulletList = ({ blok }) => {
                   return (
                     <div
                       key={item._uid}
-                      className={cn("flex items-center gap-4 border-t py-4 text-md", {
+                      className={cn("flex items-center gap-4 border-t py-6 text-md lg:py-8", {
                         "border-stroke-dark text-white": blok.background === "dark",
                         "border-stroke-light text-black": blok.background === "light",
                       })}
                     >
-                      <Check className="h-5 w-5 text-blue" />
-                      <span>{item.text}</span>
+                      <div
+                        className={cn({
+                          "": blok.background === "dark",
+                          "rounded-full bg-[#E9F0F2] p-1.5": blok.background === "light",
+                        })}
+                      >
+                        <Check className="h-6 w-6 text-blue" weight="bold" />
+                      </div>
+                      <span className="flex-1">{item.text}</span>
                     </div>
                   );
                 } else return null;
               })}
             </div>
           </div>
-          <div className="w-full md:col-span-2">
+          <div className="w-full lg:col-span-5">
             <StoryblokImage className="h-full w-full rounded object-cover" image={blok.image} />
           </div>
         </div>

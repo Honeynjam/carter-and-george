@@ -79,7 +79,7 @@ const Footer = ({ data }) => {
           {data.content.columns.map((item, idx) => {
             return (
               <div key={idx}>
-                <h3 className="mb-6 text-button font-medium uppercase text-gray-tertiary-alternate">
+                <h3 className="font-petite-caps mb-6 text-button font-medium text-gray-tertiary-alternate">
                   {item.title}
                 </h3>
                 <ul role="list" className="space-y-4">

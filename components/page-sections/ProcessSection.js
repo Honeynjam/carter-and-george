@@ -23,9 +23,8 @@ const VideoSection = ({ blok }) => {
           {blok.items.map((item) => {
             return (
               <div key={item._uid}>
-                <span className="mb-6 block text-eyebrow uppercase text-gray-tertiary">
-                  {item.eyebrow}
-                </span>
+                <Eyebrow text={item.eyebrow} />
+
                 <Heading className="mb-2" level={3} size="large">
                   {item.title}
                 </Heading>
@@ -41,7 +40,10 @@ const VideoSection = ({ blok }) => {
               <ReactPlayer controls={true} url={blok.video_url} />
             </div>
           ) : (
-            <StoryblokImage className="aspect-[16/9] rounded object-cover" image={blok.image} />
+            <StoryblokImage
+              className="aspect-[16/9] w-full rounded object-cover"
+              image={blok.image}
+            />
           )}
         </div>
       </Container>

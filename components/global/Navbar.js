@@ -51,7 +51,7 @@ const Navbar = ({ type = "blur", data }) => {
                     return <DesktopNavbarDropdown key={item._uid} blok={item} />;
                   }
                   return (
-                    <div key={item.text} className="text-button font-medium uppercase">
+                    <div key={item.text} className="font-petite-caps text-button font-medium">
                       {item.text}
                     </div>
                   );

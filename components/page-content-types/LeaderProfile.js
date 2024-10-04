@@ -44,7 +44,7 @@ const LeaderProfile = ({ blok }) => (
                         </Heading>
                         <Subtitle>{truncate(item.content.card_subtitle, 100)}</Subtitle>
                         <StoryblokLink
-                          className="mt-12 flex items-center gap-2.5 text-button font-medium uppercase"
+                          className="font-petite-caps mt-12 flex items-center gap-2.5 text-button font-medium"
                           link={item}
                         >
                           <span>Find out more</span>

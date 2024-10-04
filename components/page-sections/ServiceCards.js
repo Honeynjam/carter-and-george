@@ -27,7 +27,7 @@ const ServiceCard = ({ service }) => {
           {service.content.card_title}
         </Heading>
 
-        <p className="flex items-center gap-2 text-button font-medium uppercase">
+        <p className="font-petite-caps flex items-center gap-2 text-button font-medium">
           <span>Learn More</span>
           <CaretRight className="h-4 w-4" />
         </p>
@@ -87,7 +87,10 @@ const ServiceCards = ({ blok }) => {
 
   const isCarousel = blok.variation === "carousel";
   return (
-    <section {...storyblokEditable(blok)} className="py-side-padding md:py-xl lg:py-2xl">
+    <section
+      {...storyblokEditable(blok)}
+      className="overflow-hidden py-side-padding md:py-xl lg:py-2xl"
+    >
       <Container>
         <div
           className={cn("mb-20 max-w-3xl", {

@@ -19,7 +19,7 @@ export const FaqItem = ({ data }) => {
         <>
           <dt>
             <Disclosure.Button className="flex w-full items-start justify-between text-left">
-              <span className="text-medium font-semibold">{data.question}</span>
+              <span className="text-medium font-medium">{data.question}</span>
               <span className="ml-6 flex h-7 items-center text-stroke-dark">
                 {open ? <Minus className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
               </span>
@@ -120,7 +120,7 @@ const FaqPage = ({ blok }) => {
                         onClick={(e) => handleSmoothScroll(e)}
                         href={href}
                         className={cn("block w-full px-5 py-0.5 duration-150", {
-                          "text-medium font-semibold": isActive,
+                          "text-medium font-medium": isActive,
                           "text-normal": !isActive,
                         })}
                       >
@@ -139,7 +139,7 @@ const FaqPage = ({ blok }) => {
                   <div {...storyblokEditable(section)} key={section._uid}>
                     <h2
                       id={stringParameterize(section.title)}
-                      className="js-faq-section-title border-b border-stroke-light pb-6 text-xl font-semibold"
+                      className="js-faq-section-title border-b border-stroke-light pb-6 text-xl font-medium"
                     >
                       {section.title}
                     </h2>

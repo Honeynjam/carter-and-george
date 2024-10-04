@@ -54,7 +54,7 @@ const MobileNavbarDropdown = ({ blok }) => {
           >
             <div
               className={cn(
-                "flex w-full items-center justify-between text-button font-medium uppercase",
+                "font-petite-caps flex w-full items-center justify-between text-button font-medium",
                 {
                   "mb-2": open,
                 }
@@ -142,7 +142,10 @@ const MobileMenu = ({ data }) => {
                             return <MobileNavbarDropdown key={item.id} blok={item} />;
                           }
                           return (
-                            <div key={item.text} className="text-button font-medium uppercase">
+                            <div
+                              key={item.text}
+                              className="font-petite-caps text-button font-medium"
+                            >
                               {item.text}
                             </div>
                           );

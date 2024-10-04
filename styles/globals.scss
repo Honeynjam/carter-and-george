@@ -24,3 +24,9 @@
     height: auto !important;
   }
 }
+
+@layer utilities {
+  .font-petite-caps {
+    font-variant: all-petite-caps;
+  }
+}

@@ -16,8 +16,8 @@ export const DesktopNavbarDropdown = ({ blok }) => {
       {() => {
         return (
           <>
-            <PopoverButton className={cn("hover:text-primary relative font-semibold outline-none")}>
-              <span className="flex items-center gap-1.5 text-button font-medium uppercase">
+            <PopoverButton className={cn("hover:text-primary relative font-medium outline-none")}>
+              <span className="font-petite-caps flex items-center gap-1.5 text-button font-medium">
                 <span>{blok.text}</span>{" "}
                 <CaretDown className="duration-150 ui-open:rotate-180 ui-open:transform" />
               </span>
@@ -34,7 +34,7 @@ export const DesktopNavbarDropdown = ({ blok }) => {
             >
               <PopoverPanel
                 className={cn(
-                  "fixed left-8 z-10 mt-10 flex w-screen max-w-max px-4 text-black transition"
+                  "fixed left-1/2 z-10 mt-9 flex w-screen max-w-max -translate-x-1/2 px-4 text-black transition"
                 )}
               >
                 <Container noPadding>
@@ -42,18 +42,18 @@ export const DesktopNavbarDropdown = ({ blok }) => {
                     <h2>{blok.text}</h2>
                     <hr className="mb-6 mt-2 text-stroke-light" />
                     <div
-                      className={cn("grid gap-12", {
+                      className={cn("relative grid gap-12", {
                         "grid-cols-2": blok.columns.length === 1,
                         "grid-cols-4": blok.columns.length >= 2,
                       })}
                     >
                       <div
-                        className={cn({
+                        className={cn("flex flex-col", {
                           "col-span-1": blok.columns.length >= 2,
                         })}
                       >
                         <p>{blok.subtitle}</p>
-                        <div className="mt-8 overflow-hidden">
+                        <div className="mt-8 h-full overflow-hidden">
                           <StoryblokImage
                             className="h-full rounded object-cover"
                             image={blok.image}
@@ -76,7 +76,7 @@ export const DesktopNavbarDropdown = ({ blok }) => {
                                 {column.links.map((item) => {
                                   return (
                                     <div key={item._uid} className="mb-12">
-                                      <h3 className="mb-2.5 flex items-center gap-2 text-md font-semibold">
+                                      <h3 className="mb-2.5 flex items-center gap-2 text-md font-medium">
                                         <span>{item.title}</span>
                                         <ArrowRight />
                                       </h3>
@@ -92,7 +92,7 @@ export const DesktopNavbarDropdown = ({ blok }) => {
                             return (
                               <div key={column.id}>
                                 <StoryblokLink
-                                  className="mb-6 flex items-center gap-2 text-button font-medium uppercase text-[#6E6E6E]"
+                                  className="font-petite-caps mb-6 flex items-center gap-2 text-button font-medium text-[#6E6E6E]"
                                   link={column.link}
                                 >
                                   <span>{column.name}</span>
@@ -103,7 +103,7 @@ export const DesktopNavbarDropdown = ({ blok }) => {
                                     return (
                                       <div key={item._uid}>
                                         <StoryblokLink
-                                          className="mb-2.5 text-small font-semibold"
+                                          className="mb-2.5 text-small font-medium"
                                           link={item.link}
                                         >
                                           {item.text}

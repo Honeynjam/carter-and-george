@@ -25,7 +25,7 @@ const ApproachSection = ({ blok }) => {
           <div>
             {blok.buttons.map((button) => {
               return (
-                <Button outline href={linkResolver(button.link)}>
+                <Button key={button._uid} outline href={linkResolver(button.link)}>
                   {button.text}
                 </Button>
               );
@@ -36,7 +36,7 @@ const ApproachSection = ({ blok }) => {
           {blok.items.map((item) => {
             return (
               <div
-                className="group/item w-1/6 duration-300 hover:mt-[max(-92px,-6.05vw)] hover:w-1/4 hover:!opacity-100 group-hover/test:opacity-50"
+                className="group/item w-1/6 duration-500 ease-in-out hover:mt-[max(-92px,-6.05vw)] hover:w-1/4 hover:!opacity-100 group-hover/test:opacity-50"
                 key={item.title}
               >
                 <StoryblokImage
@@ -47,8 +47,9 @@ const ApproachSection = ({ blok }) => {
                 <Heading className="mb-2" level={3} size="medium">
                   {item.title}
                 </Heading>
+
                 <Subtitle
-                  className="opacity-0 duration-75 group-hover/item:opacity-100"
+                  className="opacity-0 duration-150 ease-in group-hover/item:opacity-100 group-hover/item:delay-[400ms]"
                   size="small"
                 >
                   {item.subtitle}

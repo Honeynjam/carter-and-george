@@ -70,7 +70,7 @@ const Location = ({ blok }) => (
               </Button>
               {/* TODO - turn into a component */}
               <StoryblokLink
-                className="group flex items-center gap-2 text-button font-medium uppercase"
+                className="font-petite-caps group flex items-center gap-2 text-button font-medium"
                 link={blok.google_directions}
               >
                 <span>Get Directions</span>
@@ -103,8 +103,7 @@ const Location = ({ blok }) => (
     </div>
     <div className="my-xl">
       <Container>
-        <Eyebrow text={"Our Services"} />
-        <Heading className="mt-6" size="3xl" level={2}>
+        <Heading size="xl" level={2}>
           Services in {blok.clinic_name}
         </Heading>
         <hr className="my-6 text-stroke-light" />

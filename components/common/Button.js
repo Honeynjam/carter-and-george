@@ -11,7 +11,7 @@ const Button = ({
   ...props
 }) => {
   const classNames = cn(
-    "rounded-[1px] group justify-center text-button inline-flex items-center gap-2.5 py-3 px-6 font-medium uppercase hover:brightness-95 duration-150",
+    "rounded-[1px] group justify-center text-button inline-flex items-center gap-2.5 py-3 px-6 font-medium font-petite-caps hover:brightness-95 duration-150",
     className,
     {
       "text-white bg-black": color === "black" && !outline,

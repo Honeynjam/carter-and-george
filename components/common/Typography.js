@@ -3,7 +3,12 @@ import cn from "classnames";
 export const Eyebrow = ({ className = "", text }) => {
   if (text) {
     return (
-      <span className={cn(className, "mb-4 block text-eyebrow font-medium uppercase text-blue")}>
+      <span
+        className={cn(
+          className,
+          "font-petite-caps mb-4 block text-eyebrow font-medium text-blue md:mb-6"
+        )}
+      >
         {text}
       </span>
     );

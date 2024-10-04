@@ -20,7 +20,7 @@ const ScrollerSection = ({ blok }) => {
       breakpoints: {
         "(min-width: 1080px)": {
           slides: {
-            perView: 2.3,
+            perView: 2.6,
             spacing: 48,
           },
         },
@@ -35,34 +35,34 @@ const ScrollerSection = ({ blok }) => {
     },
 
     [
-      (slider) => {
-        let timeout;
-        let mouseOver = false;
-        function clearNextTimeout() {
-          clearTimeout(timeout);
-        }
-        function nextTimeout() {
-          clearTimeout(timeout);
-          if (mouseOver) return;
-          timeout = setTimeout(() => {
-            slider.next();
-          }, 4000);
-        }
-        slider.on("created", () => {
-          slider.container.addEventListener("mouseover", () => {
-            mouseOver = true;
-            clearNextTimeout();
-          });
-          slider.container.addEventListener("mouseout", () => {
-            mouseOver = false;
-            nextTimeout();
-          });
-          nextTimeout();
-        });
-        slider.on("dragStarted", clearNextTimeout);
-        slider.on("animationEnded", nextTimeout);
-        slider.on("updated", nextTimeout);
-      },
+      // (slider) => {
+      //   let timeout;
+      //   let mouseOver = false;
+      //   function clearNextTimeout() {
+      //     clearTimeout(timeout);
+      //   }
+      //   function nextTimeout() {
+      //     clearTimeout(timeout);
+      //     if (mouseOver) return;
+      //     timeout = setTimeout(() => {
+      //       slider.next();
+      //     }, 4000);
+      //   }
+      //   slider.on("created", () => {
+      //     slider.container.addEventListener("mouseover", () => {
+      //       mouseOver = true;
+      //       clearNextTimeout();
+      //     });
+      //     slider.container.addEventListener("mouseout", () => {
+      //       mouseOver = false;
+      //       nextTimeout();
+      //     });
+      //     nextTimeout();
+      //   });
+      //   slider.on("dragStarted", clearNextTimeout);
+      //   slider.on("animationEnded", nextTimeout);
+      //   slider.on("updated", nextTimeout);
+      // },
     ]
   );
   return (
@@ -73,7 +73,7 @@ const ScrollerSection = ({ blok }) => {
       <Container>
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:gap-20">
           <div className="max-w-3xl">
-            <Heading className="mb-2" size="4xl" color="white">
+            <Heading className="mb-2 lg:mb-4" size="3xl" color="white">
               {blok.title}
             </Heading>
             <Subtitle alternate color="grey">
@@ -94,7 +94,7 @@ const ScrollerSection = ({ blok }) => {
         <div ref={sliderRef} className="keen-slider mt-20 !w-auto !overflow-visible">
           {blok.cards.map((card, idx) => {
             return (
-              <div key={idx} className="keen-slider__slide w-[400px]">
+              <div key={idx} className="keen-slider__slide w-[340px]">
                 <StoryblokImage className="aspect-[16/9] rounded object-cover" image={card.image} />
                 <hr className="mb-4 mt-8 text-stroke-dark" />
                 <span className="mb-6 block text-eyebrow text-gray-tertiary-alternate">

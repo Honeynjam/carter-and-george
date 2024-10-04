@@ -9,7 +9,7 @@ const Breadcrumbs = ({ data }) => {
   return (
     <>
       <nav className="hidden md:flex" aria-label="Breadcrumb">
-        <ol role="list" className="text-eyebrow flex items-center space-x-2 uppercase">
+        <ol role="list" className="font-petite-caps flex items-center space-x-2 text-eyebrow">
           {data.map((page, idx) => (
             <li key={page.name}>
               <div
@@ -20,14 +20,14 @@ const Breadcrumbs = ({ data }) => {
               >
                 <Link
                   href={page.href || "#"}
-                  className="mr-2 text-sm"
+                  className="text-sm mr-2"
                   aria-current={page.current ? "page" : undefined}
                 >
                   {truncate(page.name)}
                 </Link>
                 {data.length - 1 !== idx ? (
                   <CaretRight
-                    className="text-stroke-light h-4 w-4 flex-shrink-0"
+                    className="h-4 w-4 flex-shrink-0 text-stroke-light"
                     aria-hidden="true"
                   />
                 ) : null}

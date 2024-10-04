@@ -65,7 +65,7 @@ export default function PatientStoriesFolder({
                   </div>
 
                   <div>
-                    <span className="text-eyebrow font-medium uppercase text-blue">
+                    <span className="font-petite-caps text-eyebrow font-medium text-blue">
                       Patient Story
                     </span>
                     <h2 className="mb-2 mt-6 text-2xl font-semibold">{story.content.title}</h2>

@@ -40,7 +40,7 @@ const BlogCard = ({ layout = "vertical", className = "", hideImage = false, data
             ) : null}
           </div>
         </div>
-        <p className="flex items-center gap-2.5 text-button font-medium uppercase">
+        <p className="font-petite-caps flex items-center gap-2.5 text-button font-medium">
           <span>Read More</span> <CaretRight className="h-4 w-4" />
         </p>
       </div>
