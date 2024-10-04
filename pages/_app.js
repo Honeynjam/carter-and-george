@@ -10,7 +10,7 @@ import StoryblokWrapper from "components/storyblok/StoryblokWrapper";
 export default function App({ Component, pageProps }) {
   return (
     <LazyMotion features={domAnimation}>
-      <GlobalContextWrapper value={pageProps.globalDocs.globalSettings.content}>
+      <GlobalContextWrapper value={pageProps.globalDocs?.globalSettings?.content}>
         <StoryblokWrapper>
           <Component {...pageProps} />
           <GTMScript />
