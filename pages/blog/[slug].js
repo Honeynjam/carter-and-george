@@ -87,6 +87,7 @@ export async function getStaticPaths() {
     version: "draft",
     starts_with: "blog",
     is_startpage: 0,
+    per_page: 1000,
   });
 
   const articles = articlesData?.stories;

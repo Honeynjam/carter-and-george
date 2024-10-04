@@ -84,6 +84,7 @@ export async function getStaticPaths() {
   let sbParams = {
     // version: "published",
     version: "draft",
+    per_page: 1000,
   };
 
   let { data } = await storyblokApi.get(`cdn/links`, sbParams);
@@ -103,6 +104,8 @@ export async function getStaticPaths() {
     let splittedSlug = slug.split("/");
     paths.push({ params: { slug: splittedSlug } });
   });
+
+  // console.log(paths);
   return {
     paths: paths,
     fallback: "blocking",
