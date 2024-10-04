@@ -20,7 +20,7 @@ const StoryblokLink = ({ link, children, className = "", analytics = {} }) => {
     }
   };
 
-  const isExternal = linkResolver(link).indexOf(`http`) >= 0 || link.target === "_blank";
+  const isExternal = linkResolver(link).indexOf(`http`) >= 0 || link?.target === "_blank";
   const isAnchor = linkResolver(link).startsWith(`#`);
 
   return (
