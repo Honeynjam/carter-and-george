@@ -21,7 +21,11 @@ export const FaqItem = ({ data }) => {
             <Disclosure.Button className="flex w-full items-start justify-between text-left">
               <span className="text-medium font-medium">{data.question}</span>
               <span className="ml-6 flex h-7 items-center text-stroke-dark">
-                {open ? <Minus className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
+                {open ? (
+                  <Minus className="h-4 w-4" weight="bold" />
+                ) : (
+                  <Plus className="h-4 w-4" weight="bold" />
+                )}
               </span>
             </Disclosure.Button>
           </dt>

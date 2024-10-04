@@ -75,13 +75,17 @@ export const DesktopNavbarDropdown = ({ blok }) => {
                               <div className="block" key={column._uid}>
                                 {column.links.map((item) => {
                                   return (
-                                    <div key={item._uid} className="mb-12">
+                                    <StoryblokLink
+                                      link={item.link}
+                                      key={item._uid}
+                                      className="group mb-12 block"
+                                    >
                                       <h3 className="mb-2.5 flex items-center gap-2 text-md font-medium">
                                         <span>{item.title}</span>
-                                        <ArrowRight />
+                                        <ArrowRight className="duration-150 ease-in-out group-hover:translate-x-1" />
                                       </h3>
                                       <p className="text-small">{item.subtitle}</p>
-                                    </div>
+                                    </StoryblokLink>
                                   );
                                 })}
                               </div>

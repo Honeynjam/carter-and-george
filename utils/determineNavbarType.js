@@ -1,17 +1,8 @@
 export const determineNavbarType = (story) => {
-  if (story.content.component === "patient_story") {
-    return "white";
-  }
-
-  if (story.content.component === "leader_profile") {
-    return "white";
-  }
-
-  if (story.content.component === "location") {
-    return "white";
-  }
-
-  if (story.content.component === "faq_page") {
+  // some page custom types will have white header by default
+  if (
+    ["patient_story", "leader_profile", "location", "faq_page"].includes(story.content.component)
+  ) {
     return "white";
   }
 
@@ -23,7 +14,7 @@ export const determineNavbarType = (story) => {
       return "blur";
     }
 
-    if (["hero_two_cols"].includes(hero.component)) {
+    if (["hero_two_cols", "hero_video"].includes(hero.component)) {
       return "white";
     }
   }

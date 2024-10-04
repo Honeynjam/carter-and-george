@@ -21,14 +21,18 @@ const FaqSection = ({ blok }) => {
             <Subtitle color="grey">{blok.subtitle}</Subtitle>
             <div className="mt-6 lg:mt-12">
               {blok.buttons.map((button) => {
-                return <Button href={linkResolver(button.link)}>{button.text}</Button>;
+                return (
+                  <Button key={button._uid} href={linkResolver(button.link)}>
+                    {button.text}
+                  </Button>
+                );
               })}
             </div>
           </div>
           <div className="lg:col-span-6">
             {blok.items.map((item) => {
               return (
-                <div className="border-t border-stroke-light pb-5">
+                <div key={item._uid} className="border-t border-stroke-light pb-5">
                   <FaqItem data={item} />
                 </div>
               );
