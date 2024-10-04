@@ -24,6 +24,7 @@ import FullWidthImage from "components/page-sections/FullWidthImage";
 import Grid from "components/page-sections/Grid";
 import ImageBulletList from "components/page-sections/ImageBulletList";
 import LocationPricing from "components/page-sections/LocationPricing";
+import LocationTeam from "components/page-sections/LocationTeam";
 import ProcessSection from "components/page-sections/ProcessSection";
 import ScrollerSection from "components/page-sections/ScrollerSection";
 import ServiceCards from "components/page-sections/ServiceCards";
@@ -70,6 +71,7 @@ const components = {
   bullets_section: BulletsSection,
   // Location components
   location_pricing: LocationPricing,
+  location_team: LocationTeam,
 };
 
 storyblokInit({

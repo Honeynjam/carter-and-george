@@ -123,7 +123,7 @@ const Location = ({ blok }) => (
       </Container>
     </div>
     {blok.body?.map((nestedBlok) => (
-      <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
+      <StoryblokComponent blok={nestedBlok} location={blok} key={nestedBlok._uid} />
     ))}
   </div>
 );
