@@ -30,3 +30,13 @@
     font-variant: all-petite-caps;
   }
 }
+
+@layer components {
+  .section-spacing-m {
+    @apply my-side-padding md:my-2xl lg:my-2xl;
+  }
+
+  .section-spacing-p {
+    @apply py-side-padding md:py-2xl lg:py-2xl;
+  }
+}

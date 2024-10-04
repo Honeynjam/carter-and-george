@@ -1,7 +1,9 @@
 export const determineNavbarType = (story) => {
   // some page custom types will have white header by default
   if (
-    ["patient_story", "leader_profile", "location", "faq_page"].includes(story.content.component)
+    ["patient_story", "leader_profile", "location", "faq_page", "contact_page"].includes(
+      story.content.component
+    )
   ) {
     return "white";
   }
