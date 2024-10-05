@@ -2,8 +2,6 @@ import React from "react";
 
 import { storyblokEditable } from "@storyblok/react";
 
-import { linkResolver } from "utils/linkResolver";
-
 import Container from "components/common/Container";
 import { Eyebrow, Heading } from "components/common/Typography";
 
