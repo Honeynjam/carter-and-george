@@ -103,7 +103,7 @@ const TestimonialCarouselWithMedia = ({ blok }) => {
             return null;
           })}
         </div>
-        {loaded && instanceRef.current && (
+        {loaded && instanceRef.current && blok.testimonials.length > 1 && (
           <div
             role="group"
             aria-label="Carousel controls"

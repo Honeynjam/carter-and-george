@@ -33,6 +33,15 @@ export async function getStaticProps({ preview = null }) {
     const doc = await storyblokApi.get(`cdn/stories/home`, {
       // version: preview ? "draft" : "published",
       version: "draft",
+      resolve_relations: [
+        "blog_post.category",
+        "service_cards.cards",
+        "leader_profile.recommended_services",
+        "blog_cards.blog_posts",
+        "location.services",
+        "testimonial_carousel.testimonials",
+        "testimonial_carousel_with_media.testimonials",
+      ],
     });
     data = doc.data;
   } catch (error) {
