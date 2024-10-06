@@ -41,7 +41,6 @@ const TestimonialCarousel = ({ blok }) => {
 
   return (
     <section {...storyblokEditable(blok)} className="section-spacing-m">
-      {console.log(blok)}
       <Container>
         <Heading size="3xl" level={2}>
           {blok.title}

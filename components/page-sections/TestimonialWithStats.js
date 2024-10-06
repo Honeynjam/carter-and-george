@@ -18,7 +18,7 @@ const TestimonialWithStats = ({ blok }) => {
           </Heading>
         </div>
         <div className="mt-12 grid gap-8 lg:mt-20 lg:grid-cols-12">
-          <div className="grid overflow-hidden rounded md:grid-cols-2 lg:col-span-7">
+          <div className="grid overflow-hidden rounded md:grid-cols-2 lg:col-span-8">
             <div>
               {blok.video_url ? (
                 <ReactPlayer
@@ -37,7 +37,7 @@ const TestimonialWithStats = ({ blok }) => {
               <p className="text-gray-secondary">{blok.person}</p>
             </div>
           </div>
-          <div className="flex flex-col gap-2 md:flex-row lg:col-span-5 lg:flex-col lg:gap-8">
+          <div className="flex flex-col gap-2 md:flex-row lg:col-span-4 lg:flex-col lg:gap-8">
             {blok.stats.map((item) => {
               return (
                 <div className="rounded bg-stone p-8">

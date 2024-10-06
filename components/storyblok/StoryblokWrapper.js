@@ -1,3 +1,5 @@
+import dynamic from "next/dynamic";
+
 import { apiPlugin, storyblokInit } from "@storyblok/react";
 
 import BlogPost from "../page-content-types/BlogPost";
@@ -31,8 +33,12 @@ import ServiceCards from "components/page-sections/ServiceCards";
 import ServicesOverview from "components/page-sections/ServicesOverview";
 import Statement from "components/page-sections/Statement";
 import TestimonialCarousel from "components/page-sections/TestimonialCarousel";
-import TestimonialCarouselWithMedia from "components/page-sections/TestimonialCarouselWithMedia";
 import TestimonialWithStats from "components/page-sections/TestimonialWithStats";
+
+const TestimonialCarouselWithMedia = dynamic(
+  () => import("components/page-sections/TestimonialCarouselWithMedia"),
+  { ssr: false }
+);
 
 const components = {
   // custom types (don't lazy load)
