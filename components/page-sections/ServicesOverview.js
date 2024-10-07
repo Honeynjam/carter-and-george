@@ -42,6 +42,8 @@ const ServicesOverview = ({ blok }) => {
             {blok.services.map((service) => {
               return (
                 <div
+                  key={service._uid}
+                  {...storyblokEditable(service)}
                   className={cn("duration-150", {
                     "hidden opacity-0": service._uid !== active._uid,
                     "block opacity-100": service._uid === active._uid,

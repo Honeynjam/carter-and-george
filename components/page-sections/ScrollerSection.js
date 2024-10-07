@@ -48,9 +48,13 @@ const ScrollerSection = ({ blok }) => {
             </Subtitle>
           </div>
           <div className="flex items-center gap-8 lg:gap-20">
-            {blok.stat_items.map((item, index) => {
+            {blok.stat_items.map((item) => {
               return (
-                <div key={index} className="border-l-2 border-stroke-dark pl-4">
+                <div
+                  {...storyblokEditable(item)}
+                  key={item._uid}
+                  className="border-l-2 border-stroke-dark pl-4"
+                >
                   <span className="mb-2 text-3xl font-medium text-blue">{item.stat}</span>
                   <p className="text-white">{item.name}</p>
                 </div>
@@ -61,7 +65,11 @@ const ScrollerSection = ({ blok }) => {
         <div ref={sliderRef} className="keen-slider mt-20 !w-auto !overflow-visible">
           {blok.cards.map((card, idx) => {
             return (
-              <div key={idx} className="keen-slider__slide w-[340px]">
+              <div
+                {...storyblokEditable(card)}
+                key={card._uid}
+                className="keen-slider__slide w-[340px]"
+              >
                 <StoryblokImage className="aspect-[16/9] rounded object-cover" image={card.image} />
                 <hr className="mb-4 mt-8 text-stroke-dark" />
                 <span className="mb-6 block text-eyebrow text-gray-tertiary-alternate">

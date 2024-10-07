@@ -22,9 +22,9 @@ import StoryblokImage from "components/storyblok/StoryblokImage";
 
 const libraries = ["places", "geometry"];
 
+// TODO - empty state
 export default function Home({ preview, story, locations, globalDocs }) {
   story = useStoryblokState(story);
-  // console.log(locations);
 
   const router = useRouter();
   const { postcode } = router.query;

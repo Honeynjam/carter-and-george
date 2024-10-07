@@ -36,8 +36,9 @@ const ApproachSection = ({ blok }) => {
           {blok.items.map((item) => {
             return (
               <div
+                {...storyblokEditable(item)}
                 className="group/item duration-500 ease-in-out md:w-1/6 md:hover:mt-[max(-92px,-6.05vw)] md:hover:w-1/4 md:hover:!opacity-100 md:group-hover/test:opacity-50"
-                key={item.title}
+                key={item._uid}
               >
                 <StoryblokImage
                   className="mb-9 aspect-square rounded object-cover"

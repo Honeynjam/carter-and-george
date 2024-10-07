@@ -90,5 +90,6 @@ module.exports = {
     require("@headlessui/tailwindcss"),
     require("@tailwindcss/typography"),
     require("@tailwindcss/forms"),
+    require("@tailwindcss/container-queries"),
   ],
 };

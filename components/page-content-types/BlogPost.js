@@ -14,14 +14,14 @@ const PatientStory = ({ articles = [], blok }) => (
           <Breadcrumbs
             data={[
               { name: "Blog", href: "/patient-stories/" },
-              { name: blok.category.content.name, href: `/${blok.category.full_slug}` },
+              { name: blok.category?.content?.name, href: `/${blok.category?.full_slug}` },
               { name: blok.title, current: true },
             ]}
           />
         </div>
-        <div className="border-t border-stroke-light py-12">
-          <div className="grid grid-cols-12 items-start">
-            <div className="sticky top-8 col-span-3 mr-12">
+        <div className="md:border-t md:border-stroke-light md:py-12">
+          <div className="grid items-start md:grid-cols-12">
+            <div className="order-2 md:sticky md:top-8 md:order-1 md:col-span-3 md:mr-12">
               <h2 className="text-large mb-12 font-semibold">Related Posts</h2>
 
               <div className="grid grid-cols-1 gap-12">
@@ -38,9 +38,9 @@ const PatientStory = ({ articles = [], blok }) => (
                   })}
               </div>
             </div>
-            <div className="col-span-9 border-l border-stroke-light pl-12">
+            <div className="order-1 md:order-2 md:col-span-9 md:border-l md:border-stroke-light md:pl-12">
               <div className="mb-7 flex items-center gap-4">
-                <Badge className="">{blok.category.content.name}</Badge>
+                <Badge className="">{blok.category?.content?.name}</Badge>
                 <span className="text-smaller font-semibold">{blok.read_time} min read</span>
               </div>
 

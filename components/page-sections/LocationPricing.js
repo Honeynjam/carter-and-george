@@ -21,13 +21,14 @@ const LocationPricing = ({ blok }) => {
         <div className="grid grid-cols-1 gap-8">
           {blok.sections.map((section) => {
             return (
-              <div key={section._uid}>
+              <div {...storyblokEditable(section)} key={section._uid}>
                 <Heading className="my-5" level={3} size="large">
                   {section.title}
                 </Heading>
                 {section.list.map((item, idx) => {
                   return (
                     <div
+                      {...storyblokEditable(item)}
                       key={item._uid}
                       className={cn(
                         "flex flex-col gap-4 px-6 py-4 md:flex-row md:items-center md:gap-20",

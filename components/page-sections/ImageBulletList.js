@@ -39,6 +39,7 @@ const ImageBulletList = ({ blok }) => {
                 if (item.text) {
                   return (
                     <div
+                      {...storyblokEditable(item)}
                       key={item._uid}
                       className={cn("flex items-center gap-4 border-t py-6 text-md lg:py-8", {
                         "border-stroke-dark text-white": blok.background === "dark",

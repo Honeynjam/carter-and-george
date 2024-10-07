@@ -20,6 +20,8 @@ const TeamMember = ({ blok, location }) => {
     <>
       {/* Card */}
       <div
+        {...storyblokEditable(blok)}
+        key={blok._uid}
         onClick={() => setOpen(true)}
         className="group relative cursor-pointer overflow-hidden rounded"
       >

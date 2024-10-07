@@ -35,7 +35,7 @@ const Grid = ({ blok }) => {
           <div className="grid gap-large sm:grid-cols-2 md:col-span-7">
             {blok.cards.map((card) => {
               return (
-                <div key={card._uid}>
+                <div {...storyblokEditable(card)} key={card._uid}>
                   <StoryblokImage className="h-8 w-8" image={card.icon} />
 
                   <hr className="my-4 text-stroke-light" />

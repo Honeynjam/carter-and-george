@@ -35,6 +35,7 @@ const BulletsSection = ({ blok }) => {
                 if (item.text) {
                   return (
                     <div
+                      {...storyblokEditable(item)}
                       key={item._uid}
                       className={cn("flex items-center gap-4 text-md text-black", {
                         "border-t border-stroke-light py-6 lg:py-8": blok.bullet_columns === "one",

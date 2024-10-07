@@ -113,15 +113,17 @@ const Location = ({ blok }) => (
         <hr className="my-6 text-stroke-light" />
         <div className="grid gap-x-4 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
           {blok.services.map((service) => {
-            return (
-              <StoryblokLink link={service} className="flex items-center" key={service._uid}>
-                <div className="mr-4 rounded-full bg-[#E9F0F2] p-1.5">
-                  <Check className="text-blue" weight="bold" />
-                </div>
-                <p className="text-md">{service.content.name}</p>
-                <CaretRight className="ml-2" size={16} />
-              </StoryblokLink>
-            );
+            if (service.content) {
+              return (
+                <StoryblokLink link={service} className="flex items-center" key={service._uid}>
+                  <div className="mr-4 rounded-full bg-[#E9F0F2] p-1.5">
+                    <Check className="text-blue" weight="bold" />
+                  </div>
+                  <p className="text-md">{service.content.name}</p>
+                  <CaretRight className="ml-2" size={16} />
+                </StoryblokLink>
+              );
+            } else return null;
           })}
         </div>
       </Container>
