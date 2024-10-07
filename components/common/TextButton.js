@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { CaretRight } from "@phosphor-icons/react/dist/ssr";
+import { CaretRight } from "@phosphor-icons/react/dist/ssr/CaretRight";
 import cn from "classnames";
 
 const TextButton = ({ href, children, className = "", ...props }) => {

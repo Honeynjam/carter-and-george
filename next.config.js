@@ -7,9 +7,7 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 
 const config = {
   trailingSlash: true,
-  experimental: {
-    optimizePackageImports: ["@phosphor-icons/react"],
-  },
+
   eslint: {
     // Warning: This allows production builds to successfully complete even if
     // your project has ESLint errors.
