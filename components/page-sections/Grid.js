@@ -11,7 +11,7 @@ import StoryblokImage from "components/storyblok/StoryblokImage";
 
 const Grid = ({ blok }) => {
   return (
-    <section className="bg-stone py-20 md:py-xl lg:py-2xl" {...storyblokEditable(blok)}>
+    <section className="section-spacing-p bg-stone" {...storyblokEditable(blok)}>
       <Container>
         <div className="grid gap-side-padding md:grid-cols-12">
           <div className="md:col-span-5">
@@ -22,7 +22,7 @@ const Grid = ({ blok }) => {
             </Heading>
             <Subtitle color="grey">{blok.subtitle}</Subtitle>
 
-            <div className="mb-8 md:mt-12">
+            <div className="mt-8 md:mt-12">
               {blok.buttons.map((button) => {
                 return (
                   <Button key={button._uid} href={linkResolver(button.link)}>

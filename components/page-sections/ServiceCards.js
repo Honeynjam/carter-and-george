@@ -25,7 +25,7 @@ const ServiceCard = ({ service }) => {
           image={service.content.card_image}
         />
         <div className="absolute inset-0 z-20 bg-black/30" />
-        <div className="absolute bottom-8 left-8 right-8 z-30 p-4 text-white backdrop-blur-[75px]">
+        <div className="absolute bottom-4 left-4 right-4 z-30 p-4 text-white backdrop-blur-[75px] lg:bottom-8 lg:left-8 lg:right-8">
           <Heading level={3} className="mb-6" size="xl">
             {service.content.card_title}
           </Heading>

@@ -2,7 +2,7 @@ import { Popover } from "@headlessui/react";
 import { Disclosure } from "@headlessui/react";
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr/ArrowRight";
 import { List } from "@phosphor-icons/react/dist/ssr/List";
-import { XCircle } from "@phosphor-icons/react/dist/ssr/XCircle";
+import { X } from "@phosphor-icons/react/dist/ssr/X";
 import cn from "classnames";
 import { AnimatePresence, m } from "framer-motion";
 
@@ -73,7 +73,7 @@ const MobileNavbarDropdown = ({ blok }) => {
                     <div className="block" key={column.id}>
                       {column.links.map((item) => {
                         return (
-                          <div key={item.id} className="mb-12">
+                          <div key={item.id} className="mb-6">
                             <p className="mb-2.5 flex items-center gap-2 text-md font-semibold">
                               <span>{item.title}</span>
                               <ArrowRight />
@@ -119,7 +119,7 @@ const MobileMenu = ({ data }) => {
                 className="rounded-lg relative z-10 -m-2 inline-flex items-center p-2 [&:not(:focus-visible)]:focus:outline-none"
                 aria-label="Toggle site navigation"
               >
-                {({ open }) => (open ? <XCircle /> : <List />)}
+                {({ open }) => (open ? <X className="text-black" weight="bold" /> : <List />)}
               </Popover.Button>
               <AnimatePresence initial={false}>
                 {open && (
@@ -144,12 +144,13 @@ const MobileMenu = ({ data }) => {
                             return <MobileNavbarDropdown key={item.id} blok={item} />;
                           }
                           return (
-                            <div
+                            <StoryblokLink
                               key={item.text}
-                              className="font-petite-caps text-button font-medium"
+                              link={item.link}
+                              className="font-petite-caps block text-button font-medium"
                             >
                               {item.text}
-                            </div>
+                            </StoryblokLink>
                           );
                         })}
                       </div>

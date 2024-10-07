@@ -32,11 +32,11 @@ const ApproachSection = ({ blok }) => {
             })}
           </div>
         </div>
-        <div className="group/test mt-3xl flex gap-6">
+        <div className="group/test flex flex-col gap-6 md:mt-3xl md:flex-row">
           {blok.items.map((item) => {
             return (
               <div
-                className="group/item w-1/6 duration-500 ease-in-out hover:mt-[max(-92px,-6.05vw)] hover:w-1/4 hover:!opacity-100 group-hover/test:opacity-50"
+                className="group/item duration-500 ease-in-out md:w-1/6 md:hover:mt-[max(-92px,-6.05vw)] md:hover:w-1/4 md:hover:!opacity-100 md:group-hover/test:opacity-50"
                 key={item.title}
               >
                 <StoryblokImage
