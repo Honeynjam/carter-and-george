@@ -13,30 +13,32 @@ import StoryblokImage from "components/storyblok/StoryblokImage";
 import StoryblokLink from "components/storyblok/StoryblokLink";
 
 const ServiceCard = ({ service }) => {
-  return (
-    <StoryblokLink
-      link={service}
-      className="keen-slider__slide relative h-[450px] overflow-hidden rounded lg:h-[530px]"
-    >
-      <StoryblokImage
-        fill
-        className="absolute inset-0 z-10 object-cover"
-        image={service.content.card_image}
-      />
-      <div className="absolute inset-0 z-20 bg-black/30" />
-      <div className="absolute bottom-8 left-8 right-8 z-30 p-4 text-white backdrop-blur-[75px]">
-        <Heading level={3} className="mb-6" size="xl">
-          {service.content.card_title}
-        </Heading>
+  if (service.content) {
+    return (
+      <StoryblokLink
+        link={service}
+        className="keen-slider__slide relative h-[450px] overflow-hidden rounded lg:h-[530px]"
+      >
+        <StoryblokImage
+          fill
+          className="absolute inset-0 z-10 object-cover"
+          image={service.content.card_image}
+        />
+        <div className="absolute inset-0 z-20 bg-black/30" />
+        <div className="absolute bottom-8 left-8 right-8 z-30 p-4 text-white backdrop-blur-[75px]">
+          <Heading level={3} className="mb-6" size="xl">
+            {service.content.card_title}
+          </Heading>
 
-        <p className="font-petite-caps flex items-center gap-2 text-button font-medium">
-          <span>Learn More</span>
-          <CaretRight className="h-4 w-4" />
-        </p>
-      </div>
-      <StoryblokImage />
-    </StoryblokLink>
-  );
+          <p className="font-petite-caps flex items-center gap-2 text-button font-medium">
+            <span>Learn More</span>
+            <CaretRight className="h-4 w-4" />
+          </p>
+        </div>
+        <StoryblokImage />
+      </StoryblokLink>
+    );
+  } else return null;
 };
 
 const ServiceCards = ({ blok }) => {
