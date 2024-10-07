@@ -34,9 +34,9 @@ const Navbar = ({ type = "blur", data }) => {
             <div className="flex items-center gap-6">
               <Link href="/">
                 <Image
+                  className="ease-custom object-contain duration-500 hover:scale-95 hover:opacity-90"
                   width={179}
                   height={75}
-                  className="object-contain"
                   src={
                     type === "white"
                       ? "/images/full-logo-colour.png"

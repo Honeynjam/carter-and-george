@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 
+import { ArrowLeft, ArrowRight } from "@phosphor-icons/react";
 import { CaretRight } from "@phosphor-icons/react";
 import { storyblokEditable } from "@storyblok/react";
 import cn from "classnames";
@@ -38,6 +39,9 @@ const ServiceCard = ({ service }) => {
 };
 
 const ServiceCards = ({ blok }) => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [loaded, setLoaded] = useState(false);
+
   const [sliderRef, instanceRef] = useKeenSlider(
     {
       slides: {
@@ -54,10 +58,10 @@ const ServiceCards = ({ blok }) => {
       },
 
       slideChanged(slider) {
-        // setCurrentSlide(slider.track.details.rel);
+        setCurrentSlide(slider.track.details.rel);
       },
       created() {
-        // setLoaded(true);
+        setLoaded(true);
       },
     },
 
@@ -102,14 +106,48 @@ const ServiceCards = ({ blok }) => {
     >
       <Container>
         <div
-          className={cn("mb-20 max-w-3xl", {
-            "mx-auto text-center": !isCarousel,
+          className={cn("mb-12 lg:mb-20", {
+            "mx-auto max-w-3xl text-center": !isCarousel,
+            "flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between lg:gap-20": isCarousel,
           })}
         >
-          <Eyebrow className="mb-6" text={blok.eyebrow} />
-          <Heading size="3xl" level={2}>
-            {blok.title}
-          </Heading>
+          <div>
+            <Eyebrow className="mb-6" text={blok.eyebrow} />
+            <Heading size="3xl" level={2}>
+              {blok.title}
+            </Heading>
+          </div>
+          <div>
+            {isCarousel && loaded && instanceRef.current && (
+              <div className="flex items-center gap-4">
+                <button
+                  className="rounded-full border border-stroke-light bg-white p-5 duration-150 hover:bg-stone"
+                  tabIndex={currentSlide === 0 ? -1 : 0}
+                  onClick={(e) => e.stopPropagation() || instanceRef.current?.prev()}
+                  aria-label="Previous item"
+                >
+                  <ArrowLeft
+                    aria-hidden="true"
+                    className={cn("text-primary h-5 w-5 cursor-pointer duration-200", {})}
+                  />
+                </button>
+
+                <button
+                  className="rounded-full border border-stroke-light bg-white p-5 duration-150 hover:bg-stone"
+                  tabIndex={
+                    currentSlide === instanceRef.current.track.details.slides.length - 3 ? -1 : 0
+                  }
+                  onClick={(e) => e.stopPropagation() || instanceRef.current?.next()}
+                  aria-label="Next item"
+                >
+                  <ArrowRight
+                    aria-hidden="true"
+                    className={cn("text-primary h-5 w-5 cursor-pointer duration-200", {})}
+                  />
+                </button>
+              </div>
+            )}
+          </div>
         </div>
         {isCarousel ? (
           <div ref={sliderRef} className="keen-slider !w-auto !overflow-visible">

@@ -1,6 +1,7 @@
 import React from "react";
 
 import Image from "next/image";
+import Link from "next/link";
 
 import cn from "classnames";
 
@@ -42,13 +43,15 @@ const Footer = ({ data }) => {
       <hr className="mb-8 text-stroke-dark md:mb-16" />
       <div className="flex flex-col gap-8 md:flex-row md:gap-40">
         <div className="max-w-sm">
-          <Image
-            width={271}
-            height={53}
-            className="object-contain"
-            src="/images/full-logo.png"
-            alt="logo"
-          />
+          <Link href="/">
+            <Image
+              width={271}
+              height={53}
+              className="ease-custom object-contain duration-500 hover:opacity-90"
+              src="/images/full-logo.png"
+              alt="logo"
+            />
+          </Link>
           <div className="mt-4 text-balance text-small text-gray-secondary-alternate">
             {data.content.statement}
           </div>

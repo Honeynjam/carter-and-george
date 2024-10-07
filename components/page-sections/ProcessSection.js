@@ -3,6 +3,7 @@ import React from "react";
 import dynamic from "next/dynamic";
 
 import { storyblokEditable } from "@storyblok/react";
+import cn from "classnames";
 
 import Container from "components/common/Container";
 import { Eyebrow, Heading, Subtitle } from "components/common/Typography";
@@ -19,7 +20,12 @@ const VideoSection = ({ blok }) => {
             {blok.title}
           </Heading>
         </div>
-        <div className="grid gap-6 md:grid-cols-3 lg:grid-cols-5">
+        <div
+          className={cn("grid gap-6 md:grid-cols-3", {
+            "lg:grid-cols-4": blok.items.length === 4,
+            "lg:grid-cols-5": blok.items.length === 5,
+          })}
+        >
           {blok.items.map((item) => {
             return (
               <div key={item._uid}>

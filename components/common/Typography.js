@@ -52,7 +52,7 @@ export const Subtitle = ({
 }) => {
   return (
     <p
-      className={cn(className, "text-balance", {
+      className={cn(className, "text-pretty", {
         "text-gray-secondary": color === "grey",
         "text-white": color === "white",
         "text-gray-secondary-alternate": color === "grey" && alternate,

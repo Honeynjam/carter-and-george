@@ -68,6 +68,9 @@ module.exports = {
       full: "9999px",
     },
     extend: {
+      transitionTimingFunction: {
+        custom: "cubic-bezier(.1,.6,.4,1)",
+      },
       spacing: {
         xs: "0.25rem",
         mini: "0.5rem",

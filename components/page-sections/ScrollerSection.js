@@ -18,6 +18,12 @@ const ScrollerSection = ({ blok }) => {
         spacing: 32,
       },
       breakpoints: {
+        "(min-width: 768px)": {
+          slides: {
+            perView: 2.2,
+            spacing: 48,
+          },
+        },
         "(min-width: 1080px)": {
           slides: {
             perView: 2.6,
@@ -25,54 +31,15 @@ const ScrollerSection = ({ blok }) => {
           },
         },
       },
-
-      slideChanged(slider) {
-        // setCurrentSlide(slider.track.details.rel);
-      },
-      created() {
-        // setLoaded(true);
-      },
     },
 
-    [
-      // (slider) => {
-      //   let timeout;
-      //   let mouseOver = false;
-      //   function clearNextTimeout() {
-      //     clearTimeout(timeout);
-      //   }
-      //   function nextTimeout() {
-      //     clearTimeout(timeout);
-      //     if (mouseOver) return;
-      //     timeout = setTimeout(() => {
-      //       slider.next();
-      //     }, 4000);
-      //   }
-      //   slider.on("created", () => {
-      //     slider.container.addEventListener("mouseover", () => {
-      //       mouseOver = true;
-      //       clearNextTimeout();
-      //     });
-      //     slider.container.addEventListener("mouseout", () => {
-      //       mouseOver = false;
-      //       nextTimeout();
-      //     });
-      //     nextTimeout();
-      //   });
-      //   slider.on("dragStarted", clearNextTimeout);
-      //   slider.on("animationEnded", nextTimeout);
-      //   slider.on("updated", nextTimeout);
-      // },
-    ]
+    []
   );
   return (
-    <section
-      className="overflow-hidden bg-black py-xl md:py-2xl lg:py-3xl"
-      {...storyblokEditable(blok)}
-    >
+    <section className="section-spacing-p overflow-hidden bg-black" {...storyblokEditable(blok)}>
       <Container>
-        <div className="flex flex-col gap-8 md:flex-row md:items-end md:gap-20">
-          <div className="max-w-3xl">
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between lg:gap-20">
+          <div className="max-w-2xl">
             <Heading className="mb-2 lg:mb-4" size="3xl" color="white">
               {blok.title}
             </Heading>
@@ -80,10 +47,10 @@ const ScrollerSection = ({ blok }) => {
               {blok.subtitle}
             </Subtitle>
           </div>
-          <div className="flex flex-1 items-center gap-4">
+          <div className="flex items-center gap-8 lg:gap-20">
             {blok.stat_items.map((item, index) => {
               return (
-                <div key={index} className="w-full border-l-2 border-stroke-dark pl-4">
+                <div key={index} className="border-l-2 border-stroke-dark pl-4">
                   <span className="mb-2 text-3xl font-medium text-blue">{item.stat}</span>
                   <p className="text-white">{item.name}</p>
                 </div>
