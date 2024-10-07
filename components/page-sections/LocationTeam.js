@@ -44,10 +44,10 @@ const TeamMember = ({ blok, location }) => {
           <div className="flex min-h-full items-end justify-center p-4 sm:items-center sm:p-0">
             <DialogPanel
               transition
-              className="relative transform overflow-hidden rounded bg-white p-6 text-left shadow-xl transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-5xl data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95 md:p-8 lg:p-12"
+              className="relative mx-8 transform overflow-hidden rounded bg-white p-6 text-left shadow-xl transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-5xl data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95 md:p-8 lg:p-12"
             >
-              <div className="grid gap-6 md:grid-cols-2 md:gap-16">
-                <div>
+              <div className="grid gap-6 lg:max-h-[550px] lg:grid-cols-2">
+                <div className="overflow-scroll lg:max-h-[550px] lg:pr-12">
                   <DialogTitle className="mb-2" size="xl" as={Heading}>
                     {blok.name}
                   </DialogTitle>
@@ -58,6 +58,7 @@ const TeamMember = ({ blok, location }) => {
                       <span>{location?.clinic_name}</span>
                     </span>
                   </div>
+
                   {blok.services?.length > 0 ? (
                     <>
                       <Hr className="mb-4 mt-6" />
@@ -65,8 +66,8 @@ const TeamMember = ({ blok, location }) => {
                       <div className="mb-2 flex flex-wrap items-center gap-2">
                         {blok.services?.map((item, idx) => {
                           return (
-                            <React.Fragment key={item._uid}>
-                              <span>{item.name}</span>
+                            <React.Fragment key={item}>
+                              <span>{item}</span>
                               {idx < blok.services.length - 1 ? (
                                 <span className="h-1.5 w-1.5 rounded-full bg-stroke-light" />
                               ) : null}
@@ -78,9 +79,9 @@ const TeamMember = ({ blok, location }) => {
                   ) : null}
 
                   <Hr className="mb-8 mt-4" />
-                  <div className="prose">{render(blok.description)}</div>
+                  <div className="prose max-w-none overflow-scroll">{render(blok.description)}</div>
                 </div>
-                <div>
+                <div className="max-lg:hidden lg:max-h-[550px]">
                   <StoryblokImage className="h-full rounded object-cover" image={blok.image} />
                 </div>
               </div>

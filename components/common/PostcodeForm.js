@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 import cn from "classnames";
+import { fix, parse } from "postcode";
 
 import Button from "./Button";
 
@@ -14,10 +15,15 @@ const PostcodeForm = ({
 }) => {
   const [postcode, setPostcode] = useState("");
   const [loading, setLoading] = useState(false);
+  const [isValidPostcode, setIsValidPostcode] = useState(false);
   const router = useRouter();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!isValidPostcode) {
+      alert("Please enter a valid postcode.");
+      return;
+    }
     setLoading(true);
     router.push({ pathname: "/find-your-practice", query: { postcode: postcode }, shallow: true });
   };
@@ -25,6 +31,14 @@ const PostcodeForm = ({
   useEffect(() => {
     setLoading(false);
   }, [router.asPath]);
+
+  const handlePostcodeChange = (e) => {
+    const value = e.target.value;
+    const parsed = parse(value);
+
+    setPostcode(fix(value));
+    setIsValidPostcode(parsed.valid);
+  };
 
   return (
     <div className={cn(className, "max-w-lg")}>
@@ -43,7 +57,7 @@ const PostcodeForm = ({
         <div className="flex flex-col gap-4 md:flex-row md:items-center">
           <input
             value={postcode}
-            onChange={(e) => setPostcode(e.target.value)}
+            onChange={handlePostcodeChange}
             required
             className="w-full flex-1 rounded-[1px] border border-stroke-light py-3 uppercase text-black placeholder:normal-case"
             placeholder="Postcode"

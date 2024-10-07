@@ -70,9 +70,11 @@ export default function Home({ preview, story, locations, globalDocs }) {
             );
             return { ...location, distance };
           });
-
           distances.sort((a, b) => a.distance - b.distance);
-          setClosestLocations(distances.slice(0, 3)); // Get the closest 3 locations
+          const filteredLocations = distances.filter(
+            (location) => location.distance <= 50 * 1609.34
+          ); // Filter locations within 50 miles
+          setClosestLocations(filteredLocations.slice(0, 3)); // Get the closest 3 locations within 50 miles
         } else {
           console.error("Geocode was not successful for the following reason: " + status);
         }
