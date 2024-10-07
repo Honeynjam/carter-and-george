@@ -91,7 +91,7 @@ export async function getStaticProps({ preview = null }) {
   let doc = await storyblokApi.get(`cdn/stories/blog/`, {
     // version: preview ? "draft" : "published",
     version: "draft",
-    resolve_relations: ["blog_hub.featured_articles"],
+    resolve_relations: ["blog_hub.featured_articles", "blog_post.category"],
   });
   data = doc.data;
   try {

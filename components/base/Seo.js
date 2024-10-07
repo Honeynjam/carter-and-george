@@ -6,13 +6,15 @@ const settings = {
   company: "Carter & George",
   author: "Carter & George",
   language: "en-gb",
-  themeColor: "#1c70ed",
+  themeColor: "#00A9E0",
   baseUrl: "https://www.carterandgeorge.co.uk/",
 };
 
 const defaultMeta = {
-  title: "TODO",
-  description: "TODO",
+  title:
+    "Physiotherapy practice, offering elite physiotherapy treatment in a state of the art environment.",
+  description:
+    "The Carter & George Practice is an elite healthcare facility, with the aim to treat everyone as if they were a professional athlete.",
   image: "/images/og_image.jpg",
 };
 

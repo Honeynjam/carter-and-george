@@ -37,7 +37,11 @@ const Navbar = ({ type = "blur", data }) => {
                   width={179}
                   height={75}
                   className="object-contain"
-                  src={type === "white" ? "/images/full-logo-colour.png" : "/images/full-logo.png"}
+                  src={
+                    type === "white"
+                      ? "/images/full-logo-colour.png"
+                      : "/images/full-logo-white.png"
+                  }
                   alt="logo"
                 />
               </Link>

@@ -88,7 +88,7 @@ export async function getStaticProps({ preview = null, params }) {
     // version: preview ? "draft" : "published",
     version: "draft",
     starts_with: "blog",
-    resolve_relations: ["blog_post.categories"],
+    resolve_relations: ["blog_post.category"],
     is_startpage: 0,
     sort_by: "content.published_at:desc",
     excluding_slugs: "blog/category/*",
