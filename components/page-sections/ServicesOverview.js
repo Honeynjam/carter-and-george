@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { ArrowRight } from "@phosphor-icons/react";
+import { ArrowRight } from "@phosphor-icons/react/dist/ssr/ArrowRight";
 import { storyblokEditable } from "@storyblok/react";
 import cn from "classnames";
 
@@ -31,7 +31,7 @@ const ServicesOverview = ({ blok }) => {
                   <p className="cursor-pointer text-5xl font-medium opacity-50 duration-150 hover:opacity-100">
                     {service.name}
                   </p>
-                  <div className="rounded-full overflow-hidden bg-stone p-4 opacity-0 duration-75 group-hover:opacity-100">
+                  <div className="overflow-hidden rounded-full bg-stone p-4 opacity-0 duration-75 group-hover:opacity-100">
                     <ArrowRight className="h-8 w-8 text-black" />
                   </div>
                 </div>

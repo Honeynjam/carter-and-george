@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 
 import { useRouter } from "next/router";
 
-import { NavigationArrow } from "@phosphor-icons/react";
-import { GoogleMap, LoadScript, Marker, useLoadScript } from "@react-google-maps/api";
+import { NavigationArrow } from "@phosphor-icons/react/dist/ssr/NavigationArrow";
+import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
 import { getStoryblokApi, useStoryblokState } from "@storyblok/react";
 
 import { determineNavbarType } from "utils/determineNavbarType";

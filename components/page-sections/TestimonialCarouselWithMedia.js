@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 
-import { ArrowLeft, ArrowRight, Star } from "@phosphor-icons/react";
+import { ArrowLeft } from "@phosphor-icons/react/dist/ssr/ArrowLeft";
+import { ArrowRight } from "@phosphor-icons/react/dist/ssr/ArrowRight";
+import { Star } from "@phosphor-icons/react/dist/ssr/Star";
 import { storyblokEditable } from "@storyblok/react";
 import cn from "classnames";
 import { useKeenSlider } from "keen-slider/react";

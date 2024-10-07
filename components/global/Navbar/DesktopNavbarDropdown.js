@@ -1,7 +1,8 @@
 import { Fragment, useState } from "react";
 
 import { Popover, PopoverButton, PopoverPanel, Transition } from "@headlessui/react";
-import { ArrowRight, CaretDown } from "@phosphor-icons/react";
+import { ArrowRight } from "@phosphor-icons/react/dist/ssr/ArrowRight";
+import { CaretDown } from "@phosphor-icons/react/dist/ssr/CaretDown";
 import cn from "classnames";
 
 import Container from "components/common/Container";

@@ -1,4 +1,4 @@
-import { CaretRight } from "@phosphor-icons/react";
+import { CaretRight } from "@phosphor-icons/react/dist/ssr/CaretRight";
 import cn from "classnames";
 
 import Badge from "components/common/Badge";

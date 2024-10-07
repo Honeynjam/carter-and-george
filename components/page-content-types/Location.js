@@ -1,4 +1,8 @@
-import { CaretRight, Check, Clock, MapPin, Phone } from "@phosphor-icons/react";
+import { CaretRight } from "@phosphor-icons/react/dist/ssr/CaretRight";
+import { Check } from "@phosphor-icons/react/dist/ssr/Check";
+import { Clock } from "@phosphor-icons/react/dist/ssr/Clock";
+import { MapPin } from "@phosphor-icons/react/dist/ssr/MapPin";
+import { Phone } from "@phosphor-icons/react/dist/ssr/Phone";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import { StoryblokComponent, storyblokEditable } from "@storyblok/react";
 

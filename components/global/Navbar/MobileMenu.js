@@ -1,6 +1,8 @@
 import { Popover } from "@headlessui/react";
 import { Disclosure } from "@headlessui/react";
-import { ArrowRight, CaretDown, List, XCircle } from "@phosphor-icons/react";
+import { ArrowRight } from "@phosphor-icons/react/dist/ssr/ArrowRight";
+import { List } from "@phosphor-icons/react/dist/ssr/List";
+import { XCircle } from "@phosphor-icons/react/dist/ssr/XCircle";
 import cn from "classnames";
 import { AnimatePresence, m } from "framer-motion";
 

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from "@headlessui/react";
-import { ArrowUpRight, MapPin, X } from "@phosphor-icons/react";
+import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr/ArrowUpRight";
+import { MapPin } from "@phosphor-icons/react/dist/ssr/MapPin";
+import { X } from "@phosphor-icons/react/dist/ssr/X";
 import { storyblokEditable } from "@storyblok/react";
 import { render } from "storyblok-rich-text-react-renderer";
 

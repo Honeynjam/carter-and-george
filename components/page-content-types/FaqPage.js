@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 
 import { Disclosure } from "@headlessui/react";
-import { Minus, Plus } from "@phosphor-icons/react";
+import { Minus } from "@phosphor-icons/react/dist/ssr/Minus";
+import { Plus } from "@phosphor-icons/react/dist/ssr/Plus";
 import { StoryblokComponent, storyblokEditable } from "@storyblok/react";
 import cn from "classnames";
 import { AnimatePresence, m } from "framer-motion";

@@ -1,4 +1,5 @@
-import { ArrowLeft, ArrowRight } from "@phosphor-icons/react";
+import { ArrowLeft } from "@phosphor-icons/react/dist/ssr/ArrowLeft";
+import { ArrowRight } from "@phosphor-icons/react/dist/ssr/ArrowRight";
 import cn from "classnames";
 
 export const CarouselButtons = ({ currentSlide, instanceRef }) => {

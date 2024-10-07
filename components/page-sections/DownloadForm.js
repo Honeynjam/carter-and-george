@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Check } from "@phosphor-icons/react";
+import { Check } from "@phosphor-icons/react/dist/ssr/Check";
 import { storyblokEditable } from "@storyblok/react";
 
 import Button from "components/common/Button";

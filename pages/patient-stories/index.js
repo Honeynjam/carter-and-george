@@ -1,9 +1,9 @@
-import { ArrowUpRight, CaretRight } from "@phosphor-icons/react";
+import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr/ArrowUpRight";
+import { CaretRight } from "@phosphor-icons/react/dist/ssr/CaretRight";
 import { getStoryblokApi, useStoryblokState } from "@storyblok/react";
 import { StoryblokComponent } from "@storyblok/react";
 
 import getGlobalDocs from "utils/getGlobalDocs";
-import { linkResolver } from "utils/linkResolver";
 
 import GoogleRating from "components/base/GoogleRating";
 import Seo from "components/base/Seo";
