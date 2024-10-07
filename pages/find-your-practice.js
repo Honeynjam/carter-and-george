@@ -1,14 +1,20 @@
-import { EnvelopeSimple, Phone } from "@phosphor-icons/react";
+import React from "react";
+
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import { getStoryblokApi, useStoryblokState } from "@storyblok/react";
 
 import { determineNavbarType } from "utils/determineNavbarType";
 import getGlobalDocs from "utils/getGlobalDocs";
+import { linkResolver } from "utils/linkResolver";
 
 import Seo from "components/base/Seo";
+import Button from "components/common/Button";
 import Container from "components/common/Container";
-import { Heading, Subtitle } from "components/common/Typography";
+import Hr from "components/common/Hr";
+import TextButton from "components/common/TextButton";
+import { Heading } from "components/common/Typography";
 import Layout from "components/global/Layout";
+import StoryblokImage from "components/storyblok/StoryblokImage";
 
 export default function Home({ preview, story, locations, globalDocs }) {
   story = useStoryblokState(story);
@@ -36,25 +42,76 @@ export default function Home({ preview, story, locations, globalDocs }) {
               {story.content.title}
             </Heading>
             <div className="mt-2xl">
-              <LoadScript googleMapsApiKey="AIzaSyCQm4y_CgaoI1XKXJxTpVY3B1EEEC7G4UY">
-                <GoogleMap
-                  center={{
-                    lat: 53.483601620042315,
-                    lng: -2.2366950875805354,
-                  }}
-                  mapContainerStyle={containerStyle}
-                  zoom={5}
-                >
-                  {locations.map((item) => {
-                    const center = {
-                      lat: Number(item.content.location_lat),
-                      lng: Number(item.content.location_longitude),
-                    };
+              <div className="grid items-start gap-20 md:grid-cols-2">
+                <div>
+                  <Heading level={3} size="large">
+                    {locations.length} Practices
+                  </Heading>
+                  <p className="text-smaller">found in your area</p>
+                  <Hr className="mb-6 mt-4" />
+                  <div className="grid grid-cols-1 gap-12">
+                    {locations.map((location) => {
+                      return (
+                        <div key={location.content.uuid} className="">
+                          <StoryblokImage image={location.content.image} />
+                          <div className="bg-stone p-6">
+                            <Heading className="mb-2" level={4} size="large">
+                              {location.content.clinic_name}
+                            </Heading>
+                            <p>{location.content.address}</p>
+                            <div className="mt-6 flex flex-wrap items-center gap-2 text-gray-secondary">
+                              {location.content.services.map((item, idx) => {
+                                return (
+                                  <React.Fragment key={item._uid}>
+                                    <span>{item.name}</span>
+                                    {idx < location.content.services.length - 1 ? (
+                                      <span className="h-1.5 w-1.5 rounded-full bg-blue" />
+                                    ) : null}
+                                  </React.Fragment>
+                                );
+                              })}
+                            </div>
 
-                    return <Marker key={item.content._uid} position={center} />;
-                  })}
-                </GoogleMap>
-              </LoadScript>
+                            <div className="mt-10 flex items-center gap-4">
+                              <Button outline href={linkResolver(location)}>
+                                Find out more
+                              </Button>
+
+                              <TextButton
+                                target="_blank"
+                                href={linkResolver(location.content.google_directions)}
+                              >
+                                Get Directions
+                              </TextButton>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+                <div className="sticky top-8">
+                  <LoadScript googleMapsApiKey="AIzaSyCQm4y_CgaoI1XKXJxTpVY3B1EEEC7G4UY">
+                    <GoogleMap
+                      center={{
+                        lat: 53.483601620042315,
+                        lng: -2.2366950875805354,
+                      }}
+                      mapContainerStyle={containerStyle}
+                      zoom={5}
+                    >
+                      {locations.map((item) => {
+                        const center = {
+                          lat: Number(item.content.location_lat),
+                          lng: Number(item.content.location_longitude),
+                        };
+
+                        return <Marker key={item.content._uid} position={center} />;
+                      })}
+                    </GoogleMap>
+                  </LoadScript>
+                </div>
+              </div>
             </div>
           </Container>
         </div>
@@ -84,6 +141,7 @@ export async function getStaticProps({ preview = null }) {
     version: "draft",
     starts_with: "locations",
     is_startpage: 0,
+    resolve_relations: ["location.services"],
   });
 
   const globalDocs = await getGlobalDocs(preview);
