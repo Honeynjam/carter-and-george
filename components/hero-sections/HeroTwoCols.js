@@ -4,6 +4,7 @@ import { linkResolver } from "utils/linkResolver";
 
 import Button from "components/common/Button";
 import Container from "components/common/Container";
+import PostcodeForm from "components/common/PostcodeForm";
 import { Eyebrow, Heading, Subtitle } from "components/common/Typography";
 import StoryblokImage from "components/storyblok/StoryblokImage";
 
@@ -22,9 +23,15 @@ const HeroTwoCols = ({ blok }) => {
                 {blok.subtitle}
               </Subtitle>
               <div className="mt-12">
-                {blok.buttons.map((button) => {
-                  return <Button href={linkResolver(button.link)}>{button.text}</Button>;
-                })}
+                {blok.postcode_cta ? (
+                  <PostcodeForm onWhite />
+                ) : (
+                  <>
+                    {blok.buttons.map((button) => {
+                      return <Button href={linkResolver(button.link)}>{button.text}</Button>;
+                    })}
+                  </>
+                )}
               </div>
             </div>
             <div className="h-full">

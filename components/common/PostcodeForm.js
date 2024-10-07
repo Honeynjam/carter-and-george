@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useRouter } from "next/router";
 
@@ -10,20 +10,32 @@ const PostcodeForm = ({
   className = "",
   hideLabel = false,
   buttonText = "Find your local clinic",
+  onWhite = false,
 }) => {
   const [postcode, setPostcode] = useState("");
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    router.push({ pathname: "/find-your-practice", query: { postcode: postcode } });
+    setLoading(true);
+    router.push({ pathname: "/find-your-practice", query: { postcode: postcode }, shallow: true });
   };
+
+  useEffect(() => {
+    setLoading(false);
+  }, [router.asPath]);
 
   return (
     <div className={cn(className, "max-w-lg")}>
       <form className="w-full" onSubmit={handleSubmit}>
         {!hideLabel ? (
-          <label className="mb-2 block text-left text-smaller text-white">
+          <label
+            className={cn("mb-2 block text-left text-smaller", {
+              "text-gray-tertiary": !onWhite,
+              "text-white": !onWhite,
+            })}
+          >
             Find your local clinic
           </label>
         ) : null}
@@ -33,10 +45,10 @@ const PostcodeForm = ({
             value={postcode}
             onChange={(e) => setPostcode(e.target.value)}
             required
-            className="w-full flex-1 rounded-[1px] border border-stroke-light py-3 text-black"
+            className="w-full flex-1 rounded-[1px] border border-stroke-light py-3 uppercase text-black placeholder:normal-case"
             placeholder="Postcode"
           />
-          <Button color="white">{buttonText}</Button>
+          <Button color={onWhite ? "black" : "white"}>{loading ? "Loading..." : buttonText}</Button>
         </div>
       </form>
     </div>
