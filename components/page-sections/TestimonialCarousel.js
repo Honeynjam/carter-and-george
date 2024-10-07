@@ -49,24 +49,27 @@ const TestimonialCarousel = ({ blok }) => {
         </Heading>
         <div ref={sliderRef} className="keen-slider mt-12 lg:mt-20">
           {blok.testimonials.map((testimonial) => {
-            return (
-              <div
-                key={testimonial.content._uid}
-                className="keen-slider__slide border-l border-stroke-light p-8"
-              >
-                <div className="mb-8 flex items-center gap-1">
-                  <Star size={20} weight="fill" />
-                  <Star size={20} weight="fill" />
-                  <Star size={20} weight="fill" />
-                  <Star size={20} weight="fill" />
-                  <Star size={20} weight="fill" />
+            if (testimonial.content) {
+              return (
+                <div
+                  key={testimonial.content._uid}
+                  className="keen-slider__slide border-l border-stroke-light p-8"
+                >
+                  <div className="mb-8 flex items-center gap-1">
+                    <Star size={20} weight="fill" />
+                    <Star size={20} weight="fill" />
+                    <Star size={20} weight="fill" />
+                    <Star size={20} weight="fill" />
+                    <Star size={20} weight="fill" />
+                  </div>
+                  <div className="mb-8">{testimonial.content.quote}</div>
+                  <div className="text-small text-gray-secondary">
+                    {testimonial.content.person_name}, {testimonial.content.person_position}
+                  </div>
                 </div>
-                <div className="mb-8">{testimonial.content.quote}</div>
-                <div className="text-small text-gray-secondary">
-                  {testimonial.content.person_name}, {testimonial.content.person_position}
-                </div>
-              </div>
-            );
+              );
+            }
+            return null;
           })}
         </div>
         {loaded && instanceRef.current && (

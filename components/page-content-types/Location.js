@@ -3,8 +3,8 @@ import { Check } from "@phosphor-icons/react/dist/ssr/Check";
 import { Clock } from "@phosphor-icons/react/dist/ssr/Clock";
 import { MapPin } from "@phosphor-icons/react/dist/ssr/MapPin";
 import { Phone } from "@phosphor-icons/react/dist/ssr/Phone";
-import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import { StoryblokComponent, storyblokEditable } from "@storyblok/react";
+import { AdvancedMarker, Map, useApiIsLoaded } from "@vis.gl/react-google-maps";
 
 import { linkResolver } from "utils/linkResolver";
 
@@ -15,6 +15,8 @@ import { Eyebrow, Heading, Subtitle } from "components/common/Typography";
 import StoryblokLink from "components/storyblok/StoryblokLink";
 
 export const MapComponent = ({ lat = 53.483601620042315, lng = -2.2366950875805354 }) => {
+  const apiIsLoaded = useApiIsLoaded();
+
   const containerStyle = {
     width: "100%",
     height: "460px",
@@ -26,13 +28,13 @@ export const MapComponent = ({ lat = 53.483601620042315, lng = -2.23669508758053
     lng: lng,
   };
 
-  return (
-    <LoadScript googleMapsApiKey="AIzaSyCQm4y_CgaoI1XKXJxTpVY3B1EEEC7G4UY">
-      <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={15}>
-        <Marker position={center} />
-      </GoogleMap>
-    </LoadScript>
-  );
+  if (apiIsLoaded) {
+    return (
+      <Map style={containerStyle} defaultCenter={center} defaultZoom={15} mapId="DEMO_MAP_ID">
+        <AdvancedMarker position={center} />
+      </Map>
+    );
+  }
 };
 
 const OpeningHour = ({ day, time }) => {

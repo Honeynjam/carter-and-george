@@ -3,19 +3,22 @@ import React from "react";
 import { storyblokEditable } from "@storyblok/react";
 import cn from "classnames";
 
+import { linkResolver } from "utils/linkResolver";
+
 import Button from "components/common/Button";
 import Container from "components/common/Container";
+import PostcodeForm from "components/common/PostcodeForm";
 import { Heading, Subtitle } from "components/common/Typography";
 import StoryblokImage from "components/storyblok/StoryblokImage";
 
 const CtaContained = ({ blok }) => {
   return (
     <section {...storyblokEditable(blok)}>
-      <div className="relative my-side-padding overflow-hidden md:my-xl lg:my-2xl">
+      <div className="section-spacing-m relative overflow-hidden">
         <Container>
           <div
             className={cn(
-              "grid items-center gap-8 overflow-hidden rounded md:grid-cols-2 lg:gap-16",
+              "grid items-center gap-8 overflow-hidden rounded md:grid-cols-2 md:gap-16",
               {
                 "bg-black": blok.background === "dark",
                 "bg-stone": blok.background === "light",
@@ -24,7 +27,7 @@ const CtaContained = ({ blok }) => {
             )}
           >
             <StoryblokImage className="h-full w-full object-cover" image={blok.image} />
-            <div className="relative z-30 max-lg:mb-8 max-lg:px-8 lg:py-8 lg:pr-8">
+            <div className="relative z-30 max-md:mb-8 max-md:px-8 md:py-8 md:pr-8">
               <Heading
                 className="mb-2"
                 color={blok.background === "dark" ? "white" : "black"}
@@ -38,12 +41,19 @@ const CtaContained = ({ blok }) => {
               </Subtitle>
 
               <div className="mt-10">
-                <form className="flex flex-col gap-4 md:flex-row md:items-center" href="#">
-                  <input className="" placeholder="Postcode" />
-                  <Button outline color="white">
-                    Find your local clinic
-                  </Button>
-                </form>
+                {blok.postcode_cta ? (
+                  <PostcodeForm hideLabel />
+                ) : (
+                  <>
+                    {blok.buttons.map((button) => {
+                      return (
+                        <Button color="white" href={linkResolver(button.link)}>
+                          {button.text}
+                        </Button>
+                      );
+                    })}
+                  </>
+                )}
               </div>
             </div>
           </div>

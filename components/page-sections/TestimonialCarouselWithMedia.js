@@ -79,7 +79,7 @@ const TestimonialCarouselWithMedia = ({ blok }) => {
 
         <div ref={sliderRef} className="keen-slider mt-12 lg:mt-20">
           {blok.testimonials.map((testimonial) => {
-            if (testimonial.content.component === "patient_story") {
+            if (testimonial.content?.component === "patient_story") {
               return (
                 <Testimonial
                   key={testimonial.content._uid}
@@ -91,7 +91,7 @@ const TestimonialCarouselWithMedia = ({ blok }) => {
               );
             }
 
-            if (testimonial.content.component === "quote_media") {
+            if (testimonial.content?.component === "quote_media") {
               return (
                 <Testimonial
                   key={testimonial.content._uid}

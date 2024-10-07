@@ -10,7 +10,7 @@ import StoryblokImage from "components/storyblok/StoryblokImage";
 
 const DownloadForm = ({ blok }) => {
   return (
-    <section {...storyblokEditable(blok)} className="bg-black py-side-padding md:py-xl lg:py-2xl">
+    <section {...storyblokEditable(blok)} className="section-spacing-p bg-black">
       <Container>
         <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-20">
           <div className="h-full">

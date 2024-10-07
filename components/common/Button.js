@@ -25,13 +25,13 @@ const Button = ({
   if (href) {
     return (
       <Link className={classNames} href={href} {...props}>
-        <span class="relative inline-flex overflow-hidden">
-          <div class="translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[125%] group-hover:skew-y-6">
+        <span className="relative inline-flex overflow-hidden">
+          <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[125%] group-hover:skew-y-6">
             {children}
           </div>
           <div
             aria-hidden={true}
-            class="absolute translate-y-[125%] skew-y-6 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0"
+            className="absolute translate-y-[125%] skew-y-6 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0"
           >
             {children}
           </div>
@@ -41,13 +41,13 @@ const Button = ({
   } else {
     return (
       <button className={classNames} {...props}>
-        <span class="relative inline-flex overflow-hidden">
-          <div class="translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[125%] group-hover:skew-y-6">
+        <span className="relative inline-flex overflow-hidden">
+          <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[125%] group-hover:skew-y-6">
             {children}
           </div>
           <div
             aria-hidden={true}
-            class="absolute translate-y-[125%] skew-y-6 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0"
+            className="absolute translate-y-[125%] skew-y-6 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0"
           >
             {children}
           </div>

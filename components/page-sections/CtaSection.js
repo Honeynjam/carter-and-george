@@ -2,6 +2,8 @@ import React from "react";
 
 import { storyblokEditable } from "@storyblok/react";
 
+import { linkResolver } from "utils/linkResolver";
+
 import Button from "components/common/Button";
 import Container from "components/common/Container";
 import PostcodeForm from "components/common/PostcodeForm";
@@ -19,7 +21,19 @@ const CtaSection = ({ blok }) => {
             </Heading>
 
             <div className="mt-10">
-              <PostcodeForm hideLabel />
+              {blok.postcode_cta ? (
+                <PostcodeForm hideLabel />
+              ) : (
+                <>
+                  {blok.buttons.map((button) => {
+                    return (
+                      <Button color="white" href={linkResolver(button.link)}>
+                        {button.text}
+                      </Button>
+                    );
+                  })}
+                </>
+              )}
             </div>
           </div>
         </Container>
