@@ -5,7 +5,7 @@ import { useGlobalContext } from "contexts/globalContext";
 import Button from "components/common/Button";
 
 const Newsletter = ({ className }) => {
-  const global = useGlobalContext();
+  const { global, locations } = useGlobalContext();
 
   return (
     <div
@@ -22,8 +22,23 @@ const Newsletter = ({ className }) => {
         <h3 className="text-medium font-medium">Subscribe to our newsletter</h3>
         {/* TODO - hook to mailchimp */}
         <form className="my-4 flex w-full flex-col gap-4 xl:flex-row xl:items-center">
-          <input className="py-3 xl:w-1/3" type="email" placeholder="Enter your email" />
-          <input className="py-3 xl:w-1/3" type="text" placeholder="Your local Practice" />
+          <input
+            required
+            className="rounded-[1px] py-3 xl:w-1/3"
+            type="email"
+            placeholder="Enter your email"
+          />
+          <select
+            className="rounded-[1px] py-3 text-black xl:w-1/3"
+            placeholder="Your local Practice"
+          >
+            <option value="">Your local Practice</option>
+            {locations.map((location) => (
+              <option key={location} value={location}>
+                {location}
+              </option>
+            ))}
+          </select>
           <Button>Subscribe</Button>
         </form>
         <p className="text-smaller text-gray-secondary">

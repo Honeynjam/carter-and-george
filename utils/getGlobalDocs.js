@@ -13,7 +13,16 @@ const getGlobalDocs = async (preview = false) => {
 
   const globalSettings = globalDocs.stories.find((story) => story.slug === "global-settings");
 
-  return { navbar, footer, globalSettings };
+  const { data: locationsData } = await storyblokApi.get("cdn/stories/", {
+    // version: preview ? "draft" : "published",
+    version: "draft",
+    starts_with: "locations",
+    is_startpage: 0,
+  });
+
+  const locations = locationsData.stories.map((location) => location.content.clinic_name);
+
+  return { navbar, footer, globalSettings, locations };
 };
 
 export default getGlobalDocs;

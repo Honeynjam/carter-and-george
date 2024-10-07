@@ -4,7 +4,7 @@ import Container from "components/common/Container";
 import StoryblokLink from "components/storyblok/StoryblokLink";
 
 const AnnouncementBanner = () => {
-  const global = useGlobalContext();
+  const { global } = useGlobalContext();
 
   if (global.banner_active) {
     return (
