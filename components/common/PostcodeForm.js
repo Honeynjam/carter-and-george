@@ -6,7 +6,11 @@ import cn from "classnames";
 
 import Button from "./Button";
 
-const PostcodeForm = ({ className = "" }) => {
+const PostcodeForm = ({
+  className = "",
+  hideLabel = false,
+  buttonText = "Find your local clinic",
+}) => {
   const [postcode, setPostcode] = useState("");
   const router = useRouter();
 
@@ -18,18 +22,21 @@ const PostcodeForm = ({ className = "" }) => {
   return (
     <div className={cn(className, "max-w-lg")}>
       <form className="w-full" onSubmit={handleSubmit}>
-        <label className="mb-2 block text-left text-smaller text-white">
-          Find your local clinic
-        </label>
+        {!hideLabel ? (
+          <label className="mb-2 block text-left text-smaller text-white">
+            Find your local clinic
+          </label>
+        ) : null}
+
         <div className="flex flex-col gap-4 md:flex-row md:items-center">
           <input
             value={postcode}
             onChange={(e) => setPostcode(e.target.value)}
             required
-            className="w-full flex-1 py-3 text-black"
+            className="w-full flex-1 rounded-[1px] border border-stroke-light py-3 text-black"
             placeholder="Postcode"
           />
-          <Button color="white">Search</Button>
+          <Button color="white">{buttonText}</Button>
         </div>
       </form>
     </div>

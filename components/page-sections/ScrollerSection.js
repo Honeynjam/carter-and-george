@@ -101,10 +101,10 @@ const ScrollerSection = ({ blok }) => {
                   0{idx + 1}
                 </span>
                 <Heading className="mb-2" color="white" size="xl">
-                  {blok.title}
+                  {card.title}
                 </Heading>
                 <Subtitle alternate color="grey">
-                  {blok.subtitle}
+                  {card.subtitle}
                 </Subtitle>
               </div>
             );

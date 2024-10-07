@@ -85,7 +85,8 @@ const ServiceCards = ({ blok }) => {
     ]
   );
 
-  const isCarousel = blok.variation === "carousel";
+  const isCarousel = blok.cards.length > 3;
+
   return (
     <section
       {...storyblokEditable(blok)}

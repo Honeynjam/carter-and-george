@@ -43,7 +43,14 @@ const Hero = ({
                 {subtitle}
               </Subtitle>
             </div>
-            {postcodeCta ? <PostcodeForm className="mx-auto mt-12 flex justify-center" /> : null}
+            {postcodeCta ? (
+              <PostcodeForm
+                className={cn("mt-12", {
+                  "mx-auto flex justify-center": align === "center",
+                })}
+                buttonText="Search"
+              />
+            ) : null}
           </Container>
         </div>
         <div>

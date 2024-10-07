@@ -14,8 +14,10 @@ const Button = ({
     "rounded-[1px] group justify-center text-button inline-flex items-center gap-2.5 py-3 px-6 font-medium font-petite-caps duration-150",
     className,
     {
-      "text-white bg-black hover:bg-black/90": color === "black" && !outline,
-      "text-black bg-white hover:bg-white/90": color === "white" && !outline,
+      "text-white bg-black border border-transparent hover:bg-black/90":
+        color === "black" && !outline,
+      "text-black bg-white border border-transparent hover:bg-white/90":
+        color === "white" && !outline,
       "text-black bg-transparent border border-black": outline && color === "black",
       "text-white bg-transparent border border-white": outline && color === "white",
     }
