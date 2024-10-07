@@ -24,7 +24,7 @@ const TeamMember = ({ blok, location }) => {
         <div className="absolute -right-10 -top-10 rounded bg-black p-2.5 opacity-0 duration-200 ease-out group-hover:right-4 group-hover:top-4 group-hover:opacity-100">
           <ArrowUpRight className="text-white" weight="bold" />
         </div>
-        <StoryblokImage image={blok.image} />
+        <StoryblokImage className="aspect-square object-cover object-center" image={blok.image} />
         <div className="bg-stone p-4">
           <Heading level={3} size="medium">
             {blok.name}
@@ -58,20 +58,25 @@ const TeamMember = ({ blok, location }) => {
                       <span>{location?.clinic_name}</span>
                     </span>
                   </div>
-                  <Hr className="mb-4 mt-6" />
-                  <Eyebrow className="!mb-2" text="specialities" />
-                  <div className="mb-2 flex flex-wrap items-center gap-2">
-                    {blok.specialities.map((item, idx) => {
-                      return (
-                        <React.Fragment key={item._uid}>
-                          <span>{item.name}</span>
-                          {idx < blok.specialities.length - 1 ? (
-                            <span className="h-1.5 w-1.5 rounded-full bg-stroke-light" />
-                          ) : null}
-                        </React.Fragment>
-                      );
-                    })}
-                  </div>
+                  {blok.services?.length > 0 ? (
+                    <>
+                      <Hr className="mb-4 mt-6" />
+                      <Eyebrow className="!mb-2" text="services" />
+                      <div className="mb-2 flex flex-wrap items-center gap-2">
+                        {blok.services?.map((item, idx) => {
+                          return (
+                            <React.Fragment key={item._uid}>
+                              <span>{item.name}</span>
+                              {idx < blok.services.length - 1 ? (
+                                <span className="h-1.5 w-1.5 rounded-full bg-stroke-light" />
+                              ) : null}
+                            </React.Fragment>
+                          );
+                        })}
+                      </div>
+                    </>
+                  ) : null}
+
                   <Hr className="mb-8 mt-4" />
                   <div className="prose">{render(blok.description)}</div>
                 </div>
