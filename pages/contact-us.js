@@ -1,5 +1,5 @@
 import { EnvelopeSimple, Phone } from "@phosphor-icons/react";
-import { StoryblokComponent, getStoryblokApi, useStoryblokState } from "@storyblok/react";
+import { getStoryblokApi, useStoryblokState } from "@storyblok/react";
 
 import { determineNavbarType } from "utils/determineNavbarType";
 import getGlobalDocs from "utils/getGlobalDocs";

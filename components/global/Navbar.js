@@ -13,6 +13,7 @@ import { linkResolver } from "utils/linkResolver";
 
 import Button from "components/common/Button";
 import Container from "components/common/Container";
+import StoryblokLink from "components/storyblok/StoryblokLink";
 
 const Navbar = ({ type = "blur", data }) => {
   const secondaryButton = data.content.buttons[0];
@@ -51,9 +52,13 @@ const Navbar = ({ type = "blur", data }) => {
                     return <DesktopNavbarDropdown key={item._uid} blok={item} />;
                   }
                   return (
-                    <div key={item.text} className="font-petite-caps text-button font-medium">
+                    <StoryblokLink
+                      link={item.link}
+                      key={item.text}
+                      className="font-petite-caps text-button font-medium hover:underline"
+                    >
                       {item.text}
-                    </div>
+                    </StoryblokLink>
                   );
                 })}
               </div>
@@ -61,7 +66,7 @@ const Navbar = ({ type = "blur", data }) => {
                 <Button
                   outline
                   color={type === "white" ? "black" : "white"}
-                  href={linkResolver(primaryButton.link)}
+                  href={linkResolver(secondaryButton.link)}
                 >
                   {secondaryButton.text}
                 </Button>

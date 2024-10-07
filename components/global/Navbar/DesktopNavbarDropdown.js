@@ -96,18 +96,18 @@ export const DesktopNavbarDropdown = ({ blok }) => {
                             return (
                               <div key={column.id}>
                                 <StoryblokLink
-                                  className="font-petite-caps mb-6 flex items-center gap-2 text-button font-medium text-[#6E6E6E]"
+                                  className="font-petite-caps group mb-6 flex items-center gap-2 text-button font-medium text-[#6E6E6E]"
                                   link={column.link}
                                 >
                                   <span>{column.name}</span>
-                                  <ArrowRight />
+                                  <ArrowRight className="duration-150 ease-in-out group-hover:translate-x-0.5" />
                                 </StoryblokLink>
                                 <div className="grid grid-cols-1 gap-4">
                                   {column.links.map((item) => {
                                     return (
                                       <div key={item._uid}>
                                         <StoryblokLink
-                                          className="mb-2.5 text-small font-medium"
+                                          className="mb-2.5 text-small font-medium hover:underline"
                                           link={item.link}
                                         >
                                           {item.text}
