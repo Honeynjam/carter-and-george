@@ -17,12 +17,12 @@ const Footer = ({ data }) => {
   return (
     <footer className="bg-black px-6 py-8 md:p-16">
       {/* Newsletter */}
-      <div className="flex flex-col gap-8 py-8 text-white md:flex-row md:gap-24">
+      <div className="flex flex-col justify-between gap-8 py-8 text-white md:flex-row md:gap-24">
         <div className="max-w-md">
           <h2 className="mb-2 text-xl font-semibold">{global.newsletter_title}</h2>
           <p className="text-small text-gray-secondary-alternate">{global.newsletter_subtitle}</p>
         </div>
-        <div className="flex-1">
+        <div className="">
           <h3 className="mb-4 font-semibold text-white">Subscribe to our newsletter</h3>
           <form className="my-4 flex w-full flex-col gap-4 md:flex-row md:items-center">
             <input
