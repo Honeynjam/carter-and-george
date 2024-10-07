@@ -11,7 +11,7 @@ import { FaqItem } from "components/page-content-types/FaqPage";
 
 const FaqSection = ({ blok }) => {
   return (
-    <section {...storyblokEditable(blok)} className="my-xl lg:my-2xl">
+    <section {...storyblokEditable(blok)} className="section-spacing-m">
       <Container>
         <div className="grid gap-8 lg:grid-cols-10 lg:gap-20">
           <div className="lg:col-span-4">

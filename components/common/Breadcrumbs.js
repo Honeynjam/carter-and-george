@@ -5,7 +5,7 @@ import cn from "classnames";
 
 import { truncate } from "utils/truncate";
 
-const Breadcrumbs = ({ data }) => {
+const Breadcrumbs = ({ data, highlightCurrent = false }) => {
   return (
     <>
       <nav className="hidden md:flex" aria-label="Breadcrumb">
@@ -14,7 +14,8 @@ const Breadcrumbs = ({ data }) => {
             <li key={page.name}>
               <div
                 className={cn("flex items-center font-medium", {
-                  "text-gray-primary": page.current,
+                  "text-gray-primary": page.current && !highlightCurrent,
+                  "text-blue": page.current && highlightCurrent,
                   "text-gray-primary/50": !page.current,
                 })}
               >

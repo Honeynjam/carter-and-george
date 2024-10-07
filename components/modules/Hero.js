@@ -13,6 +13,7 @@ const Hero = ({
   subtitle,
   image,
   align = "left",
+  eyebrowColor = "blue",
   postcodeCta = false,
 }) => {
   return (
@@ -35,7 +36,7 @@ const Hero = ({
                 </div>
               ) : null}
 
-              <Eyebrow className="mb-4" text={eyebrow} />
+              <Eyebrow color={eyebrowColor} className="mb-4" text={eyebrow} />
               <Heading className="mb-4" level={1} size="4xl">
                 {title}
               </Heading>

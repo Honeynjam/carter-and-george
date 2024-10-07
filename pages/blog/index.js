@@ -1,4 +1,5 @@
 import { getStoryblokApi, useStoryblokState } from "@storyblok/react";
+import cn from "classnames";
 
 import getGlobalDocs from "utils/getGlobalDocs";
 import { linkResolver } from "utils/linkResolver";
@@ -8,6 +9,7 @@ import BlogCard from "components/blog/BlogCard";
 import BlogGrid from "components/blog/BlogGrid";
 import Newsletter from "components/blog/Newsletter";
 import Container from "components/common/Container";
+import { Heading } from "components/common/Typography";
 import Layout from "components/global/Layout";
 import Hero from "components/modules/Hero";
 
@@ -26,6 +28,7 @@ export default function BlogFolder({ story, articles, categories, globalDocs, pr
       />
       <Layout {...globalDocs} preview={preview}>
         <Hero
+          eyebrowColor="white"
           eyebrow="Blog"
           title={story.content.title}
           subtitle={story.content.subtitle}
@@ -33,16 +36,21 @@ export default function BlogFolder({ story, articles, categories, globalDocs, pr
         />
         <Container>
           <div className="my-20">
-            <div className="grid gap-6 lg:grid-cols-2">
-              <div>
-                <BlogCard data={story.content.featured_articles[0]} />
+            <h2 className="mb-4 text-lg font-semibold">Featured articles</h2>
+            <hr className="mb-10 text-stroke-light" />
+            <div className="grid items-start gap-6 lg:grid-cols-2">
+              <div className="lg:sticky lg:top-6">
+                <BlogCard size="large" data={story.content.featured_articles[0]} />
               </div>
               <div className="grid grid-cols-1 gap-8 lg:border-l lg:border-stroke-light lg:pl-6">
-                {story.content.featured_articles.slice(1, 4).map((article) => {
+                {story.content.featured_articles.slice(1, 4).map((article, idx) => {
                   return (
                     <BlogCard
                       layout="horizontal"
-                      className="border-b border-stroke-light pb-6"
+                      className={cn("", {
+                        "border-b border-stroke-light pb-6":
+                          idx < story.content.featured_articles.slice(1, 4).length - 1,
+                      })}
                       key={article.uuid}
                       data={article}
                     />
@@ -66,7 +74,7 @@ export default function BlogFolder({ story, articles, categories, globalDocs, pr
                 .slice(0, 3);
               return (
                 <BlogGrid
-                  className="my-2xl"
+                  className="section-spacing-m"
                   key={category.id}
                   data={categoryArticles}
                   headerData={{

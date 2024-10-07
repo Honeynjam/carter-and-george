@@ -6,7 +6,7 @@ const Badge = ({ className, children }) => {
   return (
     <span
       className={cn(
-        "text-gray-primary bg-stone text-eyebrow inline-block rounded-full px-2 py-1 text-xs font-semibold tracking-wide",
+        "text-xs font-petite-caps inline-block rounded-[1px] bg-stone px-2 py-1 text-eyebrow font-semibold tracking-wide text-gray-primary",
         className
       )}
     >

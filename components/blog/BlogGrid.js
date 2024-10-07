@@ -7,12 +7,12 @@ import BlogCard from "./BlogCard";
 import Button from "components/common/Button";
 import { Heading, Subtitle } from "components/common/Typography";
 
-export default function BlogGrid({ className, data = [], headerData = {} }) {
+export default function BlogGrid({ className = "", data = [], headerData = {} }) {
   return (
-    <div className={cn(className)}>
+    <div className={className}>
       {/* Header */}
       {headerData.title ? (
-        <div className="mb-12 md:mb-20">
+        <div className="mb-8 md:mb-12">
           <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
             <div>
               <Heading className="mb-2" size="3xl" level={2}>

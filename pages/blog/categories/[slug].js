@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { getStoryblokApi, useStoryblokState } from "@storyblok/react";
+import cn from "classnames";
 
 import getGlobalDocs from "utils/getGlobalDocs";
 import { linkResolver } from "utils/linkResolver";
@@ -31,6 +32,7 @@ export default function BlogFolder({ story, articles, categories, globalDocs, pr
         <Container>
           <div className="my-20">
             <Breadcrumbs
+              highlightCurrent
               data={[
                 { name: "Blog", href: "/blog" },
                 { name: story.content.name, current: true },
@@ -39,16 +41,21 @@ export default function BlogFolder({ story, articles, categories, globalDocs, pr
             <h1 className="mt-4 text-4xl font-semibold">{story.content.name}</h1>
           </div>
           <div className="mt-20 flex items-center gap-4 border-b border-stroke-light pb-4">
-            <Link href="/blog" className="text-small text-opacity-50">
+            <Link href="/blog" className="text-small opacity-50 duration-100 hover:opacity-100">
               View all
             </Link>
             {categories.map((category) => (
               <Link
                 href={linkResolver(category)}
                 key={category.id}
-                className="text-small text-opacity-50"
+                className={cn("relative text-small", {
+                  "opacity-50 duration-100 hover:opacity-100": category.uuid !== story.uuid,
+                })}
               >
-                {category.content.name}
+                <span>{category.content.name}</span>
+                {category.uuid === story.uuid ? (
+                  <span className="absolute bottom-[-17px] left-0 h-px w-full bg-black"></span>
+                ) : null}
               </Link>
             ))}
           </div>

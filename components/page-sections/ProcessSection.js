@@ -11,7 +11,7 @@ import StoryblokImage from "components/storyblok/StoryblokImage";
 const ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false });
 const VideoSection = ({ blok }) => {
   return (
-    <section {...storyblokEditable(blok)} className="bg-stone py-2xl">
+    <section {...storyblokEditable(blok)} className="section-spacing-p bg-stone">
       <Container>
         <div className="mb-12">
           <Eyebrow className="mb-6" text={blok.eyebrow} />
@@ -19,7 +19,7 @@ const VideoSection = ({ blok }) => {
             {blok.title}
           </Heading>
         </div>
-        <div className="grid grid-cols-4 gap-8">
+        <div className="grid gap-6 md:grid-cols-3 lg:grid-cols-5">
           {blok.items.map((item) => {
             return (
               <div key={item._uid}>

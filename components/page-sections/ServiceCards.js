@@ -41,8 +41,16 @@ const ServiceCards = ({ blok }) => {
   const [sliderRef, instanceRef] = useKeenSlider(
     {
       slides: {
-        perView: 3.6,
+        perView: 1.2,
         spacing: 32,
+      },
+      breakpoints: {
+        "(min-width: 1080px)": {
+          slides: {
+            perView: 3.6,
+            spacing: 32,
+          },
+        },
       },
 
       slideChanged(slider) {

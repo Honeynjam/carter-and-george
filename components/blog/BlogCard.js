@@ -5,11 +5,17 @@ import Badge from "components/common/Badge";
 import StoryblokImage from "components/storyblok/StoryblokImage";
 import StoryblokLink from "components/storyblok/StoryblokLink";
 
-const BlogCard = ({ layout = "vertical", className = "", hideImage = false, data }) => {
+const BlogCard = ({
+  layout = "vertical",
+  className = "",
+  hideImage = false,
+  data,
+  size = "normal",
+}) => {
   return (
     <StoryblokLink
       link={data}
-      className={cn(className, "grid gap-6 hover:brightness-95", {
+      className={cn(className, "grid h-full gap-6 hover:brightness-95", {
         "grid-cols-2": layout === "horizontal",
         "grid-cols-1": layout === "vertical",
       })}
@@ -18,13 +24,15 @@ const BlogCard = ({ layout = "vertical", className = "", hideImage = false, data
         <StoryblokImage
           className={cn("h-full object-cover", {
             "aspect-square": layout === "horizontal",
-            "aspect-[16/9]": layout === "vertical",
+            "aspect-[16/9] h-[234px]": layout === "vertical",
+            "h-[234px]": size === "normal",
+            "h-[362px]": size === "large",
           })}
           image={data.content.image}
         />
       ) : null}
 
-      <div className="flex flex-col justify-between">
+      <div className="flex flex-1 flex-col justify-between">
         <div>
           <div className="mb-4 flex items-center gap-4">
             {data.content.category?.content?.name ? (
