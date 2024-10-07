@@ -1,4 +1,4 @@
-import { CaretRight } from "@phosphor-icons/react/dist/ssr/CaretRight  ";
+import { CaretRight } from "@phosphor-icons/react/dist/ssr/CaretRight";
 import { StoryblokComponent, storyblokEditable } from "@storyblok/react";
 import { render } from "storyblok-rich-text-react-renderer";
 
