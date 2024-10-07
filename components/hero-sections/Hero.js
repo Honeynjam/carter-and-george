@@ -10,6 +10,8 @@ const HeroBlok = ({ blok }) => {
         title={blok.title}
         subtitle={blok.subtitle}
         image={blok.bg_image}
+        align={blok.align}
+        postcodeCta={blok.postcode_cta}
       />
     </section>
   );

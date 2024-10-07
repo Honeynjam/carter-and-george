@@ -34,13 +34,22 @@ const Button = ({
             {children}
           </div>
         </span>
-        {/* {children} */}
       </Link>
     );
   } else {
     return (
       <button className={classNames} {...props}>
-        {children}
+        <span class="relative inline-flex overflow-hidden">
+          <div class="translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[125%] group-hover:skew-y-6">
+            {children}
+          </div>
+          <div
+            aria-hidden={true}
+            class="absolute translate-y-[125%] skew-y-6 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0"
+          >
+            {children}
+          </div>
+        </span>
       </button>
     );
   }

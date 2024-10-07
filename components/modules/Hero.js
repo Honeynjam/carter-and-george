@@ -1,17 +1,36 @@
+import cn from "classnames";
+
 import GoogleRating from "components/base/GoogleRating";
 import Container from "components/common/Container";
+import PostcodeForm from "components/common/PostcodeForm";
 import { Eyebrow, Heading, Subtitle } from "components/common/Typography";
 import StoryblokImage from "components/storyblok/StoryblokImage";
 
-const Hero = ({ socialProof = false, eyebrow, title, subtitle, image }) => {
+const Hero = ({
+  socialProof = false,
+  eyebrow,
+  title,
+  subtitle,
+  image,
+  align = "left",
+  postcodeCta = false,
+}) => {
   return (
-    <div className="relative z-10 mt-[-103px]">
+    <div className="relative z-10 mt-[-103px] md:min-h-screen">
       <div className="pt-[103px]">
         <div className="relative z-20 py-xl md:py-2xl lg:py-3xl">
           <Container className="text-white">
-            <div className="max-w-3xl">
+            <div
+              className={cn("max-w-3xl", {
+                "mx-auto text-center": align === "center",
+              })}
+            >
               {socialProof ? (
-                <div className="mb-8">
+                <div
+                  className={cn("mb-8", {
+                    "flex justify-center": align === "center",
+                  })}
+                >
                   <GoogleRating color="white" />
                 </div>
               ) : null}
@@ -24,6 +43,7 @@ const Hero = ({ socialProof = false, eyebrow, title, subtitle, image }) => {
                 {subtitle}
               </Subtitle>
             </div>
+            {postcodeCta ? <PostcodeForm className="mx-auto mt-12 flex justify-center" /> : null}
           </Container>
         </div>
         <div>
