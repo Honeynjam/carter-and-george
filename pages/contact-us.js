@@ -1,5 +1,5 @@
 import { EnvelopeSimple, Phone } from "@phosphor-icons/react";
-import { getStoryblokApi, useStoryblokState } from "@storyblok/react";
+import { getStoryblokApi, storyblokEditable, useStoryblokState } from "@storyblok/react";
 
 import { determineNavbarType } from "utils/determineNavbarType";
 import getGlobalDocs from "utils/getGlobalDocs";
@@ -23,7 +23,7 @@ export default function Home({ preview, story, globalDocs }) {
         socialImage={story.content.seo_og_image}
       />
       <Layout navbarType={determineNavbarType(story)} {...globalDocs} preview={preview}>
-        <div className="section-spacing-m">
+        <div {...storyblokEditable(story)} className="section-spacing-m">
           <Container>
             <div className="grid gap-12 md:grid-cols-12 md:gap-20">
               <div className="md:col-span-7">
