@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import { getStoryblokApi, useStoryblokState } from "@storyblok/react";
 import cn from "classnames";
@@ -11,10 +12,12 @@ import BlogGrid from "components/blog/BlogGrid";
 import Newsletter from "components/blog/Newsletter";
 import Breadcrumbs from "components/common/Breadcrumbs";
 import Container from "components/common/Container";
+import { Heading } from "components/common/Typography";
 import Layout from "components/global/Layout";
 
 export default function BlogFolder({ story, articles, categories, globalDocs, preview }) {
   story = useStoryblokState(story);
+  const router = useRouter();
   const featuredArticles = articles.slice(0, 6);
   const otherArticles = articles.slice(6);
 
@@ -30,7 +33,7 @@ export default function BlogFolder({ story, articles, categories, globalDocs, pr
       />
       <Layout navbarType="white" {...globalDocs} preview={preview}>
         <Container>
-          <div className="my-20">
+          <div className="mt-12 lg:my-20">
             <Breadcrumbs
               highlightCurrent
               data={[
@@ -38,9 +41,36 @@ export default function BlogFolder({ story, articles, categories, globalDocs, pr
                 { name: story.content.name, current: true },
               ]}
             />
-            <h1 className="mt-4 text-4xl font-semibold">{story.content.name}</h1>
+            <Heading level={1} size="4xl" className="lg:mt-4">
+              {story.content.name}
+            </Heading>
           </div>
-          <div className="mt-20 flex items-center gap-4 border-b border-stroke-light pb-4">
+          <div className="mt-8 lg:hidden">
+            <label
+              htmlFor="Categories"
+              className="text-sm text-gray-900 sr-only block font-medium leading-6"
+            >
+              Categories
+            </label>
+            <select
+              id="Categories"
+              name="Categories"
+              onChange={(e) => router.push({ pathname: e.target.value })}
+              className="rounded-md text-gray-900 ring-gray-300 focus:ring-indigo-600 sm:text-sm mt-2 block w-full border-0 py-1.5 pl-3 pr-10 ring-1 ring-inset focus:ring-2 sm:leading-6"
+            >
+              <option value="/blog">View all</option>
+              {categories.map((category) => (
+                <option
+                  value={linkResolver(category)}
+                  key={category.uuid}
+                  selected={category.uuid === story.uuid}
+                >
+                  {category.content.name}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="mt-20 hidden items-center gap-4 border-b border-stroke-light pb-4 lg:flex">
             <Link href="/blog" className="text-small opacity-50 duration-100 hover:opacity-100">
               View all
             </Link>
