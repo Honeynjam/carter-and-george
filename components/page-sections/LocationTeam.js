@@ -28,7 +28,7 @@ const TeamMember = ({ blok, location }) => {
         <div className="absolute -right-10 -top-10 rounded bg-black p-2.5 opacity-0 duration-200 ease-out group-hover:right-4 group-hover:top-4 group-hover:opacity-100">
           <ArrowUpRight className="text-white" weight="bold" />
         </div>
-        <StoryblokImage className="aspect-square object-cover object-center" image={blok.image} />
+        <StoryblokImage className="aspect-square object-cover object-top" image={blok.image} />
         <div className="bg-stone p-4">
           <Heading level={3} size="medium">
             {blok.name}
