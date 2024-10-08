@@ -12,12 +12,14 @@ import Layout from "components/global/Layout";
 import StoryblokImage from "components/storyblok/StoryblokImage";
 import StoryblokLink from "components/storyblok/StoryblokLink";
 
+// TODO - order based on first published date
 export default function PatientStoriesFolder({
   story,
   patientStories,
   quotes,
   globalDocs,
   preview,
+  quotesMedia,
 }) {
   story = useStoryblokState(story);
 
@@ -52,7 +54,7 @@ export default function PatientStoriesFolder({
                 return (
                   <StoryblokLink
                     link={story}
-                    className="mb-10 block border-b border-stroke-light pb-12"
+                    className="mb-10 block break-inside-avoid border-b border-stroke-light pb-12"
                     key={story.id}
                   >
                     <div className="relative">
@@ -60,7 +62,7 @@ export default function PatientStoriesFolder({
                         <ArrowUpRight className="h-4 w-4" />
                       </div>
                       <StoryblokImage
-                        className="relative mb-12 aspect-[16/9] rounded"
+                        className="relative mb-12 aspect-[16/9] rounded object-cover"
                         image={story.content.image}
                       />
                     </div>
@@ -79,9 +81,35 @@ export default function PatientStoriesFolder({
                 );
               })}
 
+              {quotesMedia.map((quote) => {
+                return (
+                  <div
+                    className="mb-10 block break-inside-avoid border-b border-stroke-light pb-12"
+                    key={quote.id}
+                  >
+                    <div className="relative">
+                      <StoryblokImage
+                        className="relative mb-12 aspect-[16/9] rounded object-cover"
+                        image={quote.content.image}
+                      />
+                    </div>
+
+                    <div>
+                      <p className="my-8">{quote.content.quote}</p>
+                      <div className="text-small">
+                        <p className="font-semibold">{quote.content.person}</p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+
               {quotes.map((quote) => {
                 return (
-                  <div className="mb-10 border-b border-stroke-light pb-12" key={quote.id}>
+                  <div
+                    className="mb-10 break-inside-avoid border-b border-stroke-light pb-12"
+                    key={quote.id}
+                  >
                     <svg
                       width="116"
                       height="19"
@@ -168,6 +196,13 @@ export async function getStaticProps({ preview = null }) {
     is_startpage: 0,
   });
 
+  const { data: quoteMedia } = await storyblokApi.get("cdn/stories/", {
+    // version: preview ? "draft" : "published",
+    version: "draft",
+    starts_with: "patient-stories/quotes-media",
+    is_startpage: 0,
+  });
+
   const globalDocs = await getGlobalDocs(preview);
 
   return {
@@ -176,6 +211,7 @@ export async function getStaticProps({ preview = null }) {
       globalDocs,
       patientStories: patientStoriesData.stories,
       quotes: quotesData.stories,
+      quotesMedia: quoteMedia.stories,
       key: data ? data.story.id : false,
       preview,
     },

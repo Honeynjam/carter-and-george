@@ -41,7 +41,7 @@ const ImageBulletList = ({ blok }) => {
             </div>
             <div
               className={cn({
-                "grid grid-cols-1 gap-x-12 gap-y-8 lg:grid-cols-2": blok.bullet_columns === "two",
+                "grid grid-cols-1 gap-x-12 gap-y-4 lg:grid-cols-2": blok.bullet_columns === "two",
               })}
             >
               {blok.bullet_list.map((item) => {
@@ -53,7 +53,7 @@ const ImageBulletList = ({ blok }) => {
                       className={cn("flex items-center gap-4 md:text-md", {
                         "text-white": blok.background === "dark",
                         "text-black": blok.background === "light",
-                        "py-4 md:py-6 lg:py-8": blok.bullet_columns === "one",
+                        "py-3 lg:pb-8 lg:pt-4": blok.bullet_columns === "one",
                         "border-t border-stroke-dark":
                           blok.background === "dark" && blok.bullet_columns === "one",
                         "border-t border-stroke-light":

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { StoryblokComponent, storyblokEditable } from "@storyblok/react";
 
 import BlogCard from "components/blog/BlogCard";
@@ -6,6 +8,7 @@ import Breadcrumbs from "components/common/Breadcrumbs";
 import Container from "components/common/Container";
 import { Heading } from "components/common/Typography";
 import StoryblokImage from "components/storyblok/StoryblokImage";
+import StoryblokLink from "components/storyblok/StoryblokLink";
 
 const PatientStory = ({ articles = [], blok }) => (
   <div {...storyblokEditable(blok)} key={blok._uid}>
@@ -41,7 +44,10 @@ const PatientStory = ({ articles = [], blok }) => (
             </div>
             <div className="order-1 md:order-2 md:col-span-9 md:border-l md:border-stroke-light md:pl-12">
               <div className="mb-2 flex items-center gap-4 lg:mb-7">
-                <Badge className="">{blok.category?.content?.name}</Badge>
+                <StoryblokLink link={blok.category} className="duration-75 hover:brightness-95">
+                  <Badge>{blok.category?.content?.name}</Badge>
+                </StoryblokLink>
+
                 <span className="text-smaller font-semibold">{blok.read_time} min read</span>
               </div>
               <Heading className="mb-5 lg:mb-12" size="3xl" level={1}>
