@@ -11,10 +11,10 @@ import StoryblokImage from "components/storyblok/StoryblokImage";
 const HeroTwoCols = ({ blok }) => {
   return (
     <section {...storyblokEditable(blok)}>
-      <div className="my-12 lg:my-20">
+      <div className="my-12 md:my-20">
         <Container>
-          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-20">
-            <div className="lg:py-2xl">
+          <div className="grid items-center gap-10 md:grid-cols-2 md:gap-12 lg:gap-20">
+            <div>
               <Eyebrow text={blok.eyebrow} />
               <Heading className="mb-2" size="3xl" level={1}>
                 {blok.title}
@@ -22,20 +22,27 @@ const HeroTwoCols = ({ blok }) => {
               <Subtitle size="medium" color="grey">
                 {blok.subtitle}
               </Subtitle>
-              <div className="mt-12">
+              <div className="mt-6 md:mt-8 lg:mt-12">
                 {blok.postcode_cta ? (
                   <PostcodeForm onWhite />
                 ) : (
                   <>
                     {blok.buttons.map((button) => {
-                      return <Button href={linkResolver(button.link)}>{button.text}</Button>;
+                      return (
+                        <Button key={button._uid} href={linkResolver(button.link)}>
+                          {button.text}
+                        </Button>
+                      );
                     })}
                   </>
                 )}
               </div>
             </div>
-            <div className="h-full">
-              <StoryblokImage className="h-full w-full rounded object-cover" image={blok.image} />
+            <div className="">
+              <StoryblokImage
+                className="h-full w-full rounded object-cover md:aspect-square"
+                image={blok.image}
+              />
             </div>
           </div>
         </Container>

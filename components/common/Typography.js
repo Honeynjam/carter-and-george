@@ -56,7 +56,7 @@ export const Subtitle = ({
         "text-white": color === "white",
         "text-gray-secondary-alternate": color === "grey" && alternate,
         "text-small": size === "small",
-        "text-md": size === "medium",
+        "lg:text-md": size === "medium",
       })}
     >
       {children}
