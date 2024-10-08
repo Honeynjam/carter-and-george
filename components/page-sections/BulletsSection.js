@@ -21,7 +21,11 @@ const BulletsSection = ({ blok }) => {
             <Subtitle color="grey">{blok.subtitle}</Subtitle>
             <div className="mt-6 lg:mt-12">
               {blok.buttons.map((button) => {
-                return <Button href={linkResolver(button.link)}>{button.text}</Button>;
+                return (
+                  <Button key={button._uid} href={linkResolver(button.link)}>
+                    {button.text}
+                  </Button>
+                );
               })}
             </div>
           </div>

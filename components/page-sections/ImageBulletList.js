@@ -18,8 +18,13 @@ const ImageBulletList = ({ blok }) => {
       {...storyblokEditable(blok)}
     >
       <Container>
-        <div className="grid gap-medium lg:grid-cols-12 lg:gap-xl">
-          <div className="lg:col-span-7 lg:py-xl">
+        <div className="grid items-center gap-medium lg:grid-cols-12 lg:gap-xl">
+          <div
+            className={cn("lg:col-span-7 lg:py-xl", {
+              "order-1 lg:order-2": blok.image_position === "left",
+              "order-1 lg:order-1": blok.image_position === "right",
+            })}
+          >
             <div className="mb-12 max-w-xl">
               <Eyebrow text={blok.eyebrow} />
               <Heading
@@ -34,20 +39,26 @@ const ImageBulletList = ({ blok }) => {
                 {blok.subtitle}
               </Subtitle>
             </div>
-            <div>
+            <div
+              className={cn({
+                "grid grid-cols-1 gap-x-12 gap-y-8 lg:grid-cols-2": blok.bullet_columns === "two",
+              })}
+            >
               {blok.bullet_list.map((item) => {
                 if (item.text) {
                   return (
                     <div
                       {...storyblokEditable(item)}
                       key={item._uid}
-                      className={cn(
-                        "flex items-center gap-4 border-t py-4 md:py-6 md:text-md lg:py-8",
-                        {
-                          "border-stroke-dark text-white": blok.background === "dark",
-                          "border-stroke-light text-black": blok.background === "light",
-                        }
-                      )}
+                      className={cn("flex items-center gap-4 md:text-md", {
+                        "text-white": blok.background === "dark",
+                        "text-black": blok.background === "light",
+                        "py-4 md:py-6 lg:py-8": blok.bullet_columns === "one",
+                        "border-t border-stroke-dark":
+                          blok.background === "dark" && blok.bullet_columns === "one",
+                        "border-t border-stroke-light":
+                          blok.background === "light" && blok.bullet_columns === "one",
+                      })}
                     >
                       <div
                         className={cn({
@@ -64,7 +75,12 @@ const ImageBulletList = ({ blok }) => {
               })}
             </div>
           </div>
-          <div className="w-full lg:col-span-5">
+          <div
+            className={cn("h-full w-full lg:col-span-5 lg:max-h-[800px]", {
+              "order-2 lg:order-1": blok.image_position === "left",
+              "order-2 lg:order-2": blok.image_position === "right",
+            })}
+          >
             <StoryblokImage className="h-full w-full rounded object-cover" image={blok.image} />
           </div>
         </div>

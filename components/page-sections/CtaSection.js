@@ -27,7 +27,7 @@ const CtaSection = ({ blok }) => {
                 <>
                   {blok.buttons.map((button) => {
                     return (
-                      <Button color="white" href={linkResolver(button.link)}>
+                      <Button key={button._uid} color="white" href={linkResolver(button.link)}>
                         {button.text}
                       </Button>
                     );
