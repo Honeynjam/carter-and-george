@@ -10,7 +10,7 @@ import Button from "./Button";
 const PostcodeForm = ({
   className = "",
   hideLabel = false,
-  buttonText = "Find your local clinic",
+  buttonText = "Find your local practice",
   onWhite = false,
   defaultPostcode = "",
 }) => {
@@ -51,7 +51,7 @@ const PostcodeForm = ({
               "text-white": !onWhite,
             })}
           >
-            Find your local clinic
+            Find your local practice
           </label>
         ) : null}
 

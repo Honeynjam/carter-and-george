@@ -11,7 +11,7 @@ const Newsletter = ({ className }) => {
     <div
       className={cn(
         className,
-        "flex flex-col gap-12 bg-stone px-6 py-8 lg:flex-row lg:items-center lg:justify-between lg:px-16 lg:py-12"
+        "flex flex-col gap-6 bg-stone px-6 py-8 lg:flex-row lg:items-center lg:justify-between lg:gap-12 lg:px-16 lg:py-12"
       )}
     >
       <div className="max-w-md">
@@ -30,9 +30,9 @@ const Newsletter = ({ className }) => {
           />
           <select
             className="rounded-[1px] py-3 text-black xl:w-1/3"
-            placeholder="Your local Practice"
+            placeholder="Your local practice"
           >
-            <option value="">Your local Practice</option>
+            <option value="">Your local practice</option>
             {locations.map((location) => (
               <option key={location} value={location}>
                 {location}

@@ -34,9 +34,9 @@ const Footer = ({ data }) => {
 
             <select
               className="rounded-[1px] py-3 text-black md:w-1/3"
-              placeholder="Your local Practice"
+              placeholder="Your local practice"
             >
-              <option value="">Your local Practice</option>
+              <option value="">Your local practice</option>
               {locations.map((location) => (
                 <option key={location} value={location}>
                   {location}
@@ -63,7 +63,7 @@ const Footer = ({ data }) => {
             <Image
               width={271}
               height={53}
-              className="ease-custom object-contain duration-500 hover:opacity-90"
+              className="object-contain duration-500 ease-custom hover:opacity-90"
               src="/images/full-logo.png"
               alt="logo"
             />

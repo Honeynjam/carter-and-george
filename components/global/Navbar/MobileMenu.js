@@ -73,13 +73,13 @@ const MobileNavbarDropdown = ({ blok }) => {
                     <div className="block" key={column.id}>
                       {column.links.map((item) => {
                         return (
-                          <div key={item.id} className="mb-6">
+                          <StoryblokLink link={item.link} key={item.id} className="mb-6 block">
                             <p className="mb-2.5 flex items-center gap-2 text-md font-semibold">
                               <span>{item.title}</span>
                               <ArrowRight />
                             </p>
                             <p className="text-small">{item.subtitle}</p>
-                          </div>
+                          </StoryblokLink>
                         );
                       })}
                     </div>

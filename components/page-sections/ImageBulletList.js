@@ -41,10 +41,13 @@ const ImageBulletList = ({ blok }) => {
                     <div
                       {...storyblokEditable(item)}
                       key={item._uid}
-                      className={cn("flex items-center gap-4 border-t py-6 text-md lg:py-8", {
-                        "border-stroke-dark text-white": blok.background === "dark",
-                        "border-stroke-light text-black": blok.background === "light",
-                      })}
+                      className={cn(
+                        "flex items-center gap-4 border-t py-4 md:py-6 md:text-md lg:py-8",
+                        {
+                          "border-stroke-dark text-white": blok.background === "dark",
+                          "border-stroke-light text-black": blok.background === "light",
+                        }
+                      )}
                     >
                       <div
                         className={cn({

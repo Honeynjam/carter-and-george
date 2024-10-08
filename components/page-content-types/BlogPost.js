@@ -4,6 +4,7 @@ import BlogCard from "components/blog/BlogCard";
 import Badge from "components/common/Badge";
 import Breadcrumbs from "components/common/Breadcrumbs";
 import Container from "components/common/Container";
+import { Heading } from "components/common/Typography";
 import StoryblokImage from "components/storyblok/StoryblokImage";
 
 const PatientStory = ({ articles = [], blok }) => (
@@ -39,12 +40,14 @@ const PatientStory = ({ articles = [], blok }) => (
               </div>
             </div>
             <div className="order-1 md:order-2 md:col-span-9 md:border-l md:border-stroke-light md:pl-12">
-              <div className="mb-7 flex items-center gap-4">
+              <div className="mb-2 flex items-center gap-4 lg:mb-7">
                 <Badge className="">{blok.category?.content?.name}</Badge>
                 <span className="text-smaller font-semibold">{blok.read_time} min read</span>
               </div>
+              <Heading className="mb-5 lg:mb-12" size="3xl" level={1}>
+                {blok.title}
+              </Heading>
 
-              <h1 className="mb-12 text-3xl font-medium">{blok.title}</h1>
               <StoryblokImage
                 className="aspect-[16/9] w-full rounded object-cover"
                 image={blok.image}

@@ -12,6 +12,7 @@ import { render } from "storyblok-rich-text-react-renderer";
 import { stringParameterize } from "utils/stringParameterize";
 
 import Container from "components/common/Container";
+import { Heading } from "components/common/Typography";
 
 export const FaqItem = ({ data }) => {
   return (
@@ -83,10 +84,13 @@ const FaqPage = ({ blok }) => {
   }, []);
 
   return (
-    <div className="" {...storyblokEditable(blok)} key={blok._uid}>
-      <Container className="my-2xl">
-        <div className="mb-20">
-          <h1 className="mb-2 text-3xl">{blok.title}</h1>
+    <div {...storyblokEditable(blok)} key={blok._uid}>
+      <Container className="section-spacing-m">
+        <div className="mb-12 lg:mb-20">
+          <Heading className="mb-2" level={1} size="3xl">
+            {blok.title}
+          </Heading>
+
           <p className="max-w-2xl text-normal">{blok.subtitle}</p>
         </div>
         <div className="flex items-start gap-20">
@@ -162,9 +166,11 @@ const FaqPage = ({ blok }) => {
           </div>
         </div>
       </Container>
-      {blok.bottom_sections?.map((nestedBlok) => (
-        <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
-      ))}
+      <div>
+        {blok.bottom_sections?.map((nestedBlok) => (
+          <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
+        ))}
+      </div>
     </div>
   );
 };

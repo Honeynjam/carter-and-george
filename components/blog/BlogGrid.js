@@ -28,7 +28,7 @@ export default function BlogGrid({ className = "", data = [], headerData = {} })
         </div>
       ) : null}
 
-      <div className="grid gap-x-8 gap-y-20 md:grid-cols-3">
+      <div className="grid gap-x-8 gap-y-12 md:grid-cols-3 md:gap-y-20">
         {data?.map((item) => {
           return (
             <div key={item.id}>

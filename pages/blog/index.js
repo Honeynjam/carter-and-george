@@ -42,7 +42,7 @@ export default function BlogFolder({ story, articles, categories, globalDocs, pr
               <div className="lg:sticky lg:top-6">
                 <BlogCard size="large" data={story.content.featured_articles[0]} />
               </div>
-              <div className="grid grid-cols-1 gap-8 lg:border-l lg:border-stroke-light lg:pl-6">
+              <div className="grid grid-cols-1 gap-8 max-lg:mt-12 lg:border-l lg:border-stroke-light lg:pl-6">
                 {story.content.featured_articles.slice(1, 4).map((article, idx) => {
                   return (
                     <BlogCard
@@ -59,12 +59,12 @@ export default function BlogFolder({ story, articles, categories, globalDocs, pr
               </div>
             </div>
           </div>
-          <div className="my-20">
+          <div className="my-12 lg:my-20">
             <h2 className="mb-4 text-lg font-semibold">Latest articles</h2>
             <hr className="text-stroke-light" />
             <BlogGrid className="mt-10" data={articles.slice(0, 3)} />
           </div>
-          <div className="my-2xl">
+          <div className="section-spacing-m">
             <Newsletter />
           </div>
           <div className="">

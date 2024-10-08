@@ -17,8 +17,8 @@ const BlogCard = ({
     return (
       <StoryblokLink
         link={data}
-        className={cn(className, "@container h-full gap-6 hover:brightness-95", {
-          "grid grid-cols-2": layout === "horizontal",
+        className={cn(className, "h-full gap-6 @container hover:brightness-95", {
+          "grid lg:grid-cols-2": layout === "horizontal",
           "flex flex-col": layout === "vertical",
         })}
       >
@@ -41,7 +41,7 @@ const BlogCard = ({
 
         <div className="flex flex-1 flex-col justify-between">
           <div>
-            <div className="@[260px]:flex-row @[260px]:items-center mb-4 flex flex-col items-start gap-4">
+            <div className="mb-4 flex flex-col items-start gap-4 @[260px]:flex-row @[260px]:items-center">
               {data.content.category?.content?.name ? (
                 <Badge>{data.content.category?.content?.name}</Badge>
               ) : null}
