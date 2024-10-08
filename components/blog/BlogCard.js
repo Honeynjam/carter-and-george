@@ -17,21 +17,26 @@ const BlogCard = ({
     return (
       <StoryblokLink
         link={data}
-        className={cn(className, "@container grid h-full gap-6 hover:brightness-95", {
-          "grid-cols-2": layout === "horizontal",
-          "grid-cols-1": layout === "vertical",
+        className={cn(className, "@container h-full gap-6 hover:brightness-95", {
+          "grid grid-cols-2": layout === "horizontal",
+          "flex flex-col": layout === "vertical",
         })}
       >
         {!hideImage ? (
-          <StoryblokImage
-            className={cn("h-full object-cover", {
+          <div
+            className={cn("relative", {
               "aspect-square": layout === "horizontal",
-              "aspect-[16/9] h-[234px]": layout === "vertical",
+              "aspect-[16/9]": layout === "vertical",
               "h-[234px]": size === "normal",
               "h-[362px]": size === "large",
             })}
-            image={data.content.image}
-          />
+          >
+            <StoryblokImage
+              fill
+              className={cn("h-full object-cover", {})}
+              image={data.content.image}
+            />
+          </div>
         ) : null}
 
         <div className="flex flex-1 flex-col justify-between">

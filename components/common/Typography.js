@@ -31,7 +31,6 @@ export const Heading = ({
       {...props}
       className={cn(className, "", {
         "text-white": color === "white",
-        "": size === "2xl",
         "text-md font-medium": size === "medium",
         "text-lg font-medium": size === "large",
         "text-lg font-semibold lg:text-xl": size === "xl",

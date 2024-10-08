@@ -26,7 +26,7 @@ const ScrollerSection = ({ blok }) => {
         },
         "(min-width: 1080px)": {
           slides: {
-            perView: 2.6,
+            perView: 2.7,
             spacing: 48,
           },
         },

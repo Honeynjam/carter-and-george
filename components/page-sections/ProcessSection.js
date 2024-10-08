@@ -31,7 +31,7 @@ const VideoSection = ({ blok }) => {
               <div key={item._uid}>
                 <Eyebrow text={item.eyebrow} />
 
-                <Heading className="mb-2" level={3} size="large">
+                <Heading className="mb-2" level={3} size="medium">
                   {item.title}
                 </Heading>
 
