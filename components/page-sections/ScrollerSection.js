@@ -1,6 +1,7 @@
 import React from "react";
 
 import { storyblokEditable } from "@storyblok/react";
+import cn from "classnames";
 import { useKeenSlider } from "keen-slider/react";
 
 import { linkResolver } from "utils/linkResolver";
@@ -10,7 +11,6 @@ import Container from "components/common/Container";
 import { Heading, Subtitle } from "components/common/Typography";
 import StoryblokImage from "components/storyblok/StoryblokImage";
 
-// TODO - light version
 const ScrollerSection = ({ blok }) => {
   const [sliderRef, instanceRef] = useKeenSlider(
     {
@@ -37,14 +37,24 @@ const ScrollerSection = ({ blok }) => {
     []
   );
   return (
-    <section className="section-spacing-p overflow-hidden bg-black" {...storyblokEditable(blok)}>
+    <section
+      className={cn("overflow-hidden", {
+        "section-spacing-p bg-black": blok.background === "dark",
+        "section-spacing-p bg-stone": blok.background === "light",
+      })}
+      {...storyblokEditable(blok)}
+    >
       <Container>
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between lg:gap-20">
           <div className="max-w-2xl">
-            <Heading className="mb-2 lg:mb-4" size="3xl" color="white">
+            <Heading
+              className="mb-2 lg:mb-4"
+              size="3xl"
+              color={blok.background === "dark" ? "white" : "black"}
+            >
               {blok.title}
             </Heading>
-            <Subtitle alternate color="grey">
+            <Subtitle alternate={blok.background === "dark"} color="grey">
               {blok.subtitle}
             </Subtitle>
           </div>
@@ -54,10 +64,15 @@ const ScrollerSection = ({ blok }) => {
                 <div
                   {...storyblokEditable(item)}
                   key={item._uid}
-                  className="border-l-2 border-stroke-dark pl-4"
+                  className={cn("border-l-2 pl-4", {
+                    "border-stroke-dark": blok.background === "dark",
+                    "border-stroke-light": blok.background === "light",
+                  })}
                 >
                   <span className="mb-2 text-3xl font-medium text-blue">{item.stat}</span>
-                  <p className="text-white">{item.name}</p>
+                  <Subtitle alternate={blok.background === "dark"} color="grey">
+                    {item.name}
+                  </Subtitle>
                 </div>
               );
             })}
@@ -72,14 +87,28 @@ const ScrollerSection = ({ blok }) => {
                 className="keen-slider__slide w-[340px]"
               >
                 <StoryblokImage className="aspect-[16/9] rounded object-cover" image={card.image} />
-                <hr className="mb-4 mt-8 text-stroke-dark" />
-                <span className="mb-6 block text-eyebrow text-gray-tertiary-alternate">
+                <hr
+                  className={cn("mb-4 mt-8", {
+                    "text-stroke-dark": blok.background === "dark",
+                    "text-stroke-light": blok.background === "light",
+                  })}
+                />
+                <span
+                  className={cn("mb-6 block text-eyebrow", {
+                    "text-gray-tertiary-alternate": blok.background === "dark",
+                    "text-gray-secondary": blok.background === "light",
+                  })}
+                >
                   0{idx + 1}
                 </span>
-                <Heading className="mb-2" color="white" size="xl">
+                <Heading
+                  color={blok.background === "dark" ? "white" : "black"}
+                  className="mb-2"
+                  size="xl"
+                >
                   {card.title}
                 </Heading>
-                <Subtitle alternate color="grey">
+                <Subtitle alternate={blok.background === "dark"} color="grey">
                   {card.subtitle}
                 </Subtitle>
               </div>
