@@ -20,11 +20,13 @@ const ServicesOverview = ({ blok }) => {
           </Heading>
           <Subtitle color="grey">{blok.subtitle}</Subtitle>
         </div>
-        <div className="mt-20 grid items-start gap-12 lg:grid-cols-5 lg:gap-20">
+        <div className="mt-20 grid items-center gap-12 lg:grid-cols-5 lg:gap-20">
           <div className="grid grid-cols-1 gap-5 lg:col-span-3">
             {blok.services.map((service) => {
               return (
                 <div
+                  {...storyblokEditable(service)}
+                  key={service._uid}
                   className="group flex items-center gap-4"
                   onMouseEnter={() => setActive(service)}
                 >
@@ -44,13 +46,15 @@ const ServicesOverview = ({ blok }) => {
                 <div
                   key={service._uid}
                   {...storyblokEditable(service)}
-                  className={cn("duration-150", {
+                  className={cn("h-full duration-150", {
                     "hidden opacity-0": service._uid !== active._uid,
                     "block opacity-100": service._uid === active._uid,
                   })}
                 >
-                  <p className="mb-4 text-md">{service.subtitle}</p>
-                  <StoryblokImage image={service.image} />
+                  <StoryblokImage
+                    className="h-full max-h-[550px] rounded object-cover"
+                    image={service.image}
+                  />
                 </div>
               );
             })}
