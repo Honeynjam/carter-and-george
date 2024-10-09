@@ -33,7 +33,10 @@ const ContentSection = ({ blok }) => {
               "order-1 lg:order-1": blok.image_position === "right",
             })}
           >
-            <GoogleRating color={blok.background === "dark" ? "white" : "black"} />
+            {blok.social_proof ? (
+              <GoogleRating color={blok.background === "dark" ? "white" : "black"} />
+            ) : null}
+
             <Heading
               color={blok.background === "dark" ? "white" : "black"}
               className="mb-4 mt-6"

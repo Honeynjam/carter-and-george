@@ -24,6 +24,7 @@ import DownloadForm from "components/page-sections/DownloadForm";
 import FaqSection from "components/page-sections/FaqSection";
 import FullWidthImage from "components/page-sections/FullWidthImage";
 import Grid from "components/page-sections/Grid";
+import ImageAccordion from "components/page-sections/ImageAccordion";
 import ImageBulletList from "components/page-sections/ImageBulletList";
 import LocationPricing from "components/page-sections/LocationPricing";
 import LocationTeam from "components/page-sections/LocationTeam";
@@ -74,6 +75,7 @@ const components = {
   cta_contained: CtaContained,
   blog_cards: BlogCards,
   statement: Statement,
+  image_accordion: ImageAccordion,
   bullets_section: BulletsSection,
   // Location components
   location_pricing: LocationPricing,
