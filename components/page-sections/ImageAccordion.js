@@ -12,12 +12,12 @@ import Container from "components/common/Container";
 import { Eyebrow, Heading, Subtitle } from "components/common/Typography";
 import StoryblokImage from "components/storyblok/StoryblokImage";
 
-export const AccordionItem = ({ data, background = "light" }) => {
+export const AccordionItem = ({ data, isFirst = false, background = "light" }) => {
   return (
-    <Disclosure {...storyblokEditable(data)} as="div" className="pt-6">
+    <Disclosure {...storyblokEditable(data)} as="div" className={cn({ "pt-5": !isFirst })}>
       {({ open }) => (
         <>
-          <dt>
+          <dt className="border-t border-stroke-light pt-5">
             <Disclosure.Button className="flex w-full items-start justify-between text-left">
               <span
                 className={cn("text-medium font-medium", {
@@ -99,9 +99,16 @@ const ImageAccordion = ({ blok }) => {
               </Subtitle>
             </div>
             <div>
-              {blok.items.map((item) => {
+              {blok.items.map((item, idx) => {
                 if (item.title) {
-                  return <AccordionItem key={item._uid} data={item} background={blok.background} />;
+                  return (
+                    <AccordionItem
+                      isFirst={idx === 0}
+                      key={item._uid}
+                      data={item}
+                      background={blok.background}
+                    />
+                  );
                 } else return null;
               })}
             </div>

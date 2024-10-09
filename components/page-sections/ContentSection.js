@@ -3,7 +3,6 @@ import React from "react";
 import { storyblokEditable } from "@storyblok/react";
 import cn from "classnames";
 
-import GoogleRating from "components/base/GoogleRating";
 import Container from "components/common/Container";
 import { Heading, Subtitle } from "components/common/Typography";
 import StoryblokImage from "components/storyblok/StoryblokImage";
@@ -33,10 +32,6 @@ const ContentSection = ({ blok }) => {
               "order-1 lg:order-1": blok.image_position === "right",
             })}
           >
-            {blok.social_proof ? (
-              <GoogleRating color={blok.background === "dark" ? "white" : "black"} />
-            ) : null}
-
             <Heading
               color={blok.background === "dark" ? "white" : "black"}
               className="mb-4 mt-6"
