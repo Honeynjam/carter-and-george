@@ -165,11 +165,6 @@ const redirects = [
     permanent: true,
   },
   {
-    source: "/common-conditions/sports-injuries/",
-    destination: "/common-conditions/sports-injuries/",
-    permanent: true,
-  },
-  {
     source: "/cookie-policy/",
     destination: "/legal/cookie-policy/",
     permanent: true,
