@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -16,31 +16,55 @@ import Container from "components/common/Container";
 import StoryblokLink from "components/storyblok/StoryblokLink";
 
 const Navbar = ({ type = "blur", data }) => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const headerRef = useRef(null);
+
   const secondaryButton = data.content.buttons[0];
   const primaryButton = data.content.buttons[1];
+
+  // Change header background color when scrolling
+  // sets isScrolled to true and class is added conditionally in header element
+  useEffect(() => {
+    const onScroll = () => {
+      const scrollPosition = window.scrollY;
+      if (headerRef.current) {
+        if (scrollPosition > 50) {
+          setIsScrolled(true);
+        } else {
+          setIsScrolled(false);
+        }
+      }
+    };
+
+    onScroll();
+
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const isWhiteTheme = type === "white" || isScrolled;
 
   return (
     <>
       <AnnouncementBanner />
-
+      {console.log(isScrolled)}
       <nav
-        className={cn("relative z-50 py-4 lg:py-6", {
-          "border-b border-stroke-light bg-white": type === "white",
-          "bg-white/20 text-white backdrop-blur-xl": type === "blur",
+        ref={headerRef}
+        className={cn("sticky top-0 z-50 py-4 duration-150 lg:py-6", {
+          "border-b border-stroke-light bg-white": isWhiteTheme,
+          "bg-white/20 text-white backdrop-blur-xl": type === "blur" && !isScrolled,
         })}
       >
         <Container>
-          <div className="flex items-center justify-between gap-4">
+          <div className="flex items-center justify-between gap-6">
             <div className="flex items-center gap-6">
               <Link href="/">
                 <Image
-                  className="ease-custom object-contain duration-500 hover:scale-95 hover:opacity-90"
+                  className="object-contain duration-500 ease-custom hover:scale-95 hover:opacity-90"
                   width={179}
                   height={75}
                   src={
-                    type === "white"
-                      ? "/images/full-logo-colour.png"
-                      : "/images/full-logo-white.png"
+                    isWhiteTheme ? "/images/full-logo-colour.png" : "/images/full-logo-white.png"
                   }
                   alt="logo"
                 />
@@ -49,7 +73,7 @@ const Navbar = ({ type = "blur", data }) => {
             {/* Mobile */}
             <MobileMenu data={data} />
             {/* Desktop */}
-            <div className="flex items-center gap-6 max-lg:hidden">
+            <div className="flex items-center gap-6 max-[1235px]:hidden">
               <div className="flex items-center gap-6">
                 {data.content.menu.map((item) => {
                   if (item.component === "navbar_dropdown") {
@@ -69,13 +93,13 @@ const Navbar = ({ type = "blur", data }) => {
               <div className="flex items-center gap-4">
                 <Button
                   outline
-                  color={type === "white" ? "black" : "white"}
+                  color={isWhiteTheme ? "black" : "white"}
                   href={linkResolver(secondaryButton.link)}
                 >
                   {secondaryButton.text}
                 </Button>
                 <Button
-                  color={type === "white" ? "black" : "white"}
+                  color={isWhiteTheme ? "black" : "white"}
                   href={linkResolver(primaryButton.link)}
                 >
                   {primaryButton.text}

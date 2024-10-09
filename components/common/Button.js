@@ -62,7 +62,7 @@ const Button = ({
   }, [href, router.query]);
 
   const classNames = cn(
-    "rounded-[1px] group justify-center text-button inline-flex items-center gap-2.5 py-3 px-6 font-medium font-petite-caps duration-150",
+    "rounded-[1px] group justify-center text-button inline-flex items-center gap-2.5 py-3 px-6 font-medium font-petite-caps duration-300",
     className,
     {
       "text-white bg-black border border-transparent hover:bg-black/90":
@@ -77,12 +77,12 @@ const Button = ({
     return (
       <Link className={classNames} href={finalHref} {...props}>
         <span className="relative inline-flex overflow-hidden">
-          <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[125%] group-hover:skew-y-6">
+          <div className="translate-y-0 skew-y-0 transition-transform duration-500 group-hover:-translate-y-[125%] group-hover:skew-y-6">
             {children}
           </div>
           <div
             aria-hidden={true}
-            className="absolute translate-y-[125%] skew-y-6 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0"
+            className="absolute translate-y-[125%] skew-y-6 transition-transform duration-500 group-hover:translate-y-0 group-hover:skew-y-0"
           >
             {children}
           </div>

@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 
 import { Popover, PopoverButton, PopoverPanel, Transition } from "@headlessui/react";
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr/ArrowRight";
@@ -10,64 +10,50 @@ import StoryblokImage from "components/storyblok/StoryblokImage";
 import StoryblokLink from "components/storyblok/StoryblokLink";
 
 export const DesktopNavbarDropdown = ({ blok }) => {
-  const [isShowing, setIsShowing] = useState(false);
-
   return (
-    <Popover className="relative">
+    <Popover className="test-kris relative">
       {() => {
         return (
           <>
             <PopoverButton className={cn("hover:text-primary relative font-medium outline-none")}>
               <span className="font-petite-caps flex items-center gap-1.5 text-button font-medium">
                 <span>{blok.text}</span>{" "}
-                <CaretDown className="duration-150 ui-open:rotate-180 ui-open:transform" />
+                <CaretDown className="transition-transform duration-150 ui-open:rotate-180 ui-open:transform" />
               </span>
             </PopoverButton>
 
             <Transition
               as={Fragment}
-              enter="transition ease-out duration-200"
-              enterFrom="opacity-0 translate-y-1"
-              enterTo="opacity-100 translate-y-0"
+              enter="transition ease-out object-center duration-200"
+              enterFrom="opacity-0 -translate-y-1"
+              enterTo="opacity-100  translate-y-0"
               leave="transition ease-in duration-150"
               leaveFrom="opacity-100 translate-y-0"
-              leaveTo="opacity-0 translate-y-1"
+              leaveTo="opacity-0 -translate-y-1"
             >
               <PopoverPanel
                 className={cn(
-                  "fixed left-1/2 z-10 mt-9 flex w-screen max-w-max -translate-x-1/2 px-4 text-black transition"
+                  "left-1/2 z-10 mt-[35px] flex -translate-x-1/2 px-6 text-black transition",
+                  {
+                    "fixed w-screen max-w-[1440px] md:px-8 lg:px-16": blok.columns.length >= 4,
+                    "absolute w-screen": blok.columns.length < 4,
+                    "max-w-md": blok.columns.length === 1,
+                    "max-w-5xl": blok.columns.length >= 2 && blok.columns.length < 4,
+                  }
                 )}
               >
                 <Container noPadding>
-                  <div className="flex-auto overflow-hidden border border-stroke-light bg-white px-16 py-8">
-                    <h2>{blok.text}</h2>
+                  <div className="flex-auto overflow-hidden border border-stroke-light bg-white px-8 py-6">
+                    <h2 className="text-md font-medium">{blok.text}</h2>
                     <hr className="mb-6 mt-2 text-stroke-light" />
-                    <div
-                      className={cn("relative grid gap-12", {
-                        "grid-cols-2": blok.columns.length === 1,
-                        "grid-cols-4": blok.columns.length >= 2,
-                      })}
-                    >
-                      <div
-                        className={cn("flex flex-col", {
-                          "col-span-1": blok.columns.length >= 2,
-                        })}
-                      >
-                        <p>{blok.subtitle}</p>
-                        <div className="mt-8 h-full overflow-hidden">
-                          <StoryblokImage
-                            className="h-full rounded object-cover"
-                            image={blok.image}
-                          />
-                        </div>
-                      </div>
-
+                    <div className="relative">
                       <div
                         className={cn("grid grid-cols-1 gap-12", {
                           "grid-cols-1": blok.columns.length === 1,
                           "grid-cols-2": blok.columns.length === 2,
-                          "grid-cols-3": blok.columns.length >= 3,
-                          "col-span-3": blok.columns.length >= 2,
+                          "grid-cols-3": blok.columns.length === 3,
+                          "grid-cols-4": blok.columns.length === 4,
+                          "grid-cols-5": blok.columns.length === 5,
                         })}
                       >
                         {blok.columns.map((column, idx) => {
@@ -79,7 +65,7 @@ export const DesktopNavbarDropdown = ({ blok }) => {
                                     <StoryblokLink
                                       link={item.link}
                                       key={item._uid}
-                                      className="group mb-12 block"
+                                      className="group mb-8 block"
                                     >
                                       <h3 className="mb-2.5 flex items-center gap-2 text-md font-medium">
                                         <span>{item.title}</span>

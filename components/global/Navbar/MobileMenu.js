@@ -107,7 +107,7 @@ const MobileMenu = ({ data }) => {
   const primaryButton = data.content.buttons[1];
 
   return (
-    <div className="flex items-center gap-6 lg:hidden">
+    <div className="flex items-center gap-6 [@media(min-width:1235px)]:hidden">
       <Popover className="flex items-center">
         {({ open }) => {
           if (typeof document !== "undefined") {
