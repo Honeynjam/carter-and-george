@@ -1,5 +1,7 @@
 import React from "react";
 
+import Link from "next/link";
+
 import { Check } from "@phosphor-icons/react/dist/ssr/Check";
 import { storyblokEditable } from "@storyblok/react";
 
@@ -27,7 +29,11 @@ const DownloadForm = ({ blok }) => {
               <div className="mt-8 grid grid-cols-1 gap-2.5">
                 {blok.bullet_points.map((item) => {
                   return (
-                    <div className="flex items-center gap-4 text-white">
+                    <div
+                      {...storyblokEditable(item)}
+                      key={item._uid}
+                      className="flex items-center gap-4 text-white"
+                    >
                       <Check className="text-blue" />
                       <span>{item.text}</span>
                     </div>
@@ -43,9 +49,9 @@ const DownloadForm = ({ blok }) => {
               </form>
               <p className="text-smaller text-white">
                 By clicking Sign Up you're confirming that you agree with our{" "}
-                <a className="underline" href="/terms">
-                  Terms and Conditions
-                </a>
+                <Link className="underline" href="/legal/privacy-policy/">
+                  Privacy Policy
+                </Link>
                 .
               </p>
             </div>

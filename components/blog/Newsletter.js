@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import cn from "classnames";
 
 import { useGlobalContext } from "contexts/globalContext";
@@ -43,9 +45,9 @@ const Newsletter = ({ className }) => {
         </form>
         <p className="text-smaller text-gray-secondary">
           By clicking Sign Up you're confirming that you agree with our{" "}
-          <a className="underline" href="/terms">
-            Terms and Conditions
-          </a>
+          <Link className="underline" href="/legal/privacy-policy/">
+            Privacy Policy
+          </Link>
           .
         </p>
       </div>

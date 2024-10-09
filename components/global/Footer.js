@@ -49,9 +49,9 @@ const Footer = ({ data }) => {
           </form>
           <p className="text-smaller text-gray-secondary-alternate">
             By clicking Sign Up you're confirming that you agree with our{" "}
-            <a className="underline" href="/terms">
-              Terms and Conditions
-            </a>
+            <Link className="underline" href="/legal/privacy-policy/">
+              Privacy Policy
+            </Link>
             .
           </p>
         </div>
