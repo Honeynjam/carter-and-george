@@ -17,11 +17,11 @@ export const determineNavbarType = (story) => {
   if (story.content?.hero?.length > 0) {
     const hero = story.content.hero[0];
 
-    if (["hero"].includes(hero.component)) {
+    if (["hero", "hero_video"].includes(hero.component)) {
       return "blur";
     }
 
-    if (["hero_two_cols", "hero_video"].includes(hero.component)) {
+    if (["hero_two_cols"].includes(hero.component)) {
       return "white";
     }
   }
