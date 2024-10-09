@@ -29,7 +29,7 @@ const LeaderProfile = ({ blok }) => (
             <StoryblokImage className="rounded" priority image={blok.image} />
             <div className="prose mt-14 max-w-none lg:prose-lg">{render(blok.text)}</div>
           </div>
-          <div className="lg:sticky lg:top-8 lg:col-span-3">
+          <div className="lg:sticky lg:top-32 lg:col-span-3">
             <Heading className="mb-12" size="large">
               {blok.name}’s Recommended Services
             </Heading>

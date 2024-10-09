@@ -94,7 +94,7 @@ const FaqPage = ({ blok }) => {
           <p className="max-w-2xl text-normal">{blok.subtitle}</p>
         </div>
         <div className="flex items-start gap-20">
-          <aside className="relative top-8 mb-20 hidden max-md:w-full md:sticky md:block md:min-w-[304px]">
+          <aside className="relative mb-20 hidden max-md:w-full md:sticky md:top-32 md:block md:min-w-[304px]">
             <nav className="flex flex-col space-y-4 border-l-2 border-[#E9F0F2]">
               <ul className="flex flex-col space-y-3">
                 {blok.faq_sections?.map((item) => {

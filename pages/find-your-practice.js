@@ -169,7 +169,7 @@ export default function FindYourLocationPage({ preview, story, locations, global
                           })}
                         </div>
                       </div>
-                      <div className="sticky top-8">
+                      <div className="sticky top-32">
                         {apiIsLoaded && coordinates.lat !== 0 && coordinates.lng !== 0 ? (
                           <Map
                             style={containerStyle}

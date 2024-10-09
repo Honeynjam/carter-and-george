@@ -39,7 +39,7 @@ export default function BlogFolder({ story, articles, categories, globalDocs, pr
             <h2 className="mb-4 text-lg font-semibold">Featured articles</h2>
             <hr className="mb-10 text-stroke-light" />
             <div className="grid items-start gap-6 lg:grid-cols-2">
-              <div className="lg:sticky lg:top-6">
+              <div className="lg:sticky lg:top-32">
                 <BlogCard size="large" data={story.content.featured_articles[0]} />
               </div>
               <div className="grid grid-cols-1 gap-8 max-lg:mt-12 lg:border-l lg:border-stroke-light lg:pl-6">
