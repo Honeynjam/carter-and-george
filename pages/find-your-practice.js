@@ -25,7 +25,7 @@ export default function FindYourLocationPage({ preview, story, locations, global
   story = useStoryblokState(story);
 
   const apiIsLoaded = useApiIsLoaded();
-  const geometryLib = useMapsLibrary("geometry");
+  useMapsLibrary("geometry");
   const router = useRouter();
   const { postcode } = router.query;
 
@@ -37,6 +37,7 @@ export default function FindYourLocationPage({ preview, story, locations, global
 
   const [coordinates, setCoordinates] = useState({ lat: 0, lng: 0 });
   const [closestLocations, setClosestLocations] = useState([]);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     if (postcode && apiIsLoaded) {
@@ -67,6 +68,7 @@ export default function FindYourLocationPage({ preview, story, locations, global
             (location) => location.distance <= 50 * 1609.34
           ); // Filter locations within 50 miles
           setClosestLocations(filteredLocations.slice(0, 3)); // Get the closest 3 locations within 50 miles
+          setLoaded(true);
         } else {
           console.error("Geocode was not successful for the following reason: " + status);
         }
@@ -96,7 +98,14 @@ export default function FindYourLocationPage({ preview, story, locations, global
               hideLabel
               buttonText="Search"
             />
-            {postcode && (
+            {postcode && loaded && closestLocations.length === 0 ? (
+              <div className="mt-20">
+                <Heading level={2} size="2xl">
+                  Sorry, there are no practices near you.
+                </Heading>
+              </div>
+            ) : null}
+            {postcode && loaded && closestLocations.length > 0 && (
               <div>
                 {closestLocations.length > 0 ? (
                   <div className="mt-2xl">
@@ -192,13 +201,7 @@ export default function FindYourLocationPage({ preview, story, locations, global
                       </div>
                     </div>
                   </div>
-                ) : (
-                  <div className="mt-20">
-                    <Heading level={2} size="2xl">
-                      Sorry, there are no practices near you.
-                    </Heading>
-                  </div>
-                )}
+                ) : null}
               </div>
             )}
           </Container>

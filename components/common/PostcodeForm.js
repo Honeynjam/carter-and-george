@@ -15,7 +15,7 @@ const PostcodeForm = ({
   defaultPostcode = "",
 }) => {
   const [postcode, setPostcode] = useState(defaultPostcode);
-  const [loading, setLoading] = useState(false);
+
   const [isValidPostcode, setIsValidPostcode] = useState(false);
   const router = useRouter();
 
@@ -25,13 +25,15 @@ const PostcodeForm = ({
       alert("Please enter a valid postcode.");
       return;
     }
-    setLoading(true);
+
     router.push({ pathname: "/find-your-practice", query: { postcode: postcode }, shallow: true });
   };
-
   useEffect(() => {
-    setLoading(false);
-  }, [router.asPath]);
+    const parsed = parse(postcode);
+
+    setPostcode(fix(postcode));
+    setIsValidPostcode(parsed.valid);
+  }, []);
 
   const handlePostcodeChange = (e) => {
     const value = e.target.value;
@@ -63,7 +65,7 @@ const PostcodeForm = ({
             className="w-full flex-1 rounded-[1px] border border-stroke-light py-3 uppercase text-black placeholder:normal-case"
             placeholder="Postcode"
           />
-          <Button color={onWhite ? "black" : "white"}>{loading ? "Loading..." : buttonText}</Button>
+          <Button color={onWhite ? "black" : "white"}>{buttonText}</Button>
         </div>
       </form>
     </div>

@@ -47,7 +47,7 @@ const Navbar = ({ type = "blur", data }) => {
   return (
     <>
       <AnnouncementBanner />
-      {console.log(isScrolled)}
+
       <nav
         ref={headerRef}
         className={cn("sticky top-0 z-50 py-4 duration-150 lg:py-6", {
