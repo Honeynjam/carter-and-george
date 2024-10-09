@@ -22,14 +22,17 @@ const ServicesOverview = ({ blok }) => {
         </div>
         <div className="mt-20 grid items-center gap-12 lg:grid-cols-5 lg:gap-20">
           <div className="grid grid-cols-1 gap-5 lg:col-span-3">
-            {blok.services.map((service) => {
+            {blok.services.map((service, idx) => {
               return (
                 <div
                   {...storyblokEditable(service)}
                   key={service._uid}
-                  className="group flex items-center gap-4"
+                  className="group relative ml-7 flex items-center gap-4"
                   onMouseEnter={() => setActive(service)}
                 >
+                  <span className="font-petite-caps absolute -left-7 top-0 text-small font-semibold text-blue">
+                    0{idx + 1}
+                  </span>
                   <p className="cursor-pointer text-3xl font-medium opacity-50 duration-150 hover:opacity-100 md:text-4xl lg:text-5xl">
                     {service.name}
                   </p>
@@ -46,13 +49,13 @@ const ServicesOverview = ({ blok }) => {
                 <div
                   key={service._uid}
                   {...storyblokEditable(service)}
-                  className={cn("h-full duration-150", {
+                  className={cn("h-full max-h-[550px] duration-150", {
                     "hidden opacity-0": service._uid !== active._uid,
                     "block opacity-100": service._uid === active._uid,
                   })}
                 >
                   <StoryblokImage
-                    className="h-full max-h-[550px] rounded object-cover"
+                    className="h-full w-full rounded object-cover"
                     image={service.image}
                   />
                 </div>
