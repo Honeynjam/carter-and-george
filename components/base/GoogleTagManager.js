@@ -2,7 +2,7 @@ import Script from "next/script";
 
 import isProduction from "utils/isProduction";
 
-const GTM_ID = "todo";
+const GTM_ID = "GTM-PGPH2HW5";
 
 export const GTMNoScript = () => {
   return (
