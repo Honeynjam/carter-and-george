@@ -52,6 +52,12 @@ const ServiceCards = ({ blok }) => {
         spacing: 32,
       },
       breakpoints: {
+        "(min-width: 768px)": {
+          slides: {
+            perView: 2.1,
+            spacing: 32,
+          },
+        },
         "(min-width: 1080px)": {
           slides: {
             perView: 3.6,
