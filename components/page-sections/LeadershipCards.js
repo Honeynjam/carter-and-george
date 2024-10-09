@@ -24,27 +24,31 @@ const LeadershipCards = ({ blok }) => {
         <Subtitle alternate>{blok.subtitle}</Subtitle>
         <div className="mt-20 grid gap-6 md:grid-cols-2 lg:gap-16">
           {blok.leadership.map((profile) => {
-            return (
-              <StoryblokLink
-                link={profile}
-                className="grid overflow-hidden rounded bg-stone duration-100 hover:-translate-y-0.5 hover:shadow-2xl lg:grid-cols-2"
-              >
-                <div className="h-full w-full overflow-hidden">
-                  <StoryblokImage
-                    className="h-full max-h-[600px] w-full object-cover object-top md:max-h-[400px] lg:max-h-min"
-                    image={profile.content.image}
-                  />
-                </div>
-                <div className="p-6">
-                  <p className="text-md font-semibold">{profile.content.name}</p>
-                  <p>{profile.content.position}</p>
-                  <p className="mb-6 mt-8 text-gray-secondary md:mt-12 lg:mt-20">
-                    {profile.content.short_summary}
-                  </p>
-                  <TextButton>Read more</TextButton>
-                </div>
-              </StoryblokLink>
-            );
+            if (profile?.content) {
+              return (
+                <StoryblokLink
+                  link={profile}
+                  className="grid overflow-hidden rounded bg-stone duration-100 hover:-translate-y-0.5 hover:shadow-2xl lg:grid-cols-2"
+                >
+                  <div className="h-full w-full overflow-hidden">
+                    <StoryblokImage
+                      className="h-full max-h-[600px] w-full object-cover object-top md:max-h-[400px] lg:max-h-min"
+                      image={profile.content.image}
+                    />
+                  </div>
+                  <div className="p-6">
+                    <p className="text-md font-semibold">{profile.content.name}</p>
+                    <p>{profile.content.position}</p>
+                    <p className="mb-6 mt-8 text-gray-secondary md:mt-12 lg:mt-20">
+                      {profile.content.short_summary}
+                    </p>
+                    <TextButton>Read more</TextButton>
+                  </div>
+                </StoryblokLink>
+              );
+            }
+
+            return null;
           })}
         </div>
       </Container>
