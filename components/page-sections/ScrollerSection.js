@@ -10,6 +10,7 @@ import Container from "components/common/Container";
 import { Heading, Subtitle } from "components/common/Typography";
 import StoryblokImage from "components/storyblok/StoryblokImage";
 
+// TODO - light version
 const ScrollerSection = ({ blok }) => {
   const [sliderRef, instanceRef] = useKeenSlider(
     {

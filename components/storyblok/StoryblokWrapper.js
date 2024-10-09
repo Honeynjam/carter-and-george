@@ -46,6 +46,7 @@ const TestimonialCarouselWithMedia = dynamic(
 const components = {
   // custom types (don't lazy load)
   page: Page,
+  careers: Page,
   service: Service,
   faq_page: FaqPage,
   patient_story: PatientStory,
