@@ -34,13 +34,18 @@ const ContentSection = ({ blok }) => {
           >
             <Heading
               color={blok.background === "dark" ? "white" : "black"}
-              className="mb-4 mt-6"
+              className="mb-4 mt-6 max-w-xl"
               size="3xl"
               level={2}
             >
               {blok.title}
             </Heading>
-            <Subtitle alternate={blok.background === "dark"} color="grey" size="medium">
+            <Subtitle
+              className="max-w-xl"
+              alternate={blok.background === "dark"}
+              color="grey"
+              size="medium"
+            >
               {blok.subtitle}
             </Subtitle>
             <div className="mt-12 grid grid-cols-1 lg:gap-8">
