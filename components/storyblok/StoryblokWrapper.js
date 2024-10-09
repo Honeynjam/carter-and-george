@@ -14,6 +14,7 @@ import RichText from "components/content-sections/RichText";
 import Video from "components/content-sections/Video";
 import HeroBlok from "components/hero-sections/Hero";
 import HeroTwoCols from "components/hero-sections/HeroTwoCols";
+import HeroVideo from "components/hero-sections/HeroVideo";
 import ApproachSection from "components/page-sections/ApproachSection";
 import BlogCards from "components/page-sections/BlogCards";
 import BulletsSection from "components/page-sections/BulletsSection";
@@ -26,6 +27,7 @@ import FullWidthImage from "components/page-sections/FullWidthImage";
 import Grid from "components/page-sections/Grid";
 import ImageAccordion from "components/page-sections/ImageAccordion";
 import ImageBulletList from "components/page-sections/ImageBulletList";
+import LeadershipCards from "components/page-sections/LeadershipCards";
 import LocationPricing from "components/page-sections/LocationPricing";
 import LocationTeam from "components/page-sections/LocationTeam";
 import ProcessSection from "components/page-sections/ProcessSection";
@@ -56,6 +58,7 @@ const components = {
   // Hero Section Components
   hero: HeroBlok,
   hero_two_cols: HeroTwoCols,
+  hero_video: HeroVideo,
   // Page section components
   cta_section: CtaSection,
   services_overview: ServicesOverview,
@@ -77,6 +80,8 @@ const components = {
   statement: Statement,
   image_accordion: ImageAccordion,
   bullets_section: BulletsSection,
+  // About
+  leadership_cards: LeadershipCards,
   // Location components
   location_pricing: LocationPricing,
   location_team: LocationTeam,

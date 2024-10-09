@@ -22,6 +22,12 @@ const TestimonialCarousel = ({ blok }) => {
         spacing: 16,
       },
       breakpoints: {
+        "(min-width: 768px)": {
+          slides: {
+            perView: 2,
+            spacing: 32,
+          },
+        },
         "(min-width: 1080px)": {
           slides: {
             perView: 3,
@@ -47,6 +53,7 @@ const TestimonialCarousel = ({ blok }) => {
         <Heading size="3xl" level={2}>
           {blok.title}
         </Heading>
+
         <div ref={sliderRef} className="keen-slider mt-12 lg:mt-20">
           {blok.testimonials.map((testimonial) => {
             if (testimonial.content) {
@@ -72,7 +79,7 @@ const TestimonialCarousel = ({ blok }) => {
             return null;
           })}
         </div>
-        {loaded && instanceRef.current && (
+        {loaded && instanceRef.current && blok.testimonials.length > 0 && (
           <div
             role="group"
             aria-label="Carousel controls"
