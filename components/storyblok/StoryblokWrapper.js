@@ -34,6 +34,7 @@ import ProcessSection from "components/page-sections/ProcessSection";
 import ScrollerSection from "components/page-sections/ScrollerSection";
 import ServiceCards from "components/page-sections/ServiceCards";
 import ServicesOverview from "components/page-sections/ServicesOverview";
+import SimpleTestimonial from "components/page-sections/SimpleTestimonial";
 import Statement from "components/page-sections/Statement";
 import TestimonialCarousel from "components/page-sections/TestimonialCarousel";
 import TestimonialWithStats from "components/page-sections/TestimonialWithStats";
@@ -69,6 +70,7 @@ const components = {
   faq_section: FaqSection,
   full_width_image: FullWidthImage,
   approach_section: ApproachSection,
+  simple_testimonial: SimpleTestimonial,
   image_bullet_list: ImageBulletList,
   testimonial_carousel: TestimonialCarousel,
   process_section: ProcessSection,

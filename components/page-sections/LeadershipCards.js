@@ -1,8 +1,5 @@
 import React from "react";
 
-import Link from "next/link";
-
-import { Check } from "@phosphor-icons/react/dist/ssr/Check";
 import { storyblokEditable } from "@storyblok/react";
 
 import Button from "components/common/Button";
@@ -13,7 +10,6 @@ import StoryblokImage from "components/storyblok/StoryblokImage";
 import StoryblokLink from "components/storyblok/StoryblokLink";
 
 const LeadershipCards = ({ blok }) => {
-  console.log(blok);
   return (
     <section {...storyblokEditable(blok)} className="section-spacing-m">
       <Container>

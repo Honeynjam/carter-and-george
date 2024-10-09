@@ -56,7 +56,7 @@ const Button = ({
           utmParams.append("utm_medium", "none");
         }
       }
-      console.log(utmParams);
+
       setFinalHref(href + (utmParams.toString() ? "?" + utmParams.toString() : ""));
     }
   }, [href, router.query]);
