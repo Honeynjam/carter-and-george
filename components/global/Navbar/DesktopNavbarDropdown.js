@@ -6,7 +6,6 @@ import { CaretDown } from "@phosphor-icons/react/dist/ssr/CaretDown";
 import cn from "classnames";
 
 import Container from "components/common/Container";
-import StoryblokImage from "components/storyblok/StoryblokImage";
 import StoryblokLink from "components/storyblok/StoryblokLink";
 
 export const DesktopNavbarDropdown = ({ blok }) => {
@@ -60,12 +59,13 @@ export const DesktopNavbarDropdown = ({ blok }) => {
                           if (column.component === "navbar_dropdown_single_column") {
                             return (
                               <div className="block" key={column._uid}>
-                                {column.links.map((item) => {
+                                {column.links.map((item, linkIdx) => {
+                                  const isLastItem = linkIdx === column.links.length - 1;
                                   return (
                                     <StoryblokLink
                                       link={item.link}
                                       key={item._uid}
-                                      className="group mb-8 block"
+                                      className={`group ${isLastItem ? "" : "mb-8"} block`}
                                     >
                                       <h3 className="mb-2.5 flex items-center gap-2 text-md font-medium">
                                         <span>{item.title}</span>

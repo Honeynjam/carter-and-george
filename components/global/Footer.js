@@ -56,8 +56,8 @@ const Footer = ({ data }) => {
           </p>
         </div>
       </div>
-      <hr className="mb-8 text-stroke-dark md:mb-16" />
-      <div className="flex flex-col gap-8 md:flex-row md:gap-40">
+      <hr className="mb-8 text-stroke-dark lg:mb-16" />
+      <div className="flex flex-col gap-8 lg:flex-row lg:gap-40">
         <div className="max-w-sm">
           <Link href="/">
             <Image
@@ -71,7 +71,7 @@ const Footer = ({ data }) => {
           <div className="mt-4 text-balance text-small text-gray-secondary-alternate">
             {data.content.statement}
           </div>
-          <div className="mt-8 flex gap-2.5 md:mt-28">
+          <div className="mt-8 flex gap-2.5 lg:mt-28">
             {data.content.social_media.map((item) => {
               return (
                 <a
@@ -89,7 +89,7 @@ const Footer = ({ data }) => {
           </div>
         </div>
         <div
-          className={cn("mt-12 grid flex-1 grid-cols-2 gap-8 md:gap-10 xl:mt-0", {
+          className={cn("mt-12 grid flex-1 grid-cols-2 gap-8 md:gap-10 lg:mt-0", {
             "lg:grid-cols-3": data.content.columns.length === 3,
             "lg:grid-cols-4": data.content.columns.length === 4,
             "lg:grid-cols-5": data.content.columns.length === 5,
