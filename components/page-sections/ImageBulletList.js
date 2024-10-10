@@ -3,6 +3,7 @@ import React from "react";
 import { Check } from "@phosphor-icons/react/dist/ssr/Check";
 import { storyblokEditable } from "@storyblok/react";
 import cn from "classnames";
+import { render } from "storyblok-rich-text-react-renderer";
 
 import Container from "components/common/Container";
 import { Eyebrow, Heading, Subtitle } from "components/common/Typography";
@@ -35,8 +36,13 @@ const ImageBulletList = ({ blok }) => {
               >
                 {blok.title}
               </Heading>
-              <Subtitle alternate={blok.background === "dark"} color="grey" size="medium">
-                {blok.subtitle}
+              <Subtitle
+                className={cn("prose", { "prose-invert": blok.background === "dark" })}
+                alternate={blok.background === "dark"}
+                color="grey"
+                size="medium"
+              >
+                {typeof blok.subtitle === "string" ? blok.subtitle : render(blok.subtitle)}
               </Subtitle>
             </div>
             <div
