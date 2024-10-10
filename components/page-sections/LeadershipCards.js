@@ -2,6 +2,8 @@ import React from "react";
 
 import { storyblokEditable } from "@storyblok/react";
 
+import { truncate } from "utils/truncate";
+
 import Button from "components/common/Button";
 import Container from "components/common/Container";
 import TextButton from "components/common/TextButton";
@@ -32,12 +34,14 @@ const LeadershipCards = ({ blok }) => {
                       image={profile.content.image}
                     />
                   </div>
-                  <div className="p-6">
-                    <p className="text-md font-semibold">{profile.content.name}</p>
-                    <p>{profile.content.position}</p>
-                    <p className="mb-6 mt-8 text-gray-secondary md:mt-12 lg:mt-20">
-                      {profile.content.short_summary}
-                    </p>
+                  <div className="flex flex-col items-start justify-between p-6">
+                    <div>
+                      <p className="text-md font-semibold">{profile.content.name}</p>
+                      <p>{profile.content.position}</p>
+                      <p className="mb-6 mt-6 text-gray-secondary">
+                        {truncate(profile.content.short_summary, 250)}
+                      </p>
+                    </div>
                     <TextButton>Read more</TextButton>
                   </div>
                 </StoryblokLink>

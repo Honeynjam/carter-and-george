@@ -2,10 +2,12 @@ import { CaretRight } from "@phosphor-icons/react/dist/ssr/CaretRight";
 import { StoryblokComponent, storyblokEditable } from "@storyblok/react";
 import { render } from "storyblok-rich-text-react-renderer";
 
+import { linkResolver } from "utils/linkResolver";
 import { truncate } from "utils/truncate";
 
 import Breadcrumbs from "components/common/Breadcrumbs";
 import Container from "components/common/Container";
+import TextButton from "components/common/TextButton";
 import { Heading, Subtitle } from "components/common/Typography";
 import StoryblokImage from "components/storyblok/StoryblokImage";
 import StoryblokLink from "components/storyblok/StoryblokLink";
@@ -26,7 +28,11 @@ const LeaderProfile = ({ blok }) => (
             <Heading className="mb-8" size="3xl" level={1}>
               {blok.name}
             </Heading>
-            <StoryblokImage className="rounded" priority image={blok.image} />
+            <StoryblokImage
+              className="aspect-[16/9] rounded object-contain object-left"
+              priority
+              image={blok.image}
+            />
             <div className="prose mt-14 max-w-none lg:prose-lg">{render(blok.text)}</div>
           </div>
           <div className="lg:sticky lg:top-32 lg:col-span-3">
@@ -43,13 +49,9 @@ const LeaderProfile = ({ blok }) => (
                           {item.content.card_title}
                         </Heading>
                         <Subtitle>{truncate(item.content.card_subtitle, 100)}</Subtitle>
-                        <StoryblokLink
-                          className="font-petite-caps mt-12 flex items-center gap-2.5 text-button font-medium"
-                          link={item}
-                        >
-                          <span>Find out more</span>
-                          <CaretRight />
-                        </StoryblokLink>
+                        <TextButton className="mt-12 w-1/2 justify-start" href={linkResolver(item)}>
+                          Find out more
+                        </TextButton>
                       </div>
                     );
                   }
