@@ -58,11 +58,11 @@ export default function PatientStoriesFolder({
                     key={story.id}
                   >
                     <div className="relative">
-                      <div className="absolute right-4 top-4 z-20 rounded bg-white p-2.5">
-                        <ArrowUpRight className="h-4 w-4" />
+                      <div className="absolute right-4 top-4 z-20 rounded bg-black p-2.5">
+                        <ArrowUpRight className="h-4 w-4 text-white" />
                       </div>
                       <StoryblokImage
-                        className="relative mb-12 aspect-[16/9] rounded object-cover"
+                        className="relative mb-12 aspect-[16/9] w-full rounded bg-stone object-contain"
                         image={story.content.image}
                       />
                     </div>

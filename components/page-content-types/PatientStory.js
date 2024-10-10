@@ -38,7 +38,7 @@ const PatientStory = ({ blok }) => (
               {blok.title}
             </Heading>
             <StoryblokImage
-              className="aspect-[16/9] w-full rounded object-cover"
+              className="aspect-[16/9] w-full object-contain object-left"
               image={blok.image}
             />
             <div className="mt-14">
