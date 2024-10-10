@@ -4,8 +4,10 @@ import { getStoryblokApi, storyblokEditable, useStoryblokState } from "@storyblo
 
 import { determineNavbarType } from "utils/determineNavbarType";
 import getGlobalDocs from "utils/getGlobalDocs";
+import { linkResolver } from "utils/linkResolver";
 
 import Seo from "components/base/Seo";
+import Button from "components/common/Button";
 import Container from "components/common/Container";
 import { Heading, Subtitle } from "components/common/Typography";
 import Layout from "components/global/Layout";
@@ -49,6 +51,15 @@ export default function Home({ preview, story, globalDocs }) {
                     <span className="font-semibold">Email</span>
                     <span className="mt-1">{story.content.email}</span>
                   </div>
+                </div>
+                <div className="mt-8">
+                  {story.content.buttons.map((button) => {
+                    return (
+                      <Button key={button._uid} outline href={linkResolver(button.link)}>
+                        {button.text}
+                      </Button>
+                    );
+                  })}
                 </div>
               </div>
             </div>
