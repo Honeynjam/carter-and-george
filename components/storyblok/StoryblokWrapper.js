@@ -25,6 +25,7 @@ import DownloadForm from "components/page-sections/DownloadForm";
 import FaqSection from "components/page-sections/FaqSection";
 import FullWidthImage from "components/page-sections/FullWidthImage";
 import Grid from "components/page-sections/Grid";
+import GridWithVideo from "components/page-sections/GridWithVideo";
 import ImageAccordion from "components/page-sections/ImageAccordion";
 import ImageBulletList from "components/page-sections/ImageBulletList";
 import LeadershipCards from "components/page-sections/LeadershipCards";
@@ -67,6 +68,7 @@ const components = {
   scroller_section: ScrollerSection,
   testimonial_carousel_with_media: TestimonialCarouselWithMedia,
   grid: Grid,
+  grid_with_video: GridWithVideo,
   faq_section: FaqSection,
   full_width_image: FullWidthImage,
   approach_section: ApproachSection,
