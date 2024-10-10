@@ -47,10 +47,13 @@ export const Subtitle = ({
   color = "black",
   alternate = false,
   size = "regular",
+  as = "p",
   children,
 }) => {
+  let Element = as;
+
   return (
-    <p
+    <Element
       className={cn(className, "text-pretty", {
         "text-gray-secondary": color === "grey",
         "text-white": color === "white",
@@ -60,6 +63,6 @@ export const Subtitle = ({
       })}
     >
       {children}
-    </p>
+    </Element>
   );
 };

@@ -37,6 +37,7 @@ const ImageBulletList = ({ blok }) => {
                 {blok.title}
               </Heading>
               <Subtitle
+                as={typeof blok.subtitle === "string" ? "p" : "div"}
                 className={cn("prose", { "prose-invert": blok.background === "dark" })}
                 alternate={blok.background === "dark"}
                 color="grey"
