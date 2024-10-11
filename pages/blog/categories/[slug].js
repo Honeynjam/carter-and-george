@@ -12,7 +12,7 @@ import BlogGrid from "components/blog/BlogGrid";
 import Newsletter from "components/blog/Newsletter";
 import Breadcrumbs from "components/common/Breadcrumbs";
 import Container from "components/common/Container";
-import { Heading } from "components/common/Typography";
+import { Heading, Subtitle } from "components/common/Typography";
 import Layout from "components/global/Layout";
 
 export default function BlogFolder({ story, articles, categories, globalDocs, preview }) {
@@ -41,9 +41,12 @@ export default function BlogFolder({ story, articles, categories, globalDocs, pr
                 { name: story.content.name, current: true },
               ]}
             />
-            <Heading level={1} size="4xl" className="lg:mt-4">
+            <Heading level={1} size="4xl" className="mt-4">
               {story.content.name}
             </Heading>
+            <Subtitle className="mt-2" size="medium" color="grey">
+              {story.content.subtitle}
+            </Subtitle>
           </div>
           <div className="mt-8 lg:hidden">
             <label
