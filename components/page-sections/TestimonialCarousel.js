@@ -10,10 +10,11 @@ import { useKeenSlider } from "keen-slider/react";
 import Container from "components/common/Container";
 import { Heading } from "components/common/Typography";
 
-// https://easings.net/#easeOutCubic
-var easeOutCubic = (x) => {
-  return 1 - Math.pow(1 - x, 3);
-};
+// https://github.com/rcbyr/keen-slider/issues/369
+// https://easings.net/#easeInOutCubic
+function easeInOutQuad(x) {
+  return x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
+}
 
 const TestimonialCarousel = ({ blok }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -27,8 +28,8 @@ const TestimonialCarousel = ({ blok }) => {
         spacing: 16,
       },
       defaultAnimation: {
-        duration: 1200,
-        easing: easeOutCubic,
+        duration: 700,
+        easing: easeInOutQuad,
       },
       breakpoints: {
         "(min-width: 768px)": {
