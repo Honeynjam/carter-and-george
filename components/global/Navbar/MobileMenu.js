@@ -159,7 +159,7 @@ const MobileMenu = ({ data }) => {
                     >
                       {({ close }) => (
                         <>
-                          <div className="no-scrollbar relative z-10 overflow-y-scroll pb-40 text-black">
+                          <div className="no-scrollbar relative z-10 mb-10 overflow-y-scroll pb-40 text-black">
                             <div className="flex items-center justify-between gap-4">
                               <Link href="/">
                                 <Image

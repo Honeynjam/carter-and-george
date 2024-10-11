@@ -2,6 +2,7 @@ import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr/ArrowUpRight";
 import { CaretRight } from "@phosphor-icons/react/dist/ssr/CaretRight";
 import { getStoryblokApi, useStoryblokState } from "@storyblok/react";
 import { StoryblokComponent } from "@storyblok/react";
+import cn from "classnames";
 
 import getGlobalDocs from "utils/getGlobalDocs";
 
@@ -44,7 +45,12 @@ export default function PatientStoriesFolder({
 
             <p className="mx-auto max-w-3xl text-balance text-normal">{story.content.subtitle}</p>
           </div>
-          <div className="my-xl grid gap-8 md:grid-cols-3">
+          <div
+            className={cn("my-xl grid gap-8", {
+              "md:grid-cols-2": story.content.stats.length === 2,
+              "md:grid-cols-3": story.content.stats.length === 3,
+            })}
+          >
             {story.content.stats.map((stat, index) => (
               <div className="rounded bg-stone p-8 text-center" key={index}>
                 <h2 className="mb-2 text-2xl font-semibold md:text-3xl lg:text-4xl">{stat.stat}</h2>

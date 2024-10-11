@@ -51,7 +51,7 @@ const TeamMember = ({ blok, location }) => {
               className="relative mx-8 transform overflow-hidden rounded bg-white p-6 text-left shadow-xl transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-5xl data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95 md:p-8 lg:p-12"
             >
               <div className="grid gap-6 lg:max-h-[550px] lg:grid-cols-2">
-                <div className="overflow-scroll lg:max-h-[550px] lg:pr-12">
+                <div className="overflow-y-scroll lg:max-h-[550px] lg:pr-12">
                   <DialogTitle className="mb-2" size="xl" as={Heading}>
                     {blok.name}
                   </DialogTitle>
