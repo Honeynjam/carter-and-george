@@ -11,7 +11,8 @@ import { linkResolver } from "utils/linkResolver";
 import GoogleRating from "components/base/GoogleRating";
 import Button from "components/common/Button";
 import Container from "components/common/Container";
-import { Eyebrow, Heading, Subtitle } from "components/common/Typography";
+import TextButton from "components/common/TextButton";
+import { Heading, Subtitle } from "components/common/Typography";
 import StoryblokLink from "components/storyblok/StoryblokLink";
 
 export const MapComponent = ({ lat = 53.483601620042315, lng = -2.2366950875805354 }) => {
@@ -74,14 +75,8 @@ const Location = ({ blok }) => (
               <Button target="_blank" href={linkResolver(blok.nookal_link)}>
                 Book now
               </Button>
-              {/* TODO - turn into a component */}
-              <StoryblokLink
-                className="font-petite-caps group flex items-center gap-2 text-button font-medium"
-                link={blok.google_directions}
-              >
-                <span>Get Directions</span>
-                <CaretRight className="duration-75 group-hover:translate-x-0.5" />
-              </StoryblokLink>
+
+              <TextButton link={blok.google_directions}>Get Directions</TextButton>
             </div>
           </div>
           <div>
@@ -117,12 +112,19 @@ const Location = ({ blok }) => (
           {blok.services.map((service) => {
             if (service.content) {
               return (
-                <StoryblokLink link={service} className="flex items-center" key={service._uid}>
+                <StoryblokLink
+                  link={service}
+                  className="group flex items-center"
+                  key={service._uid}
+                >
                   <div className="mr-4 rounded-full bg-[#E9F0F2] p-1.5">
                     <Check className="text-blue" weight="bold" />
                   </div>
                   <p className="text-md">{service.content.name}</p>
-                  <CaretRight className="ml-2" size={16} />
+                  <CaretRight
+                    className="ml-2 duration-150 ease-out will-change-transform group-hover:translate-x-0.5"
+                    size={16}
+                  />
                 </StoryblokLink>
               );
             } else return null;
