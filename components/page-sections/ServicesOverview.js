@@ -7,6 +7,7 @@ import cn from "classnames";
 import Container from "components/common/Container";
 import { Eyebrow, Heading, Subtitle } from "components/common/Typography";
 import StoryblokImage from "components/storyblok/StoryblokImage";
+import StoryblokLink from "components/storyblok/StoryblokLink";
 
 const ServicesOverview = ({ blok }) => {
   const [active, setActive] = useState(blok.services[0]);
@@ -27,18 +28,22 @@ const ServicesOverview = ({ blok }) => {
                 <div
                   {...storyblokEditable(service)}
                   key={service._uid}
-                  className="group relative ml-7 flex items-center gap-4"
                   onMouseEnter={() => setActive(service)}
                 >
-                  <span className="font-petite-caps absolute -left-7 top-0 text-small font-semibold text-blue">
-                    0{idx + 1}
-                  </span>
-                  <p className="cursor-pointer text-3xl font-medium opacity-50 duration-150 hover:opacity-100 md:text-4xl lg:text-5xl">
-                    {service.name}
-                  </p>
-                  <div className="overflow-hidden rounded-full bg-stone p-4 opacity-0 duration-75 group-hover:opacity-100">
-                    <ArrowRight className="h-8 w-8 text-black" />
-                  </div>
+                  <StoryblokLink
+                    link={service.link}
+                    className="group relative ml-7 flex items-center gap-4"
+                  >
+                    <span className="font-petite-caps absolute -left-7 top-0 text-small font-semibold text-blue">
+                      0{idx + 1}
+                    </span>
+                    <p className="cursor-pointer text-3xl font-medium opacity-50 duration-150 hover:opacity-100 md:text-4xl lg:text-5xl">
+                      {service.name}
+                    </p>
+                    <div className="overflow-hidden rounded-full bg-stone p-4 opacity-0 duration-75 group-hover:opacity-100">
+                      <ArrowRight className="h-8 w-8 text-black" />
+                    </div>
+                  </StoryblokLink>
                 </div>
               );
             })}
@@ -49,8 +54,9 @@ const ServicesOverview = ({ blok }) => {
                 <div
                   key={service._uid}
                   {...storyblokEditable(service)}
-                  className={cn("h-full max-h-[550px] duration-150", {
-                    "hidden opacity-0": service._uid !== active._uid,
+                  className={cn("h-full max-h-[550px] transition-opacity duration-500", {
+                    "pointer-events-none absolute z-[-10] h-0 w-0 select-none opacity-0":
+                      service._uid !== active._uid,
                     "block opacity-100": service._uid === active._uid,
                   })}
                 >
