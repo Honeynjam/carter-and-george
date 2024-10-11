@@ -8,6 +8,7 @@ import cn from "classnames";
 import { useKeenSlider } from "keen-slider/react";
 
 import Container from "components/common/Container";
+import TextButton from "components/common/TextButton";
 import { Eyebrow, Heading } from "components/common/Typography";
 import StoryblokImage from "components/storyblok/StoryblokImage";
 import StoryblokLink from "components/storyblok/StoryblokLink";
@@ -17,7 +18,7 @@ const ServiceCard = ({ service }) => {
     return (
       <StoryblokLink
         link={service}
-        className="keen-slider__slide relative h-[450px] overflow-hidden rounded lg:h-[530px]"
+        className="keen-slider__slide group relative h-[450px] overflow-hidden rounded duration-100 hover:shadow-2xl lg:h-[530px]"
       >
         <StoryblokImage
           fill
@@ -29,13 +30,8 @@ const ServiceCard = ({ service }) => {
           <Heading level={3} className="mb-4" size="large">
             {service.content.card_title}
           </Heading>
-
-          <p className="font-petite-caps flex items-center gap-2 text-button font-medium">
-            <span>Learn More</span>
-            <CaretRight className="h-4 w-4" />
-          </p>
+          <TextButton>Learn more</TextButton>
         </div>
-        <StoryblokImage />
       </StoryblokLink>
     );
   } else return null;
@@ -74,36 +70,7 @@ const ServiceCards = ({ blok }) => {
       },
     },
 
-    [
-      // (slider) => {
-      //   let timeout;
-      //   let mouseOver = false;
-      //   function clearNextTimeout() {
-      //     clearTimeout(timeout);
-      //   }
-      //   function nextTimeout() {
-      //     clearTimeout(timeout);
-      //     if (mouseOver) return;
-      //     timeout = setTimeout(() => {
-      //       slider.next();
-      //     }, 6000);
-      //   }
-      //   slider.on("created", () => {
-      //     slider.container.addEventListener("mouseover", () => {
-      //       mouseOver = true;
-      //       clearNextTimeout();
-      //     });
-      //     slider.container.addEventListener("mouseout", () => {
-      //       mouseOver = false;
-      //       nextTimeout();
-      //     });
-      //     nextTimeout();
-      //   });
-      //   slider.on("dragStarted", clearNextTimeout);
-      //   slider.on("animationEnded", nextTimeout);
-      //   slider.on("updated", nextTimeout);
-      // },
-    ]
+    []
   );
 
   const isCarousel = blok.cards.length > 3;

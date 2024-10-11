@@ -8,6 +8,7 @@ import getGlobalDocs from "utils/getGlobalDocs";
 import GoogleRating from "components/base/GoogleRating";
 import Seo from "components/base/Seo";
 import Container from "components/common/Container";
+import { Heading } from "components/common/Typography";
 import Layout from "components/global/Layout";
 import StoryblokImage from "components/storyblok/StoryblokImage";
 import StoryblokLink from "components/storyblok/StoryblokLink";
@@ -35,9 +36,12 @@ export default function PatientStoriesFolder({
       />
       <Layout navbarType="white" {...globalDocs} preview={preview}>
         <Container>
-          <div className="mt-2xl text-center">
+          <div className="section-spacing-m text-center">
             <GoogleRating center />
-            <h1 className="my-6 text-4xl font-semibold">{story.content.title}</h1>
+            <Heading className="my-6" size="4xl" level={1}>
+              {story.content.title}
+            </Heading>
+
             <p className="mx-auto max-w-3xl text-balance text-normal">{story.content.subtitle}</p>
           </div>
           <div className="my-xl grid gap-8 md:grid-cols-3">

@@ -25,6 +25,7 @@ const LeadershipCards = ({ blok }) => {
             if (profile?.content) {
               return (
                 <StoryblokLink
+                  key={profile.content._uid}
                   link={profile}
                   className="grid overflow-hidden rounded bg-stone duration-100 hover:-translate-y-0.5 hover:shadow-2xl lg:grid-cols-2"
                 >
