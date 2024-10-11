@@ -10,6 +10,11 @@ import { useKeenSlider } from "keen-slider/react";
 import Container from "components/common/Container";
 import { Heading } from "components/common/Typography";
 
+// https://easings.net/#easeOutCubic
+var easeOutCubic = (x) => {
+  return 1 - Math.pow(1 - x, 3);
+};
+
 const TestimonialCarousel = ({ blok }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
@@ -20,6 +25,10 @@ const TestimonialCarousel = ({ blok }) => {
       slides: {
         perView: 1,
         spacing: 16,
+      },
+      defaultAnimation: {
+        duration: 1200,
+        easing: easeOutCubic,
       },
       breakpoints: {
         "(min-width: 768px)": {
