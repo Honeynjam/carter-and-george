@@ -17,7 +17,7 @@ const ContentSection = ({ blok }) => {
       })}
     >
       <Container>
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-20">
+        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-20">
           <div
             className={cn("h-full w-full lg:col-span-5 lg:max-h-[800px]", {
               "order-2 lg:order-1": blok.image_position === "left",
@@ -32,22 +32,24 @@ const ContentSection = ({ blok }) => {
               "order-1 lg:order-1": blok.image_position === "right",
             })}
           >
-            <Heading
-              color={blok.background === "dark" ? "white" : "black"}
-              className="mb-4 mt-6 max-w-xl"
-              size="3xl"
-              level={2}
-            >
-              {blok.title}
-            </Heading>
-            <Subtitle
-              className="max-w-xl"
-              alternate={blok.background === "dark"}
-              color="grey"
-              size="medium"
-            >
-              {blok.subtitle}
-            </Subtitle>
+            <div className="lg:w-4/5">
+              <Heading
+                color={blok.background === "dark" ? "white" : "black"}
+                className="mb-4 mt-6 max-w-xl"
+                size="3xl"
+                level={2}
+              >
+                {blok.title}
+              </Heading>
+              <Subtitle
+                className="max-w-xl"
+                alternate={blok.background === "dark"}
+                color="grey"
+                size="medium"
+              >
+                {blok.subtitle}
+              </Subtitle>
+            </div>
             <div className="mt-12 grid grid-cols-1 lg:gap-8">
               {blok.items.map((item) => {
                 return (

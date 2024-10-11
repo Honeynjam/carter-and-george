@@ -12,7 +12,7 @@ const BulletsSection = ({ blok }) => {
   return (
     <div className="section-spacing-p bg-stone" {...storyblokEditable(blok)}>
       <Container>
-        <div className="grid gap-8 lg:grid-cols-12 lg:gap-20">
+        <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-20">
           <div className="lg:col-span-5">
             <Eyebrow text={blok.eyebrow} />
             <Heading size="3xl" level={2} className="mb-4">
