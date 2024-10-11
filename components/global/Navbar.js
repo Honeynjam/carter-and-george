@@ -58,17 +58,26 @@ const Navbar = ({ type = "blur", data }) => {
         <Container>
           <div className="flex items-center justify-between gap-6">
             <div className="flex items-center gap-6">
-              <Link href="/">
-                <Image
-                  className="object-contain duration-500 ease-custom hover:scale-95 hover:opacity-90"
-                  width={179}
-                  height={75}
-                  priority={true}
-                  src={
-                    isWhiteTheme ? "/images/full-logo-colour.png" : "/images/full-logo-white.png"
-                  }
-                  alt="logo"
-                />
+              <Link className="duration-500 ease-custom hover:scale-95 hover:opacity-90" href="/">
+                {isWhiteTheme ? (
+                  <Image
+                    className="object-contain"
+                    width={179}
+                    height={75}
+                    priority={true}
+                    src={"/images/full-logo-colour.png"}
+                    alt="logo"
+                  />
+                ) : (
+                  <Image
+                    className="object-contain"
+                    width={179}
+                    height={75}
+                    priority={true}
+                    src={"/images/full-logo-white.png"}
+                    alt="logo"
+                  />
+                )}
               </Link>
             </div>
             {/* Mobile */}
