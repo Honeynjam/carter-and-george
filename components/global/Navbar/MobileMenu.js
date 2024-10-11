@@ -188,7 +188,7 @@ const MobileMenu = ({ data }) => {
                               );
                             })}
                           </div>
-                          <div className="pb-safe absolute bottom-4 left-0 right-0 z-20 mt-8 flex flex-col gap-4 border-t border-stroke-light bg-white px-8 pt-6">
+                          <div className="bottom-safe-offset-4 absolute left-0 right-0 z-20 mt-8 flex flex-col gap-4 border-t border-stroke-light bg-white px-8 pt-6">
                             <div className="flex flex-col gap-4">
                               <Button outline href={linkResolver(primaryButton.link)}>
                                 {secondaryButton.text}
