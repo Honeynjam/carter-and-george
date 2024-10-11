@@ -21,7 +21,7 @@ const ServicesOverview = ({ blok }) => {
           </Heading>
           <Subtitle color="grey">{blok.subtitle}</Subtitle>
         </div>
-        <div className="mt-20 grid items-center gap-12 lg:grid-cols-5 lg:gap-20">
+        <div className="mt-8 grid items-center gap-12 lg:mt-20 lg:grid-cols-5 lg:gap-20">
           <div className="grid grid-cols-1 gap-5 lg:col-span-3">
             {blok.services.map((service, idx) => {
               return (
@@ -37,10 +37,10 @@ const ServicesOverview = ({ blok }) => {
                     <span className="font-petite-caps absolute -left-7 top-0 text-small font-semibold text-blue">
                       0{idx + 1}
                     </span>
-                    <p className="cursor-pointer text-3xl font-medium opacity-50 duration-150 hover:opacity-100 md:text-4xl lg:text-5xl">
+                    <p className="cursor-pointer text-2xl font-medium opacity-50 duration-150 hover:opacity-100 md:text-4xl lg:text-5xl">
                       {service.name}
                     </p>
-                    <div className="overflow-hidden rounded-full bg-stone p-4 opacity-0 duration-75 group-hover:opacity-100">
+                    <div className="overflow-hidden rounded-full bg-stone p-4 opacity-0 duration-75 group-hover:opacity-100 max-lg:hidden">
                       <ArrowRight className="h-8 w-8 text-black" />
                     </div>
                   </StoryblokLink>
