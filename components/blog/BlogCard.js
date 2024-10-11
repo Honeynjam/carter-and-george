@@ -27,7 +27,7 @@ const BlogCard = ({
             className={cn("relative", {
               "aspect-square": layout === "horizontal",
               "aspect-[16/9]": layout === "vertical",
-              "h-[234px]": size === "normal",
+              "lg:h-[234px]": size === "normal",
               "h-[362px]": size === "large",
             })}
           >
@@ -54,7 +54,13 @@ const BlogCard = ({
               </Heading>
 
               {layout === "vertical" ? (
-                <p className="mt-2 text-small text-gray-secondary">{data.content.subtitle}</p>
+                <p
+                  className={cn("mt-2 text-small text-gray-secondary", {
+                    "max-lg:hidden": hideImage,
+                  })}
+                >
+                  {data.content.subtitle}
+                </p>
               ) : null}
             </div>
           </div>

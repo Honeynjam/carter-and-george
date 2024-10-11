@@ -63,7 +63,7 @@ const HeroVideo = ({ blok }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <section {...storyblokEditable(blok)}>
-      <div className="relative z-10 mt-[-103px] md:min-h-screen">
+      <div className="relative z-10 mt-[-103px] lg:min-h-screen">
         <div className="pt-[103px]">
           <div className="relative z-20 py-xl md:py-2xl lg:py-3xl">
             <Container className="text-white">

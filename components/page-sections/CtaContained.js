@@ -40,7 +40,7 @@ const CtaContained = ({ blok }) => {
                 {blok.subtitle}
               </Subtitle>
 
-              <div className="mt-10">
+              <div className="mt-6 lg:mt-10">
                 {blok.postcode_cta ? (
                   <PostcodeForm hideLabel onWhite={blok.background !== "dark"} />
                 ) : (
@@ -48,6 +48,7 @@ const CtaContained = ({ blok }) => {
                     {blok.buttons.map((button) => {
                       return (
                         <Button
+                          key={button._uid}
                           color={blok.background === "dark" ? "white" : "black"}
                           href={linkResolver(button.link)}
                         >

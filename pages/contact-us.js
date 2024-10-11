@@ -28,8 +28,8 @@ export default function Home({ preview, story, globalDocs }) {
       <Layout navbarType={determineNavbarType(story)} {...globalDocs} preview={preview}>
         <div {...storyblokEditable(story)} className="section-spacing-m">
           <Container>
-            <div className="grid gap-12 md:grid-cols-12 md:gap-20">
-              <div className="md:col-span-7">
+            <div className="grid gap-12 lg:grid-cols-12 lg:gap-20">
+              <div className="max-w-lg lg:col-span-7">
                 <Heading level={1} size="3xl">
                   {story.content.title}
                 </Heading>
@@ -37,19 +37,23 @@ export default function Home({ preview, story, globalDocs }) {
                   {story.content.subtitle}
                 </Subtitle>
               </div>
-              <div className="md:col-span-5">
+              <div className="lg:col-span-5">
                 <div className="flex gap-4">
                   <Phone className="mt-1" size={24} />
                   <div className="flex flex-1 flex-col">
                     <span className="font-semibold">Phone</span>
-                    <span className="mt-1">{story.content.phone}</span>
+                    <a href={`tel:${story.content.email}`} className="mt-1 hover:underline">
+                      {story.content.phone}
+                    </a>
                   </div>
                 </div>
                 <div className="mt-4 flex gap-4">
                   <EnvelopeSimple className="mt-1" size={24} />
                   <div className="flex flex-1 flex-col">
-                    <span className="font-semibold">Email</span>
-                    <span className="mt-1">{story.content.email}</span>
+                    <span className="font-semibold no-underline">Email</span>
+                    <a href={`mailto:${story.content.email}`} className="mt-1 hover:underline">
+                      {story.content.email}
+                    </a>
                   </div>
                 </div>
                 <div className="mt-8">

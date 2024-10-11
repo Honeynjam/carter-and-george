@@ -25,8 +25,8 @@ const PatientStory = ({ articles = [], blok }) => (
         </div>
         <div className="md:border-t md:border-stroke-light md:py-12">
           <div className="grid items-start md:grid-cols-12">
-            <div className="order-2 md:sticky md:top-32 md:order-1 md:col-span-3 md:mr-12">
-              <h2 className="text-large mb-12 font-semibold">Related Posts</h2>
+            <div className="order-2 md:sticky md:top-32 md:order-1 md:col-span-4 md:mr-12 lg:col-span-3">
+              <h2 className="text-large mb-6 font-semibold lg:mb-12">Related Posts</h2>
 
               <div className="grid grid-cols-1 gap-12">
                 {articles &&
@@ -42,7 +42,7 @@ const PatientStory = ({ articles = [], blok }) => (
                   })}
               </div>
             </div>
-            <div className="order-1 md:order-2 md:col-span-9 md:border-l md:border-stroke-light md:pl-12">
+            <div className="order-1 md:order-2 md:col-span-8 md:border-l md:border-stroke-light md:pl-12 lg:col-span-9">
               <div className="mb-2 flex items-center gap-4 lg:mb-7">
                 <StoryblokLink link={blok.category} className="duration-75 hover:brightness-95">
                   <Badge>{blok.category?.content?.name}</Badge>

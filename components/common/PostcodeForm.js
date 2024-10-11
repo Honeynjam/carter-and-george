@@ -57,7 +57,7 @@ const PostcodeForm = ({
           </label>
         ) : null}
 
-        <div className="flex flex-col gap-4 md:flex-row md:items-center">
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-center">
           <input
             value={postcode}
             onChange={handlePostcodeChange}

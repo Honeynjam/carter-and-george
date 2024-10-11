@@ -16,13 +16,13 @@ const ScrollerSection = ({ blok }) => {
     {
       slides: {
         perView: 1.4,
-        spacing: 32,
+        spacing: 16,
       },
       breakpoints: {
         "(min-width: 768px)": {
           slides: {
             perView: 2.2,
-            spacing: 48,
+            spacing: 24,
           },
         },
         "(min-width: 1080px)": {

@@ -43,10 +43,10 @@
 
 @layer components {
   .section-spacing-m {
-    @apply my-side-padding md:my-2xl lg:my-2xl;
+    @apply my-side-padding md:my-xl lg:my-2xl;
   }
 
   .section-spacing-p {
-    @apply py-side-padding md:py-2xl lg:py-2xl;
+    @apply py-side-padding md:py-xl lg:py-2xl;
   }
 }

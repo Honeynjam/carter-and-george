@@ -24,16 +24,16 @@ const Footer = ({ data }) => {
         </div>
         <div className="">
           <h3 className="mb-4 font-semibold text-white">Subscribe to our newsletter</h3>
-          <form className="my-4 flex w-full flex-col gap-4 md:flex-row md:items-center">
+          <form className="my-4 flex w-full flex-col gap-4 lg:flex-row lg:items-center">
             <input
               required
-              className="rounded-[1px] py-3 md:w-1/3"
+              className="rounded-[1px] py-3 lg:w-1/3"
               type="email"
               placeholder="Enter your email"
             />
 
             <select
-              className="rounded-[1px] py-3 text-black md:w-1/3"
+              className="rounded-[1px] py-3 text-black lg:w-1/3"
               placeholder="Your local practice"
             >
               <option value="">Your local practice</option>

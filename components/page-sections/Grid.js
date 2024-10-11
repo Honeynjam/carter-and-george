@@ -13,8 +13,8 @@ const Grid = ({ blok }) => {
   return (
     <section className="section-spacing-p bg-stone" {...storyblokEditable(blok)}>
       <Container>
-        <div className="grid gap-side-padding md:grid-cols-12">
-          <div className="md:col-span-5">
+        <div className="grid items-start gap-side-padding md:grid-cols-12">
+          <div className="md:sticky md:top-24 md:col-span-5 lg:relative lg:top-0">
             <Eyebrow text={blok.eyebrow} />
 
             <Heading level={2} size="3xl" className="mb-4">
@@ -32,7 +32,7 @@ const Grid = ({ blok }) => {
               })}
             </div>
           </div>
-          <div className="grid gap-large sm:grid-cols-2 md:col-span-7">
+          <div className="grid gap-large md:col-span-7 lg:grid-cols-2">
             {blok.cards.map((card) => {
               return (
                 <div {...storyblokEditable(card)} key={card._uid}>
