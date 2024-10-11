@@ -32,7 +32,7 @@ const BulletsSection = ({ blok }) => {
           <div className="lg:col-span-7">
             <div
               className={cn({
-                "grid grid-cols-2 gap-x-12 gap-y-8": blok.bullet_columns === "two",
+                "grid gap-x-12 gap-y-8 md:grid-cols-2": blok.bullet_columns === "two",
               })}
             >
               {blok.bullet_list.map((item) => {

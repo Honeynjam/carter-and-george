@@ -109,7 +109,7 @@ export default function FindYourLocationPage({ preview, story, locations, global
               <div>
                 {closestLocations.length > 0 ? (
                   <div className="mt-2xl">
-                    <div className="grid items-start gap-20 md:grid-cols-2">
+                    <div className="grid items-start gap-10 md:grid-cols-2 md:gap-20">
                       <div>
                         <Heading level={3} size="large">
                           {closestLocations.length} Practices
@@ -117,14 +117,14 @@ export default function FindYourLocationPage({ preview, story, locations, global
                         <p className="text-smaller">found in your area</p>
                         <Hr className="mb-6 mt-4" />
 
-                        <div className="grid grid-cols-1 gap-12">
+                        <div className="grid grid-cols-1 gap-6 md:gap-12">
                           {closestLocations.map((location) => {
                             if (location?.content) {
                               return (
                                 <div key={location.content.uuid} className="">
                                   <StoryblokImage image={location.content.image} />
                                   <div className="bg-stone p-6">
-                                    <div className="flex items-start justify-between gap-20">
+                                    <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:gap-20">
                                       <div className="flex-1">
                                         <Heading className="mb-2" level={4} size="large">
                                           {location.content.clinic_name}
@@ -149,12 +149,13 @@ export default function FindYourLocationPage({ preview, story, locations, global
                                       })}
                                     </div>
 
-                                    <div className="mt-10 flex items-center gap-4">
+                                    <div className="mt-10 flex flex-col gap-4 md:flex-row md:items-center">
                                       <Button outline href={linkResolver(location)}>
                                         Find out more
                                       </Button>
 
                                       <TextButton
+                                        className="self-center"
                                         target="_blank"
                                         href={linkResolver(location.content.google_directions)}
                                       >
