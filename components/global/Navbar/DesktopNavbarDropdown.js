@@ -10,7 +10,7 @@ import StoryblokLink from "components/storyblok/StoryblokLink";
 
 export const DesktopNavbarDropdown = ({ blok }) => {
   return (
-    <Popover className="test-kris relative">
+    <Popover className="relative">
       {() => {
         return (
           <>

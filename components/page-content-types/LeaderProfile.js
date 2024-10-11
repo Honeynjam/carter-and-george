@@ -1,4 +1,3 @@
-import { CaretRight } from "@phosphor-icons/react/dist/ssr/CaretRight";
 import { StoryblokComponent, storyblokEditable } from "@storyblok/react";
 import { render } from "storyblok-rich-text-react-renderer";
 
@@ -10,7 +9,6 @@ import Container from "components/common/Container";
 import TextButton from "components/common/TextButton";
 import { Heading, Subtitle } from "components/common/Typography";
 import StoryblokImage from "components/storyblok/StoryblokImage";
-import StoryblokLink from "components/storyblok/StoryblokLink";
 
 const LeaderProfile = ({ blok }) => (
   <div className="mt-20" {...storyblokEditable(blok)} key={blok._uid}>
@@ -33,7 +31,15 @@ const LeaderProfile = ({ blok }) => (
               priority
               image={blok.image}
             />
-            <div className="prose mt-14 max-w-none lg:prose-lg">{render(blok.text)}</div>
+
+            <div className="prose mt-14 max-w-none lg:prose-lg">
+              {render(blok.text, {
+                defaultBlokResolver: (name, props) => {
+                  const blok = { ...props, component: name };
+                  return <StoryblokComponent blok={blok} key={props._uid} />;
+                },
+              })}
+            </div>
           </div>
           <div className="lg:sticky lg:top-32 lg:col-span-3">
             <Heading className="mb-12" size="large">

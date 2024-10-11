@@ -10,6 +10,7 @@ import Page from "../page-content-types/Page";
 import PatientStory from "../page-content-types/PatientStory";
 import Service from "../page-content-types/Service";
 
+import QuoteBlock from "components/content-sections/QuoteBlock";
 import RichText from "components/content-sections/RichText";
 import Video from "components/content-sections/Video";
 import HeroBlok from "components/hero-sections/Hero";
@@ -58,6 +59,7 @@ const components = {
   // content components
   rich_text: RichText,
   video: Video,
+  quote_block: QuoteBlock,
   // Hero Section Components
   hero: HeroBlok,
   hero_two_cols: HeroTwoCols,
