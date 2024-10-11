@@ -62,7 +62,7 @@ const Seo = ({
         <meta name="twitter:image" content={socialImage || defaultMeta.image} />
 
         {/* Technical tags */}
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <meta charSet="utf-8" />
         <link rel="canonical" href={getUrl(router.asPath)} />
         <meta name="theme-color" content={settings.themeColor} />

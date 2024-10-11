@@ -158,7 +158,7 @@ const MobileMenu = ({ data }) => {
                     >
                       {({ close }) => (
                         <>
-                          <div className="relative z-10 overflow-y-scroll pb-40 text-black">
+                          <div className="no-scrollbar relative z-10 overflow-y-scroll pb-40 text-black">
                             <div className="flex items-center justify-between gap-4">
                               <Image
                                 className="object-contain"
@@ -188,7 +188,7 @@ const MobileMenu = ({ data }) => {
                               );
                             })}
                           </div>
-                          <div className="absolute bottom-4 left-0 right-0 z-20 mt-8 flex flex-col gap-4 border-t border-stroke-light bg-white px-8 pt-6">
+                          <div className="pb-safe absolute bottom-4 left-0 right-0 z-20 mt-8 flex flex-col gap-4 border-t border-stroke-light bg-white px-8 pt-6">
                             <div className="flex flex-col gap-4">
                               <Button outline href={linkResolver(primaryButton.link)}>
                                 {secondaryButton.text}
