@@ -43,7 +43,7 @@ const LeaderProfile = ({ blok }) => (
           </div>
           <div className="lg:sticky lg:top-32 lg:col-span-3">
             <Heading className="mb-12" size="large">
-              {blok.name}’s Recommended Services
+              {blok.recommended_services_title}
             </Heading>
             <div className="grid grid-cols-1 gap-12">
               {blok.recommended_services &&

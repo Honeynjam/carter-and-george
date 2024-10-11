@@ -63,6 +63,7 @@ const Navbar = ({ type = "blur", data }) => {
                   className="object-contain duration-500 ease-custom hover:scale-95 hover:opacity-90"
                   width={179}
                   height={75}
+                  priority={true}
                   src={
                     isWhiteTheme ? "/images/full-logo-colour.png" : "/images/full-logo-white.png"
                   }
