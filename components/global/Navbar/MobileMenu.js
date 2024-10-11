@@ -153,7 +153,7 @@ const MobileMenu = ({ data }) => {
                         transition: { duration: 0.2 },
                       }}
                       className={cn(
-                        "absolute inset-x-0 top-0 z-20 flex h-full min-h-screen origin-top flex-col justify-between bg-white p-6"
+                        "pb-safe absolute inset-x-0 top-0 z-20 flex h-full min-h-screen origin-top flex-col justify-between bg-white p-6"
                       )}
                     >
                       {({ close }) => (
