@@ -218,8 +218,7 @@ export async function getStaticProps({ preview = null }) {
   let data = null;
   try {
     const doc = await storyblokApi.get(`cdn/stories/find-your-practice`, {
-      // version: preview ? "draft" : "published",
-      version: "draft",
+      version: preview ? "draft" : "published",
     });
     data = doc.data;
   } catch (error) {
@@ -229,8 +228,7 @@ export async function getStaticProps({ preview = null }) {
   }
 
   const { data: locations } = await storyblokApi.get("cdn/stories/", {
-    // version: preview ? "draft" : "published",
-    version: "draft",
+    version: preview ? "draft" : "published",
     starts_with: "locations",
     is_startpage: 0,
     resolve_relations: ["location.services"],

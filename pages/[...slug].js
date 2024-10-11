@@ -41,8 +41,7 @@ export async function getStaticProps({ params, preview = null }) {
   }
 
   let sbParams = {
-    // version: preview ? "draft" : "published",
-    version: "draft",
+    version: preview ? "draft" : "published",
     resolve_relations: [
       "blog_post.category",
       "service_cards.cards",
@@ -85,8 +84,7 @@ export async function getStaticPaths() {
   const storyblokApi = getStoryblokApi();
 
   let sbParams = {
-    // version: "published",
-    version: "draft",
+    version: "published",
     per_page: 1000,
   };
 

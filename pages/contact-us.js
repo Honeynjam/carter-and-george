@@ -83,8 +83,7 @@ export async function getStaticProps({ preview = null }) {
   let data = null;
   try {
     const doc = await storyblokApi.get(`cdn/stories/contact-us`, {
-      // version: preview ? "draft" : "published",
-      version: "draft",
+      version: preview ? "draft" : "published",
     });
     data = doc.data;
   } catch (error) {

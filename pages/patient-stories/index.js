@@ -174,8 +174,7 @@ export async function getStaticProps({ preview = null }) {
 
   let data = null;
   let doc = await storyblokApi.get(`cdn/stories/patient-stories/`, {
-    // version: preview ? "draft" : "published",
-    version: "draft",
+    version: preview ? "draft" : "published",
   });
 
   data = doc.data;
@@ -185,8 +184,7 @@ export async function getStaticProps({ preview = null }) {
   }
 
   const { data: patientStoriesData } = await storyblokApi.get("cdn/stories/", {
-    // version: preview ? "draft" : "published",
-    version: "draft",
+    version: preview ? "draft" : "published",
     starts_with: "patient-stories",
     resolve_relations: ["patient_story.category"],
     is_startpage: 0,
@@ -194,15 +192,13 @@ export async function getStaticProps({ preview = null }) {
   });
 
   const { data: quotesData } = await storyblokApi.get("cdn/stories/", {
-    // version: preview ? "draft" : "published",
-    version: "draft",
+    version: preview ? "draft" : "published",
     starts_with: "patient-stories/quotes",
     is_startpage: 0,
   });
 
   const { data: quoteMedia } = await storyblokApi.get("cdn/stories/", {
-    // version: preview ? "draft" : "published",
-    version: "draft",
+    version: preview ? "draft" : "published",
     starts_with: "patient-stories/quotes-media",
     is_startpage: 0,
   });

@@ -39,8 +39,7 @@ export async function getStaticProps({ params, preview = null }) {
   let slug = params.slug;
 
   let sbParams = {
-    // version: preview ? "draft" : "published",
-    version: "draft",
+    version: preview ? "draft" : "published",
   };
 
   const storyblokApi = getStoryblokApi();
@@ -80,8 +79,7 @@ export async function getStaticPaths() {
   const storyblokApi = getStoryblokApi();
 
   let { data } = await storyblokApi.get(`cdn/stories/`, {
-    // version: "published",
-    version: "draft",
+    version: "published",
     starts_with: "legal",
     is_startpage: 0,
     per_page: 100,

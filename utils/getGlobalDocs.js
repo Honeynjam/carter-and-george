@@ -4,8 +4,7 @@ const getGlobalDocs = async (preview = false) => {
   const storyblokApi = getStoryblokApi();
   let { data: globalDocs } = await storyblokApi.get(`cdn/stories/`, {
     starts_with: "global",
-    // version: preview ? "draft" : "published",
-    version: "draft",
+    version: preview ? "draft" : "published",
   });
 
   const navbar = globalDocs.stories.find((story) => story.slug === "navbar");
@@ -14,8 +13,7 @@ const getGlobalDocs = async (preview = false) => {
   const globalSettings = globalDocs.stories.find((story) => story.slug === "global-settings");
 
   const { data: locationsData } = await storyblokApi.get("cdn/stories/", {
-    // version: preview ? "draft" : "published",
-    version: "draft",
+    version: preview ? "draft" : "published",
     starts_with: "locations",
     is_startpage: 0,
   });

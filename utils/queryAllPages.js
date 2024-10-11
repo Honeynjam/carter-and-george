@@ -4,8 +4,7 @@ export const queryAllPages = async (page = 1, routes = []) => {
   const per_page = 100;
   const storyblokApi = getStoryblokApi();
   let sbParams = {
-    // version: "published",
-    version: "draft",
+    version: "published",
     per_page: per_page,
     page: page,
   };

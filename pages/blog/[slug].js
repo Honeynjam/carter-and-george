@@ -31,8 +31,7 @@ export async function getStaticProps({ params, preview = null }) {
   let slug = params.slug;
 
   let sbParams = {
-    // version: preview ? "draft" : "published",
-    version: "draft",
+    version: preview ? "draft" : "published",
     resolve_relations: ["blog_post.category"],
     resolve_links: "url",
   };
@@ -50,8 +49,7 @@ export async function getStaticProps({ params, preview = null }) {
   }
 
   const { data: articles } = await storyblokApi.get("cdn/stories/", {
-    // version: preview ? "draft" : "published",
-    version: "draft",
+    version: preview ? "draft" : "published",
     starts_with: "blog",
     resolve_relations: ["blog_post.category"],
     excluding_slugs: `blog/categories/*,${data.story.full_slug}`,
@@ -83,8 +81,7 @@ export async function getStaticPaths() {
   const storyblokApi = getStoryblokApi();
 
   let { data: articlesData } = await storyblokApi.get(`cdn/stories/`, {
-    // version: "published",
-    version: "draft",
+    version: "published",
     starts_with: "blog",
     is_startpage: 0,
     per_page: 100,
