@@ -2,6 +2,7 @@ import React from "react";
 
 import { storyblokEditable } from "@storyblok/react";
 
+import { arrayNotEmpty } from "utils/arrayNotEmpty";
 import { linkResolver } from "utils/linkResolver";
 
 import Button from "components/common/Button";
@@ -11,7 +12,7 @@ import StoryblokImage from "components/storyblok/StoryblokImage";
 
 const ApproachSection = ({ blok }) => {
   return (
-    <section className="py-2xl" {...storyblokEditable(blok)}>
+    <section className="section-spacing-m" {...storyblokEditable(blok)}>
       <Container>
         <div className="mb-xl flex items-end justify-between gap-20">
           <div className="max-w-2xl">
@@ -22,15 +23,17 @@ const ApproachSection = ({ blok }) => {
 
             <Subtitle>{blok.subtitle}</Subtitle>
           </div>
-          <div>
-            {blok.buttons.map((button) => {
-              return (
-                <Button key={button._uid} outline href={linkResolver(button.link)}>
-                  {button.text}
-                </Button>
-              );
-            })}
-          </div>
+          {arrayNotEmpty(blok.buttons) ? (
+            <div>
+              {blok.buttons.map((button) => {
+                return (
+                  <Button key={button._uid} outline href={linkResolver(button.link)}>
+                    {button.text}
+                  </Button>
+                );
+              })}
+            </div>
+          ) : null}
         </div>
         <div className="group/test flex flex-col gap-6 md:mt-3xl md:flex-row">
           {blok.items.map((item) => {
@@ -50,7 +53,7 @@ const ApproachSection = ({ blok }) => {
                 </Heading>
 
                 <Subtitle
-                  className="opacity-0 duration-150 ease-in group-hover/item:opacity-100 group-hover/item:delay-[400ms]"
+                  className="duration-150 ease-in group-hover/item:opacity-100 group-hover/item:delay-[400ms] lg:opacity-0"
                   size="small"
                 >
                   {item.subtitle}
