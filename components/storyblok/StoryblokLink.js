@@ -4,7 +4,7 @@ import { linkResolver } from "utils/linkResolver";
 
 const StoryblokLink = ({ link, children, className = "", analytics = {} }) => {
   const handleAnalytics = () => {
-    // todo
+    // handle custom GA4 analytics here
   };
 
   const handleSmoothScroll = (e) => {

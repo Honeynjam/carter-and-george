@@ -42,7 +42,12 @@ const DownloadForm = ({ blok }) => {
               </div>
               {/* TODO mailchimp */}
               <form className="mt-6 flex max-w-xl items-center gap-4 py-4">
-                <input className="w-full py-3" type="email" placeholder="Enter your email" />
+                <input
+                  className="w-full py-3"
+                  type="email"
+                  name="email"
+                  placeholder="Enter your email"
+                />
                 <Button outline color="white">
                   Download
                 </Button>

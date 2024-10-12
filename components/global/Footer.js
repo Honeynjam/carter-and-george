@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -7,55 +7,76 @@ import cn from "classnames";
 
 import { useGlobalContext } from "contexts/globalContext";
 
+import { mailchimpSubscribe } from "utils/mailchimp";
+
 import Button from "components/common/Button";
 import SocialIcon from "components/social-icons";
 import StoryblokLink from "components/storyblok/StoryblokLink";
 
-const Footer = ({ data }) => {
+const NewsletterForm = () => {
+  const [status, setStatus] = useState("");
+  const [message, setMessage] = useState("");
+
   const { global, locations } = useGlobalContext();
 
   return (
-    <footer className="bg-black px-6 py-8 md:p-16">
-      {/* Newsletter */}
-      <div className="flex flex-col justify-between gap-8 py-8 text-white md:flex-row md:gap-24">
-        <div className="max-w-md">
-          <h2 className="mb-2 text-xl font-semibold">{global.newsletter_title}</h2>
-          <p className="text-small text-gray-secondary-alternate">{global.newsletter_subtitle}</p>
-        </div>
-        <div className="">
-          <h3 className="mb-4 font-semibold text-white">Subscribe to our newsletter</h3>
-          <form className="my-4 flex w-full flex-col gap-4 lg:flex-row lg:items-center">
-            <input
-              required
-              className="rounded-[1px] py-3 lg:w-1/3"
-              type="email"
-              placeholder="Enter your email"
-            />
-
-            <select
-              className="rounded-[1px] py-3 text-black lg:w-1/3"
-              placeholder="Your local practice"
-            >
-              <option value="">Your local practice</option>
-              {locations.map((location) => (
-                <option key={location} value={location}>
-                  {location}
-                </option>
-              ))}
-            </select>
-            <Button outline color="white">
-              Subscribe
-            </Button>
-          </form>
-          <p className="text-smaller text-gray-secondary-alternate">
-            By clicking Sign Up you're confirming that you agree with our{" "}
-            <Link className="underline" href="/legal/privacy-policy/">
-              Privacy Policy
-            </Link>
-            .
-          </p>
-        </div>
+    <div className="flex flex-col justify-between gap-8 py-8 text-white md:flex-row md:gap-24">
+      <div className="max-w-md">
+        <h2 className="mb-2 text-xl font-semibold">{global.newsletter_title}</h2>
+        <p className="text-small text-gray-secondary-alternate">{global.newsletter_subtitle}</p>
       </div>
+      <div className="">
+        <h3 className="mb-4 font-semibold text-white">Subscribe to our newsletter</h3>
+        <form
+          onSubmit={(e) => mailchimpSubscribe(e, setStatus, setMessage)}
+          className="my-4 flex w-full flex-col gap-4 lg:flex-row lg:items-center"
+        >
+          <input
+            required
+            className="rounded-[1px] py-3 text-black lg:w-1/3"
+            type="email"
+            name="email"
+            placeholder="Enter your email"
+          />
+
+          <select
+            className="rounded-[1px] py-3 text-black lg:w-1/3"
+            placeholder="Your local practice"
+            name="location"
+          >
+            <option value="">Your local practice</option>
+            {locations.map((location) => (
+              <option key={location} value={location}>
+                {location}
+              </option>
+            ))}
+          </select>
+          <Button outline color="white">
+            Subscribe
+          </Button>
+        </form>
+        {status ? (
+          <div className="my-2 text-small text-white">
+            {status === "error" ? <div>{message}</div> : null}
+            {status === "success" ? <div>{message}</div> : null}
+          </div>
+        ) : null}
+        <p className="text-smaller text-gray-secondary-alternate">
+          By clicking Sign Up you're confirming that you agree with our{" "}
+          <Link className="underline" href="/legal/privacy-policy/">
+            Privacy Policy
+          </Link>
+          .
+        </p>
+      </div>
+    </div>
+  );
+};
+const Footer = ({ data }) => {
+  return (
+    <footer className="bg-black px-6 py-8 md:p-16">
+      <NewsletterForm />
+
       <hr className="mb-8 text-stroke-dark lg:mb-16" />
       <div className="flex flex-col gap-8 lg:flex-row lg:gap-40">
         <div className="max-w-sm">
