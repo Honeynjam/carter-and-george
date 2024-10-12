@@ -2,6 +2,7 @@ import { CaretRight } from "@phosphor-icons/react/dist/ssr/CaretRight";
 import cn from "classnames";
 
 import Badge from "components/common/Badge";
+import TextButton from "components/common/TextButton";
 import { Heading } from "components/common/Typography";
 import StoryblokImage from "components/storyblok/StoryblokImage";
 import StoryblokLink from "components/storyblok/StoryblokLink";
@@ -17,7 +18,7 @@ const BlogCard = ({
     return (
       <StoryblokLink
         link={data}
-        className={cn(className, "h-full gap-6 @container hover:brightness-95", {
+        className={cn(className, "group h-full gap-6 @container hover:brightness-95", {
           "grid lg:grid-cols-2": layout === "horizontal",
           "flex flex-col": layout === "vertical",
         })}
@@ -25,7 +26,7 @@ const BlogCard = ({
         {!hideImage ? (
           <div
             className={cn("relative", {
-              "aspect-square": layout === "horizontal",
+              "max-lg:aspect-[16/9]": layout === "horizontal",
               "aspect-[16/9]": layout === "vertical",
               "lg:h-[234px]": size === "normal",
               "h-[362px]": size === "large",
@@ -64,9 +65,7 @@ const BlogCard = ({
               ) : null}
             </div>
           </div>
-          <p className="font-petite-caps flex items-center gap-2.5 text-button font-medium">
-            <span>Read More</span> <CaretRight className="h-4 w-4" />
-          </p>
+          <TextButton className="self-start">Read more</TextButton>
         </div>
       </StoryblokLink>
     );

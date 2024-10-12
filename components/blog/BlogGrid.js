@@ -15,10 +15,12 @@ export default function BlogGrid({ className = "", data = [], headerData = {} })
         <div className="mb-8 md:mb-12">
           <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
             <div>
-              <Heading className="mb-2" size="3xl" level={2}>
+              <Heading size="3xl" level={2}>
                 {headerData.title}
               </Heading>
-              <Subtitle>{headerData.subtitle}</Subtitle>
+              {headerData.subtitle ? (
+                <Subtitle className="mt-2">{headerData.subtitle}</Subtitle>
+              ) : null}
             </div>
             <Button outline href={headerData.href}>
               View all

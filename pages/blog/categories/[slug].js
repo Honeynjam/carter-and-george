@@ -44,11 +44,11 @@ export default function BlogFolder({ story, articles, categories, globalDocs, pr
             <Heading level={1} size="4xl" className="mt-4">
               {story.content.name}
             </Heading>
-            <Subtitle className="mt-2" size="medium" color="grey">
+            <Subtitle className="mt-2 max-w-xl" size="medium" color="grey">
               {story.content.subtitle}
             </Subtitle>
           </div>
-          <div className="mt-8 lg:hidden">
+          <div className="mt-8 md:hidden">
             <label
               htmlFor="categories"
               className="text-sm text-gray-900 font-petite-caps block font-medium leading-6"
@@ -73,7 +73,7 @@ export default function BlogFolder({ story, articles, categories, globalDocs, pr
               ))}
             </select>
           </div>
-          <div className="mt-20 hidden items-center gap-4 border-b border-stroke-light pb-4 lg:flex">
+          <div className="mt-20 hidden items-center gap-4 border-b border-stroke-light pb-4 md:flex">
             <Link href="/blog" className="text-small opacity-50 duration-100 hover:opacity-100">
               View all
             </Link>
