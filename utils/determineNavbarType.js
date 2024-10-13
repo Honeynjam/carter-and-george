@@ -8,6 +8,7 @@ export const determineNavbarType = (story) => {
       "faq_page",
       "contact_page",
       "location_search_page",
+      "job_position",
     ].includes(story.content.component)
   ) {
     return "white";

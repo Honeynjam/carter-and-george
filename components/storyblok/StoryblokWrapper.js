@@ -10,12 +10,14 @@ import Page from "../page-content-types/Page";
 import PatientStory from "../page-content-types/PatientStory";
 import Service from "../page-content-types/Service";
 
+import Checklist from "components/content-sections/Checklist";
 import QuoteBlock from "components/content-sections/QuoteBlock";
 import RichText from "components/content-sections/RichText";
 import Video from "components/content-sections/Video";
 import HeroBlok from "components/hero-sections/Hero";
 import HeroTwoCols from "components/hero-sections/HeroTwoCols";
 import HeroVideo from "components/hero-sections/HeroVideo";
+import JobPosition from "components/page-content-types/JobPosition";
 import ApproachSection from "components/page-sections/ApproachSection";
 import BlogCards from "components/page-sections/BlogCards";
 import BulletsSection from "components/page-sections/BulletsSection";
@@ -55,11 +57,13 @@ const components = {
   patient_story: PatientStory,
   blog_post: BlogPost,
   leader_profile: LeaderProfile,
+  job_position: JobPosition,
   location: Location,
   // content components
   rich_text: RichText,
   video: Video,
   quote_block: QuoteBlock,
+  checklist: Checklist,
   // Hero Section Components
   hero: HeroBlok,
   hero_two_cols: HeroTwoCols,

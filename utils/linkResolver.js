@@ -1,4 +1,8 @@
 export const linkResolver = (link) => {
+  if (link?.linktype === "email") {
+    return `mailto:${link.email}`;
+  }
+
   if (link?.full_slug) {
     return `/${link?.full_slug}`;
   }
@@ -14,10 +18,6 @@ export const linkResolver = (link) => {
   // support hash links within the same page
   if (link?.cached_url?.startsWith("#")) {
     return link?.cached_url;
-  }
-
-  if (link?.linktype === "email") {
-    return `mailto:${link.email}`;
   }
 
   if (link.cached_url.includes("tel:")) {

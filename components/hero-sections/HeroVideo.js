@@ -13,6 +13,7 @@ import StoryblokImage from "components/storyblok/StoryblokImage";
 
 const ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false });
 
+// TODO move into its own component
 const VideoModal = ({ isOpen, setIsOpen, video }) => {
   return (
     <Transition show={isOpen} as={Fragment}>
