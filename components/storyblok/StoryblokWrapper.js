@@ -31,6 +31,7 @@ import Grid from "components/page-sections/Grid";
 import GridWithVideo from "components/page-sections/GridWithVideo";
 import ImageAccordion from "components/page-sections/ImageAccordion";
 import ImageBulletList from "components/page-sections/ImageBulletList";
+import JobListing from "components/page-sections/JobListing";
 import LeadershipCards from "components/page-sections/LeadershipCards";
 import LocationPricing from "components/page-sections/LocationPricing";
 import LocationTeam from "components/page-sections/LocationTeam";
@@ -76,6 +77,7 @@ const components = {
   grid: Grid,
   grid_with_video: GridWithVideo,
   faq_section: FaqSection,
+  job_listing: JobListing,
   full_width_image: FullWidthImage,
   approach_section: ApproachSection,
   simple_testimonial: SimpleTestimonial,

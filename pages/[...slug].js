@@ -51,6 +51,7 @@ export async function getStaticProps({ params, preview = null }) {
       "testimonial_carousel.testimonials",
       "testimonial_carousel_with_media.testimonials",
       "leadership_cards.leadership",
+      "job_listing.open_positions",
     ],
     resolve_links: "url",
   };
