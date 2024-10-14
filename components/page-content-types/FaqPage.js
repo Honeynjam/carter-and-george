@@ -94,7 +94,7 @@ const FaqPage = ({ blok }) => {
           <p className="max-w-2xl text-normal">{blok.subtitle}</p>
         </div>
         <div className="flex items-start gap-12 lg:gap-20">
-          <aside className="relative mb-20 hidden max-md:w-full md:sticky md:top-32 md:block md:min-w-[200px] lg:min-w-[304px]">
+          <aside className="relative mb-2 hidden max-md:w-full md:sticky md:top-32 md:block md:min-w-[200px] lg:min-w-[304px]">
             <nav className="flex flex-col space-y-4 border-l-2 border-[#E9F0F2]">
               <ul className="flex flex-col space-y-3">
                 {blok.faq_sections?.map((item) => {
@@ -107,7 +107,7 @@ const FaqPage = ({ blok }) => {
                     e.preventDefault();
                     const element = document.getElementById(id);
 
-                    const yOffset = -30;
+                    const yOffset = -130;
                     const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
 
                     window.scrollTo({ top: y, behavior: "smooth" });
