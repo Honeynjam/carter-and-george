@@ -1,7 +1,7 @@
 import React from "react";
 
 import { storyblokEditable } from "@storyblok/react";
-import ReactPlayer from "react-player";
+import ReactPlayer from "react-player/lazy";
 
 import Container from "components/common/Container";
 import { Eyebrow, Heading } from "components/common/Typography";
@@ -40,7 +40,7 @@ const TestimonialWithStats = ({ blok }) => {
           <div className="flex flex-col gap-2 md:flex-row lg:col-span-4 lg:flex-col lg:gap-8">
             {blok.stats.map((item) => {
               return (
-                <div className="rounded bg-stone p-8">
+                <div {...storyblokEditable(item)} key={item._uid} className="rounded bg-stone p-8">
                   <span className="mb-6 block text-4xl font-medium">{item.stat}</span>
                   <p className="mb-2 text-lg font-normal">{item.name}</p>
                   <p className="text-gray-secondary">{item.subtitle}</p>

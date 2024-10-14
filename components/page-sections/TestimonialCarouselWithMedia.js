@@ -6,7 +6,7 @@ import { Star } from "@phosphor-icons/react/dist/ssr/Star";
 import { storyblokEditable } from "@storyblok/react";
 import cn from "classnames";
 import { useKeenSlider } from "keen-slider/react";
-import ReactPlayer from "react-player";
+import ReactPlayer from "react-player/lazy";
 
 import Container from "components/common/Container";
 import { Eyebrow, Heading } from "components/common/Typography";
