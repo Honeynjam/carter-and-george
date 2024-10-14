@@ -58,7 +58,7 @@ const ScrollerSection = ({ blok }) => {
               {blok.subtitle}
             </Subtitle>
           </div>
-          <div className="flex items-center gap-8 lg:gap-20">
+          <div className="flex flex-col items-start gap-8 sm:flex-row md:gap-12 lg:gap-20">
             {blok.stat_items.map((item) => {
               return (
                 <div

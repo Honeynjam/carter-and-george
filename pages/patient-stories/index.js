@@ -54,7 +54,7 @@ export default function PatientStoriesFolder({
             {story.content.stats.map((stat, index) => (
               <div className="rounded bg-stone p-8 text-center" key={index}>
                 <h2 className="mb-2 text-2xl font-semibold md:text-3xl lg:text-4xl">{stat.stat}</h2>
-                <p className="font-semibold lg:text-md">{stat.name}</p>
+                <p className="text-balance font-semibold lg:text-md">{stat.name}</p>
               </div>
             ))}
           </div>
