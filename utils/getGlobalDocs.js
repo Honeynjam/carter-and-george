@@ -20,7 +20,19 @@ const getGlobalDocs = async (preview = false) => {
 
   const locations = locationsData.stories.map((location) => location.content.clinic_name);
 
-  return { navbar, footer, globalSettings, locations };
+  const { data: articlesData } = await storyblokApi.get("cdn/stories/", {
+    version: preview ? "draft" : "published",
+    starts_with: "blog",
+    resolve_relations: ["blog_post.category"],
+    per_page: 3,
+    is_startpage: 0,
+    sort_by: "content.published_at:desc",
+    excluding_slugs: "blog/categories/*",
+  });
+
+  const latestArticles = articlesData.stories;
+
+  return { navbar, footer, globalSettings, locations, latestArticles };
 };
 
 export default getGlobalDocs;

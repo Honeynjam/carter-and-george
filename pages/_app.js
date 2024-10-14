@@ -16,6 +16,7 @@ export default function App({ Component, pageProps }) {
           value={{
             global: pageProps.globalDocs?.globalSettings?.content,
             locations: pageProps.globalDocs?.locations,
+            latestArticles: pageProps.globalDocs?.latestArticles,
           }}
         >
           <StoryblokWrapper>
