@@ -86,7 +86,11 @@ const ScrollerSection = ({ blok }) => {
                 key={card._uid}
                 className="keen-slider__slide w-[340px]"
               >
-                <StoryblokImage className="aspect-[16/9] rounded object-cover" image={card.image} />
+                <StoryblokImage
+                  sizes={{ xs: "60vw", m: "40vw", l: "33vw" }}
+                  className="aspect-[16/9] rounded object-cover"
+                  image={card.image}
+                />
                 <hr
                   className={cn("mb-4 mt-8", {
                     "text-stroke-dark": blok.background === "dark",

@@ -25,7 +25,7 @@ const ServicesOverview = ({ blok }) => {
           <Subtitle color="grey">{blok.subtitle}</Subtitle>
         </div>
         {/* Mobile */}
-        <div className="mt-6 md:hidden">
+        <div className="mt-12 md:hidden">
           {blok.services.map((service, idx) => {
             return (
               <StoryblokLink {...storyblokEditable(service)} key={service._uid} link={service.link}>

@@ -97,6 +97,7 @@ const ApproachSection = ({ blok }) => {
                 key={item._uid}
               >
                 <StoryblokImage
+                  sizes={{ xs: "70vw", l: "20vw" }}
                   className="mb-9 aspect-square rounded object-cover"
                   image={item.image}
                 />

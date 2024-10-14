@@ -56,7 +56,8 @@ const Hero = ({
         </div>
         <div>
           <StoryblokImage
-            priority
+            fill
+            priority={true}
             image={image}
             className="absolute inset-0 h-full w-full object-cover"
           />

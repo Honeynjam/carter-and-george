@@ -12,7 +12,7 @@ import StoryblokImage from "components/storyblok/StoryblokImage";
 const ImageBulletList = ({ blok }) => {
   return (
     <section
-      className={cn("py-side-padding md:py-xl lg:py-2xl", {
+      className={cn("section-spacing-p", {
         "bg-black": blok.background === "dark",
         "bg-stone": blok.background === "light",
       })}
@@ -89,7 +89,11 @@ const ImageBulletList = ({ blok }) => {
               "order-2 lg:order-2": blok.image_position === "right",
             })}
           >
-            <StoryblokImage className="h-full w-full rounded object-cover" image={blok.image} />
+            <StoryblokImage
+              sizes={{ xs: "50vw", l: "40vw" }}
+              className="h-full w-full rounded object-cover"
+              image={blok.image}
+            />
           </div>
         </div>
       </Container>

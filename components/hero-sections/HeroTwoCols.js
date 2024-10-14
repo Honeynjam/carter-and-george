@@ -40,6 +40,8 @@ const HeroTwoCols = ({ blok }) => {
             </div>
             <div className="">
               <StoryblokImage
+                sizes={{ xs: "100vw", l: "50vw" }}
+                priority
                 className="h-full w-full rounded object-cover md:aspect-square"
                 image={blok.image}
               />

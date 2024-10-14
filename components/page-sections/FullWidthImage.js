@@ -51,7 +51,7 @@ const FullWidthImage = ({ blok }) => {
             <div className="flex justify-center">
               {blok.buttons.map((button) => {
                 return (
-                  <Button color="white" href={linkResolver(button.link)}>
+                  <Button key={button._uid} color="white" href={linkResolver(button.link)}>
                     {button.text}
                   </Button>
                 );
