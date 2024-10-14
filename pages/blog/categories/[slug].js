@@ -61,7 +61,7 @@ export default function BlogFolder({ story, articles, categories, globalDocs, pr
               onChange={(e) => router.push({ pathname: e.target.value })}
               className="rounded-md text-gray-900 ring-gray-300 focus:ring-indigo-600 sm:text-sm mt-2 block w-full rounded border-0 py-2 pl-3 pr-10 ring-1 ring-inset ring-stroke-light focus:ring-2 sm:leading-6"
             >
-              <option value="/blog">View all</option>
+              <option value="/blog">All categories</option>
               {categories.map((category) => (
                 <option
                   value={linkResolver(category)}
@@ -75,7 +75,7 @@ export default function BlogFolder({ story, articles, categories, globalDocs, pr
           </div>
           <div className="mt-20 hidden items-center gap-4 border-b border-stroke-light pb-4 md:flex">
             <Link href="/blog" className="text-small opacity-50 duration-100 hover:opacity-100">
-              View all
+              All categories
             </Link>
             {categories.map((category) => (
               <Link
