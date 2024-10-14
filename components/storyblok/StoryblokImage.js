@@ -1,19 +1,18 @@
-import { useMemo } from "react";
-
+// import { useMemo } from "react";
 import Image from "next/image";
 
 import cn from "classnames";
 
 import { getImageDimentions, isSvg } from "utils/storyblokImageHelpers";
 
-const breakpoints = {
-  xs: 390,
-  s: 768,
-  m: 1024,
-  l: 1280,
-  xl: 1440,
-  xxl: 1680,
-};
+// const breakpoints = {
+//   xs: 390,
+//   s: 768,
+//   m: 1024,
+//   l: 1280,
+//   xl: 1440,
+//   xxl: 1680,
+// };
 
 const StoryblokImage = ({
   image,
@@ -21,23 +20,23 @@ const StoryblokImage = ({
   fill = false,
   svgClassName,
   priority = false,
-  sizes,
+  // sizes,
   ...props
 }) => {
-  const sizesObj = useMemo(() => {
-    if (!sizes) return "100vw";
-    if (typeof sizes === "string") return sizes;
-    const sizeOptions = Object.entries(sizes) || [];
-    if (sizeOptions.length === 0) return "100vw";
+  // const sizesObj = useMemo(() => {
+  //   if (!sizes) return "100vw";
+  //   if (typeof sizes === "string") return sizes;
+  //   const sizeOptions = Object.entries(sizes) || [];
+  //   if (sizeOptions.length === 0) return "100vw";
 
-    const lastIndex = sizeOptions.length - 1;
-    const sizesArr = sizeOptions.map(([key, width], i) => {
-      const lastItem = i === lastIndex;
-      const label = lastItem ? "" : `(max-width: ${breakpoints[key]}px) `;
-      return `${label}${width}`;
-    });
-    return sizesArr.join(", ");
-  }, [sizes]);
+  //   const lastIndex = sizeOptions.length - 1;
+  //   const sizesArr = sizeOptions.map(([key, width], i) => {
+  //     const lastItem = i === lastIndex;
+  //     const label = lastItem ? "" : `(max-width: ${breakpoints[key]}px) `;
+  //     return `${label}${width}`;
+  //   });
+  //   return sizesArr.join(", ");
+  // }, [sizes]);
 
   if (image?.filename) {
     if (isSvg(image.filename)) {
@@ -58,7 +57,7 @@ const StoryblokImage = ({
     if (fill) {
       return (
         <Image
-          sizes={sizesObj}
+          // sizes={sizesObj}
           priority={priority}
           {...props}
           fill
@@ -74,7 +73,7 @@ const StoryblokImage = ({
       return (
         <Image
           {...props}
-          sizes={sizesObj}
+          // sizes={sizesObj}
           width={dimensions.width}
           height={dimensions.height}
           priority={priority}
