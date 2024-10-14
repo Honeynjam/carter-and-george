@@ -51,7 +51,7 @@ export default function BlogFolder({ story, articles, categories, globalDocs, pr
           <div className="mt-8 md:hidden">
             <label
               htmlFor="categories"
-              className="text-sm text-gray-900 font-petite-caps block font-medium leading-6"
+              className="text-gray-900 font-petite-caps block text-small font-medium leading-6"
             >
               Category
             </label>

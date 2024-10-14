@@ -81,7 +81,10 @@ const TestimonialCarousel = ({ blok }) => {
                   </div>
                   <div className="mb-8">{testimonial.content.quote}</div>
                   <div className="text-small text-gray-secondary">
-                    {testimonial.content.person_name}, {testimonial.content.person_position}
+                    {testimonial.content.person_name}
+                    {testimonial.content.person_position ? (
+                      <>, {testimonial.content.person_position}</>
+                    ) : null}
                   </div>
                 </div>
               );

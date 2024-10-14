@@ -1,3 +1,6 @@
+import Link from "next/link";
+import { useRouter } from "next/router";
+
 import { getStoryblokApi, useStoryblokState } from "@storyblok/react";
 import cn from "classnames";
 
@@ -15,6 +18,7 @@ import Hero from "components/modules/Hero";
 
 export default function BlogFolder({ story, articles, categories, globalDocs, preview }) {
   story = useStoryblokState(story);
+  const router = useRouter();
 
   return (
     <>
@@ -37,7 +41,52 @@ export default function BlogFolder({ story, articles, categories, globalDocs, pr
         <Container>
           <div className="my-20">
             <h2 className="mb-4 text-lg font-semibold">Featured articles</h2>
-            <hr className="mb-10 text-stroke-light" />
+            {/* Category selector */}
+            <div className="my-8 md:hidden">
+              <label
+                htmlFor="categories"
+                className="text-gray-900 font-petite-caps block text-small font-medium leading-6"
+              >
+                Category
+              </label>
+              <select
+                id="categories"
+                name="categories"
+                onChange={(e) => router.push({ pathname: e.target.value })}
+                className="rounded-md text-gray-900 ring-gray-300 focus:ring-indigo-600 sm:text-sm mt-2 block w-full rounded border-0 py-2 pl-3 pr-10 ring-1 ring-inset ring-stroke-light focus:ring-2 sm:leading-6"
+              >
+                <option value="/blog/">All categories</option>
+                {categories.map((category) => (
+                  <option
+                    value={linkResolver(category)}
+                    key={category.uuid}
+                    selected={category.uuid === story.uuid}
+                  >
+                    {category.content.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="mb-10 mt-6 hidden items-center gap-4 border-b border-stroke-light pb-4 md:flex">
+              <Link href="/blog/" className="relative text-small">
+                <span>All</span>
+                <span className="absolute bottom-[-17px] left-0 h-px w-full bg-black"></span>
+              </Link>
+              {categories.map((category) => (
+                <Link
+                  href={linkResolver(category)}
+                  key={category.id}
+                  className={cn("relative text-small", {
+                    "opacity-50 duration-100 hover:opacity-100": category.uuid !== story.uuid,
+                  })}
+                >
+                  <span>{category.content.name}</span>
+                  {category.uuid === story.uuid ? (
+                    <span className="absolute bottom-[-17px] left-0 h-px w-full bg-black"></span>
+                  ) : null}
+                </Link>
+              ))}
+            </div>
             <div className="grid items-start gap-6 lg:grid-cols-2">
               <div className="lg:sticky lg:top-32">
                 <BlogCard size="large" data={story.content.featured_articles[0]} />

@@ -2,6 +2,8 @@ import Link from "next/link";
 
 import { StoryblokComponent, storyblokEditable } from "@storyblok/react";
 
+import { formatDate } from "utils/formatDate";
+
 import BlogCard from "components/blog/BlogCard";
 import Badge from "components/common/Badge";
 import Breadcrumbs from "components/common/Breadcrumbs";
@@ -17,7 +19,7 @@ const PatientStory = ({ articles = [], blok }) => (
         <div className="mb-6">
           <Breadcrumbs
             data={[
-              { name: "Blog", href: "/patient-stories/" },
+              { name: "Blog", href: "/blog/" },
               { name: blok.category?.content?.name, href: `/${blok.category?.full_slug}` },
               { name: blok.title, current: true },
             ]}
@@ -43,12 +45,14 @@ const PatientStory = ({ articles = [], blok }) => (
               </div>
             </div>
             <div className="order-1 md:order-2 md:col-span-8 md:border-l md:border-stroke-light md:pl-12 lg:col-span-9">
-              <div className="mb-2 flex items-center gap-4 lg:mb-7">
+              <div className="mb-2 flex items-center gap-2.5 lg:mb-7">
                 <StoryblokLink link={blok.category} className="duration-75 hover:brightness-95">
                   <Badge>{blok.category?.content?.name}</Badge>
                 </StoryblokLink>
-
+                <span className="h-1.5 w-1.5 rounded-full bg-stroke-light" />
                 <span className="text-smaller font-semibold">{blok.read_time} min read</span>
+                <span className="h-1.5 w-1.5 rounded-full bg-stroke-light" />
+                <span className="text-smaller font-semibold">{formatDate(blok.published_at)}</span>
               </div>
               <Heading className="mb-5 lg:mb-12" size="3xl" level={1}>
                 {blok.title}
