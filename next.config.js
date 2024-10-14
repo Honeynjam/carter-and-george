@@ -14,7 +14,7 @@ const config = {
     ignoreDuringBuilds: true,
   },
   images: {
-    deviceSizes: [375, 768, 1024, 1280, 1440, 1680, 2500, 3840],
+    // deviceSizes: [375, 768, 1024, 1280, 1440, 1680, 2500, 3840],
     domains: ["a.storyblok.com", "s3.amazonaws.com"],
   },
   // async headers() {
