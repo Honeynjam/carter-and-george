@@ -28,25 +28,19 @@ const ServicesOverview = ({ blok }) => {
         <div className="mt-6 md:hidden">
           {blok.services.map((service, idx) => {
             return (
-              <div
-                {...storyblokEditable(service)}
-                key={service._uid}
-                onMouseEnter={() => setActive(service)}
-              >
+              <StoryblokLink {...storyblokEditable(service)} key={service._uid} link={service.link}>
                 <div className="group relative ml-7 mt-4 gap-4 border-b border-stroke-light pb-6">
                   <span className="font-petite-caps absolute -left-7 top-0 text-small font-semibold text-blue">
                     0{idx + 1}
                   </span>
                   <h3 className="cursor-pointer text-xl font-medium">{service.name}</h3>
-                  <TextButton className="mt-2 self-start" href={linkResolver(service)}>
-                    Read more
-                  </TextButton>
+                  <TextButton className="mt-2 self-start">Read more</TextButton>
                   <StoryblokImage
                     className="mt-6 h-full w-full rounded object-cover"
                     image={service.image}
                   />
                 </div>
-              </div>
+              </StoryblokLink>
             );
           })}
         </div>

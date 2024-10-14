@@ -55,7 +55,7 @@ const ContentSection = ({ blok }) => {
                 return (
                   <div
                     key={item._uid}
-                    className="grid grid-cols-2 gap-4 border-t border-stroke-light py-4"
+                    className="grid gap-2 border-t border-stroke-light py-4 sm:grid-cols-2 sm:gap-4"
                   >
                     <Heading
                       color={blok.background === "dark" ? "white" : "black"}
