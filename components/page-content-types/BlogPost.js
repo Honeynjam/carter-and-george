@@ -27,7 +27,7 @@ const PatientStory = ({ articles = [], blok }) => (
         </div>
         <div className="md:border-t md:border-stroke-light md:py-12">
           <div className="grid items-start md:grid-cols-12">
-            <div className="order-2 md:sticky md:top-32 md:order-1 md:col-span-4 md:mr-12 lg:col-span-3">
+            <div className="order-2 max-md:mt-16 md:sticky md:top-32 md:order-1 md:col-span-4 md:mr-12 lg:col-span-3">
               <h2 className="text-large mb-6 font-semibold lg:mb-12">Related Posts</h2>
 
               <div className="grid grid-cols-1 gap-12">
