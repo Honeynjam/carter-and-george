@@ -8,8 +8,8 @@ import { Heading } from "components/common/Typography";
 import StoryblokImage from "components/storyblok/StoryblokImage";
 
 const PatientStory = ({ blok }) => (
-  <div className="my-20" {...storyblokEditable(blok)} key={blok._uid}>
-    <Container>
+  <div className="mt-20" {...storyblokEditable(blok)} key={blok._uid}>
+    <Container className="mb-20">
       <div className="mb-6">
         <Breadcrumbs
           data={[
@@ -50,7 +50,9 @@ const PatientStory = ({ blok }) => (
         </div>
       </div>
     </Container>
-    {/* TODO bottom sections */}
+    {blok.bottom_sections?.map((nestedBlok) => (
+      <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
+    ))}
   </div>
 );
 

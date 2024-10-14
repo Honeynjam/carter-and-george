@@ -20,7 +20,6 @@ import { Heading } from "components/common/Typography";
 import Layout from "components/global/Layout";
 import StoryblokImage from "components/storyblok/StoryblokImage";
 
-// TODO - empty state
 export default function FindYourLocationPage({ preview, story, locations, globalDocs }) {
   story = useStoryblokState(story);
 
