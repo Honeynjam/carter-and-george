@@ -6,13 +6,13 @@ import cn from "classnames";
 const TextButton = ({ href, children, className = "", ...props }) => {
   const classNames = cn(
     className,
-    "font-medium group font-petite-caps text-button flex items-center gap-2"
+    "font-medium group font-petite-caps text-button flex items-center justify-start gap-2"
   );
 
   if (href) {
     return (
       <Link className={classNames} href={href} {...props}>
-        <span className="flex-1">{children}</span>
+        <span className="">{children}</span>
         <CaretRight
           size={12}
           weight="bold"
@@ -23,7 +23,7 @@ const TextButton = ({ href, children, className = "", ...props }) => {
   } else {
     return (
       <button className={classNames} {...props}>
-        <span className="flex-1">{children}</span>
+        <span className="">{children}</span>
         <CaretRight
           size={12}
           weight="bold"

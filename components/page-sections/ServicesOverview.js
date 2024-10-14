@@ -4,7 +4,10 @@ import { ArrowRight } from "@phosphor-icons/react/dist/ssr/ArrowRight";
 import { storyblokEditable } from "@storyblok/react";
 import cn from "classnames";
 
+import { linkResolver } from "utils/linkResolver";
+
 import Container from "components/common/Container";
+import TextButton from "components/common/TextButton";
 import { Eyebrow, Heading, Subtitle } from "components/common/Typography";
 import StoryblokImage from "components/storyblok/StoryblokImage";
 import StoryblokLink from "components/storyblok/StoryblokLink";
@@ -21,8 +24,35 @@ const ServicesOverview = ({ blok }) => {
           </Heading>
           <Subtitle color="grey">{blok.subtitle}</Subtitle>
         </div>
-        <div className="mt-8 grid items-center gap-12 lg:mt-20 lg:grid-cols-5 lg:gap-20">
-          <div className="grid grid-cols-1 gap-5 lg:col-span-3">
+        {/* Mobile */}
+        <div className="mt-6 md:hidden">
+          {blok.services.map((service, idx) => {
+            return (
+              <div
+                {...storyblokEditable(service)}
+                key={service._uid}
+                onMouseEnter={() => setActive(service)}
+              >
+                <div className="group relative ml-7 mt-4 gap-4 border-b border-stroke-light pb-6">
+                  <span className="font-petite-caps absolute -left-7 top-0 text-small font-semibold text-blue">
+                    0{idx + 1}
+                  </span>
+                  <h3 className="cursor-pointer text-xl font-medium">{service.name}</h3>
+                  <TextButton className="mt-2 self-start" href={linkResolver(service)}>
+                    Read more
+                  </TextButton>
+                  <StoryblokImage
+                    className="mt-6 h-full w-full rounded object-cover"
+                    image={service.image}
+                  />
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        {/* Desktop */}
+        <div className="mt-8 hidden items-center gap-12 md:mt-20 md:grid md:grid-cols-5 md:gap-20">
+          <div className="grid grid-cols-1 gap-5 md:col-span-3">
             {blok.services.map((service, idx) => {
               return (
                 <div
@@ -37,10 +67,10 @@ const ServicesOverview = ({ blok }) => {
                     <span className="font-petite-caps absolute -left-7 top-0 text-small font-semibold text-blue">
                       0{idx + 1}
                     </span>
-                    <p className="cursor-pointer text-2xl font-medium opacity-50 duration-150 hover:opacity-100 md:text-4xl lg:text-5xl">
+                    <p className="cursor-pointer text-2xl font-medium opacity-50 duration-150 hover:opacity-100 md:text-3xl lg:text-5xl">
                       {service.name}
                     </p>
-                    <div className="overflow-hidden rounded-full bg-stone p-4 opacity-0 duration-75 group-hover:opacity-100 max-lg:hidden">
+                    <div className="overflow-hidden rounded-full bg-stone p-4 opacity-0 duration-75 group-hover:opacity-100 max-md:hidden">
                       <ArrowRight className="h-8 w-8 text-black" />
                     </div>
                   </StoryblokLink>
@@ -48,7 +78,7 @@ const ServicesOverview = ({ blok }) => {
               );
             })}
           </div>
-          <div className="h-full lg:col-span-2">
+          <div className="h-full md:col-span-2">
             {blok.services.map((service) => {
               return (
                 <div
