@@ -109,7 +109,7 @@ export default function BlogFolder({ story, articles, categories, globalDocs, pr
             </div>
           </div>
           <div className="my-12 lg:my-20">
-            <h2 className="mb-4 text-lg font-semibold">Latest articles</h2>
+            <h2 className="mb-4 text-lg font-semibold">{story.content.latest_articles_title}</h2>
             <hr className="text-stroke-light" />
             <BlogGrid className="mt-10" data={articles.slice(0, 3)} />
           </div>

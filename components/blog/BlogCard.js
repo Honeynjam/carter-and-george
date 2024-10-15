@@ -1,5 +1,7 @@
 import cn from "classnames";
 
+import { formatDate } from "utils/formatDate";
+
 import Badge from "components/common/Badge";
 import TextButton from "components/common/TextButton";
 import { Heading } from "components/common/Typography";
@@ -46,7 +48,9 @@ const BlogCard = ({
                 <Badge>{data.content.category?.content?.name}</Badge>
               ) : null}
 
-              <span className="text-smaller font-semibold">{data.content.read_time} min read</span>
+              <span className="text-smaller font-semibold">
+                {formatDate(data.content.published_at)}
+              </span>
             </div>
             <div className="mb-6">
               <Heading size="large" level={3}>

@@ -13,8 +13,8 @@ export default function BlogGrid({ className = "", data = [], headerData = {} })
       {/* Header */}
       {headerData.title ? (
         <div className="mb-8 md:mb-12">
-          <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
-            <div>
+          <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end md:gap-20">
+            <div className="max-w-xl flex-1">
               <Heading size="3xl" level={2}>
                 {headerData.title}
               </Heading>
@@ -22,9 +22,11 @@ export default function BlogGrid({ className = "", data = [], headerData = {} })
                 <Subtitle className="mt-2">{headerData.subtitle}</Subtitle>
               ) : null}
             </div>
-            <Button outline href={headerData.href}>
-              View all
-            </Button>
+            <div className="">
+              <Button outline href={headerData.href}>
+                View all
+              </Button>
+            </div>
           </div>
           <hr className="mt-6 text-stroke-light" />
         </div>

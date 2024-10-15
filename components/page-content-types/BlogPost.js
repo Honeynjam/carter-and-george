@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 import { StoryblokComponent, storyblokEditable } from "@storyblok/react";
 
 import { formatDate } from "utils/formatDate";
