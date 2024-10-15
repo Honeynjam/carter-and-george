@@ -1,4 +1,3 @@
-import { CaretRight } from "@phosphor-icons/react/dist/ssr/CaretRight";
 import cn from "classnames";
 
 import Badge from "components/common/Badge";
@@ -14,7 +13,7 @@ const BlogCard = ({
   data,
   size = "normal",
 }) => {
-  if (data.content) {
+  if (data?.content) {
     return (
       <StoryblokLink
         link={data}
