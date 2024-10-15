@@ -386,12 +386,12 @@ const redirects = [
   },
   {
     source: "/injury-screening/",
-    destination: "/services/testing/injury-screening/",
+    destination: "/services/testing/prevention-performance-screening",
     permanent: true,
   },
   {
     source: "/physiotherapy/injury-screening/",
-    destination: "/services/testing/injury-screening/",
+    destination: "/services/testing/prevention-performance-screening",
     permanent: true,
   },
   {
