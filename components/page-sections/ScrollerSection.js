@@ -45,8 +45,8 @@ const ScrollerSection = ({ blok }) => {
       {...storyblokEditable(blok)}
     >
       <Container>
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between lg:gap-20">
-          <div className="max-w-2xl">
+        <div className="flex flex-col gap-8 lg:flex-row lg:justify-between lg:gap-20">
+          <div className="max-w-4xl lg:w-7/12">
             <Heading
               className="mb-2 lg:mb-4"
               size="3xl"
@@ -58,13 +58,13 @@ const ScrollerSection = ({ blok }) => {
               {blok.subtitle}
             </Subtitle>
           </div>
-          <div className="flex flex-col items-start gap-8 sm:flex-row md:gap-12 lg:gap-20">
+          <div className="flex flex-1 flex-col items-start gap-8 sm:flex-row md:gap-12 lg:gap-20">
             {blok.stat_items.map((item) => {
               return (
                 <div
                   {...storyblokEditable(item)}
                   key={item._uid}
-                  className={cn("border-l-2 pl-4", {
+                  className={cn("max-w-sm border-l-2 pl-4", {
                     "border-stroke-dark": blok.background === "dark",
                     "border-stroke-light": blok.background === "light",
                   })}
