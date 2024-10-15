@@ -38,8 +38,8 @@ const LocationPricing = ({ blok }) => {
                         }
                       )}
                     >
-                      <p className="flex-1">{item.name}</p>
-                      <p className="font-bold">{item.price}</p>
+                      <p className="flex-1 font-medium">{item.name}</p>
+                      <p className="">{item.price}</p>
                       {/* TODO - add subitems */}
                     </div>
                   );
