@@ -2,22 +2,20 @@ import dynamic from "next/dynamic";
 
 import { apiPlugin, storyblokInit } from "@storyblok/react";
 
-import BlogPost from "../page-content-types/BlogPost";
-import FaqPage from "../page-content-types/FaqPage";
-import LeaderProfile from "../page-content-types/LeaderProfile";
-import Location from "../page-content-types/Location";
-import Page from "../page-content-types/Page";
-import PatientStory from "../page-content-types/PatientStory";
-import Service from "../page-content-types/Service";
-
 import Checklist from "components/content-sections/Checklist";
 import QuoteBlock from "components/content-sections/QuoteBlock";
 import RichText from "components/content-sections/RichText";
-import Video from "components/content-sections/Video";
 import HeroBlok from "components/hero-sections/Hero";
 import HeroTwoCols from "components/hero-sections/HeroTwoCols";
 import HeroVideo from "components/hero-sections/HeroVideo";
+import BlogPost from "components/page-content-types/BlogPost";
+import FaqPage from "components/page-content-types/FaqPage";
 import JobPosition from "components/page-content-types/JobPosition";
+import LeaderProfile from "components/page-content-types/LeaderProfile";
+import Location from "components/page-content-types/Location";
+import Page from "components/page-content-types/Page";
+import PatientStory from "components/page-content-types/PatientStory";
+import Service from "components/page-content-types/Service";
 import ApproachSection from "components/page-sections/ApproachSection";
 import BlogCards from "components/page-sections/BlogCards";
 import BulletsSection from "components/page-sections/BulletsSection";
@@ -31,7 +29,6 @@ import Grid from "components/page-sections/Grid";
 import GridWithVideo from "components/page-sections/GridWithVideo";
 import ImageAccordion from "components/page-sections/ImageAccordion";
 import ImageBulletList from "components/page-sections/ImageBulletList";
-import JobListing from "components/page-sections/JobListing";
 import LeadershipCards from "components/page-sections/LeadershipCards";
 import LocationPricing from "components/page-sections/LocationPricing";
 import LocationTeam from "components/page-sections/LocationTeam";
@@ -43,6 +40,9 @@ import SimpleTestimonial from "components/page-sections/SimpleTestimonial";
 import Statement from "components/page-sections/Statement";
 import TestimonialCarousel from "components/page-sections/TestimonialCarousel";
 import TestimonialWithStats from "components/page-sections/TestimonialWithStats";
+
+const Video = dynamic(() => import("components/content-sections/Video"));
+const JobListing = dynamic(() => import("components/page-sections/JobListing"));
 
 const TestimonialCarouselWithMedia = dynamic(
   () => import("components/page-sections/TestimonialCarouselWithMedia"),

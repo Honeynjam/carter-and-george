@@ -53,7 +53,6 @@ export async function getStaticProps({ params, preview = null }) {
       "leadership_cards.leadership",
       "job_listing.open_positions",
     ],
-    excluding_fields: "service_cards.body",
     resolve_links: "url",
   };
 
