@@ -75,8 +75,9 @@ const Location = ({ blok }) => (
               <Button target="_blank" href={linkResolver(blok.nookal_link)}>
                 Book now
               </Button>
-
-              <TextButton link={blok.google_directions}>Get Directions</TextButton>
+              {blok.google_directions.cached_url ? (
+                <TextButton link={linkResolver(blok.google_directions)}>Get Directions</TextButton>
+              ) : null}
             </div>
           </div>
           <div>
@@ -122,7 +123,7 @@ const Location = ({ blok }) => (
                   </div>
                   <p className="text-md">{service.content.name}</p>
                   <CaretRight
-                    className="ml-2 duration-150 ease-out will-change-transform group-hover:translate-x-0.5"
+                    className="ml-2 h-4 w-4 duration-150 ease-out will-change-transform group-hover:translate-x-0.5"
                     size={16}
                   />
                 </StoryblokLink>
