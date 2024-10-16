@@ -12,7 +12,6 @@ import BlogCard from "components/blog/BlogCard";
 import BlogGrid from "components/blog/BlogGrid";
 import Newsletter from "components/blog/Newsletter";
 import Container from "components/common/Container";
-import { Heading } from "components/common/Typography";
 import Layout from "components/global/Layout";
 import Hero from "components/modules/Hero";
 
@@ -148,6 +147,7 @@ export async function getStaticProps({ preview = null }) {
   let doc = await storyblokApi.get(`cdn/stories/blog/`, {
     version: preview ? "draft" : "published",
     resolve_relations: ["blog_hub.featured_articles", "blog_post.category"],
+    excluding_fields: "body",
   });
   data = doc.data;
   try {
@@ -162,6 +162,7 @@ export async function getStaticProps({ preview = null }) {
     is_startpage: 0,
     sort_by: "content.published_at:desc",
     excluding_slugs: "blog/categories/*",
+    excluding_fields: "body",
   });
 
   const { data: categoriesData } = await storyblokApi.get("cdn/stories/", {

@@ -73,7 +73,7 @@ export default function FindYourLocationPage({ preview, story, locations, global
         }
       });
     }
-  }, [postcode, apiIsLoaded]);
+  }, [postcode, apiIsLoaded, locations]);
 
   return (
     <>
@@ -230,6 +230,7 @@ export async function getStaticProps({ preview = null }) {
     version: preview ? "draft" : "published",
     starts_with: "locations",
     is_startpage: 0,
+    excluding_fields: "hero,body",
     resolve_relations: ["location.services"],
   });
 

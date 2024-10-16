@@ -53,6 +53,7 @@ export async function getStaticProps({ params, preview = null }) {
     starts_with: "blog",
     resolve_relations: ["blog_post.category"],
     excluding_slugs: `blog/categories/*,${data.story.full_slug}`,
+    excluding_fields: "body",
     is_startpage: 0,
     per_page: 3,
     sort_by: "content.published_at:desc",

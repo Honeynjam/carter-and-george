@@ -39,7 +39,7 @@ const JobListing = ({ blok }) => {
                   </Heading>
 
                   <p className="text-gray-secondary">{item.content.subtitle}</p>
-                  {console.log(item)}
+
                   <div className="mt-6 flex items-center gap-6">
                     <div className="flex items-center gap-2">
                       <MapPin className="text-blue" weight="bold" />

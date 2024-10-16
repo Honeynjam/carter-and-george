@@ -130,6 +130,7 @@ export async function getStaticProps({ preview = null, params }) {
     is_startpage: 0,
     sort_by: "content.published_at:desc",
     excluding_slugs: "blog/category/*",
+    excluding_fields: "body",
     filter_query: {
       category: {
         in: `${categoryData.story.uuid}`,
