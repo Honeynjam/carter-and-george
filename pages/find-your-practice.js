@@ -19,6 +19,7 @@ import TextButton from "components/common/TextButton";
 import { Heading } from "components/common/Typography";
 import Layout from "components/global/Layout";
 import StoryblokImage from "components/storyblok/StoryblokImage";
+import StoryblokLink from "components/storyblok/StoryblokLink";
 
 export default function FindYourLocationPage({ preview, story, locations, globalDocs }) {
   story = useStoryblokState(story);
@@ -125,9 +126,14 @@ export default function FindYourLocationPage({ preview, story, locations, global
                                   <div className="bg-stone p-6">
                                     <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:gap-20">
                                       <div className="flex-1">
-                                        <Heading className="mb-2" level={4} size="large">
-                                          {location.content.clinic_name}
-                                        </Heading>
+                                        <StoryblokLink
+                                          className="duration-150 hover:opacity-75"
+                                          href={location}
+                                        >
+                                          <Heading className="mb-2" level={4} size="large">
+                                            {location.content.clinic_name}
+                                          </Heading>
+                                        </StoryblokLink>
                                         <p>{location.content.address}</p>
                                       </div>
                                       <div className="flex items-center gap-2 text-blue">
@@ -139,7 +145,7 @@ export default function FindYourLocationPage({ preview, story, locations, global
                                       {location.content.services.map((item, idx) => {
                                         return (
                                           <React.Fragment key={item._uid}>
-                                            <span>{item.name}</span>
+                                            <span>{item.content.name}</span>
                                             {idx < location.content.services.length - 1 ? (
                                               <span className="h-1.5 w-1.5 rounded-full bg-blue" />
                                             ) : null}
@@ -152,14 +158,15 @@ export default function FindYourLocationPage({ preview, story, locations, global
                                       <Button outline href={linkResolver(location)}>
                                         Find out more
                                       </Button>
-
-                                      <TextButton
-                                        className="self-center"
-                                        target="_blank"
-                                        href={linkResolver(location.content.google_directions)}
-                                      >
-                                        Get Directions
-                                      </TextButton>
+                                      {location.content.google_directions.cached_url ? (
+                                        <TextButton
+                                          className="self-center"
+                                          target="_blank"
+                                          href={linkResolver(location.content.google_directions)}
+                                        >
+                                          Get Directions
+                                        </TextButton>
+                                      ) : null}
                                     </div>
                                   </div>
                                 </div>

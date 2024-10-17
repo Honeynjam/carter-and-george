@@ -65,11 +65,11 @@ const TeamMember = ({ blok, location }) => {
                       <span>{location?.clinic_name}</span>
                     </span>
                   </div>
-                  {blok?.book_now_link?.cached_url ? (
+                  {location?.nookal_link?.cached_url ? (
                     <Button
                       className="mt-4 max-md:w-full lg:w-full"
                       target="_blank"
-                      href={linkResolver(blok.book_now_link)}
+                      href={linkResolver(location?.nookal_link)}
                     >
                       Book now
                     </Button>
