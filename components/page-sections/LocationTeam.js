@@ -7,6 +7,9 @@ import { X } from "@phosphor-icons/react/dist/ssr/X";
 import { storyblokEditable } from "@storyblok/react";
 import { render } from "storyblok-rich-text-react-renderer";
 
+import { linkResolver } from "utils/linkResolver";
+
+import Button from "components/common/Button";
 import Container from "components/common/Container";
 import Hr from "components/common/Hr";
 import TextButton from "components/common/TextButton";
@@ -62,10 +65,19 @@ const TeamMember = ({ blok, location }) => {
                       <span>{location?.clinic_name}</span>
                     </span>
                   </div>
+                  {blok?.book_now_link?.cached_url ? (
+                    <Button
+                      className="mt-4 max-md:w-full lg:w-full"
+                      target="_blank"
+                      href={linkResolver(blok.book_now_link)}
+                    >
+                      Book now
+                    </Button>
+                  ) : null}
 
                   {blok.services?.length > 0 ? (
                     <>
-                      <Hr className="mb-4 mt-6" />
+                      <Hr className="mb-4 mt-4" />
                       <Eyebrow className="!mb-2" text="services" />
                       <div className="mb-2 flex flex-wrap items-center gap-2">
                         {blok.services?.map((item, idx) => {
