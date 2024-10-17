@@ -20,9 +20,7 @@ export default function Page({ story, globalDocs, preview }) {
           socialTitle={story.content.seo_og_title}
           socialDescription={story.content.seo_og_description}
           socialImage={story.content.seo_og_image}
-          noindex={story.content.seo_index !== "true"}
         />
-
         <Layout navbarType={determineNavbarType(story)} {...globalDocs} preview={preview}>
           <StoryblokComponent blok={story.content} />
         </Layout>
