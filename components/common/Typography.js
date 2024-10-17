@@ -55,7 +55,8 @@ export const Subtitle = ({
   return (
     <Element
       className={cn(className, "text-pretty", {
-        "text-gray-secondary": color === "grey",
+        "text-gray-secondary prose-a:text-gray-secondary hover:prose-a:text-black":
+          color === "grey",
         "text-white": color === "white",
         "text-gray-secondary-alternate": color === "grey" && alternate,
         "text-small": size === "small",

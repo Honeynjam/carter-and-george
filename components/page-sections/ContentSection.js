@@ -2,6 +2,7 @@ import React from "react";
 
 import { storyblokEditable } from "@storyblok/react";
 import cn from "classnames";
+import { render } from "storyblok-rich-text-react-renderer";
 
 import Container from "components/common/Container";
 import { Heading, Subtitle } from "components/common/Typography";
@@ -42,12 +43,13 @@ const ContentSection = ({ blok }) => {
                 {blok.title}
               </Heading>
               <Subtitle
-                className="max-w-xl"
+                as={typeof blok.subtitle === "string" ? "p" : "div"}
+                className={cn("prose max-w-xl", { "prose-invert": blok.background === "dark" })}
                 alternate={blok.background === "dark"}
                 color="grey"
                 size="medium"
               >
-                {blok.subtitle}
+                {typeof blok.subtitle === "string" ? blok.subtitle : render(blok.subtitle)}
               </Subtitle>
             </div>
             <div className="mt-12 grid grid-cols-1 lg:gap-8">
