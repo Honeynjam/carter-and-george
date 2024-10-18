@@ -83,7 +83,7 @@ export default function FindYourLocationPage({ preview, story, locations, global
         description={story.content.seo_description}
         socialTitle={story.content.seo_og_title}
         socialDescription={story.content.seo_og_description}
-        socialImage={story.content.seo_og_image}
+        socialImage={story.content.seo_og_image?.filename}
       />
       <Layout navbarType={determineNavbarType(story)} {...globalDocs} preview={preview}>
         <div className="section-spacing-m">

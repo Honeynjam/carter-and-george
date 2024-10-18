@@ -26,7 +26,7 @@ export default function BlogFolder({ story, articles, categories, globalDocs, pr
         description={story.content.seo_description}
         socialTitle={story.content.seo_og_title}
         socialDescription={story.content.seo_og_description}
-        socialImage={story.content.seo_og_image}
+        socialImage={story.content.seo_og_image?.filename}
       />
       <Layout {...globalDocs} preview={preview}>
         <Hero

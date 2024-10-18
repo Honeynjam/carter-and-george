@@ -24,7 +24,7 @@ export default function PatientStoriesFolder({ story, globalDocs, preview, stori
         description={story.content.seo_description}
         socialTitle={story.content.seo_og_title}
         socialDescription={story.content.seo_og_description}
-        socialImage={story.content.seo_og_image}
+        socialImage={story.content.seo_og_image?.filename}
       />
       <Layout navbarType="white" {...globalDocs} preview={preview}>
         <Container>

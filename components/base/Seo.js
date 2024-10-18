@@ -15,7 +15,7 @@ const defaultMeta = {
     "Physiotherapy practice, offering elite physiotherapy treatment in a state of the art environment.",
   description:
     "The Carter & George Practice is an elite healthcare facility, with the aim to treat everyone as if they were a professional athlete.",
-  image: "/og_image.webp",
+  image: "https://www.carterandgeorge.co.uk/og_image.webp",
 };
 
 const getUrl = (path) => `${settings.baseUrl}${path}`;
@@ -59,6 +59,7 @@ const Seo = ({
           name="twitter:description"
           content={socialDescription || description || defaultMeta.description}
         />
+
         <meta name="twitter:image" content={socialImage || defaultMeta.image} />
 
         {/* Technical tags */}
