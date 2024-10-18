@@ -21,6 +21,56 @@ import Layout from "components/global/Layout";
 import StoryblokImage from "components/storyblok/StoryblokImage";
 import StoryblokLink from "components/storyblok/StoryblokLink";
 
+const LocationCard = ({ location }) => {
+  return (
+    <div key={location.content._uid} className="">
+      <StoryblokImage image={location.content.image} />
+      <div className="bg-stone p-6">
+        <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:gap-20">
+          <div className="flex-1">
+            <StoryblokLink className="duration-150 hover:opacity-75" link={location}>
+              <Heading className="mb-2" level={4} size="large">
+                {location.content.clinic_name}
+              </Heading>
+            </StoryblokLink>
+            <p>{location.content.address}</p>
+          </div>
+          <div className="flex items-center gap-2 text-blue">
+            <NavigationArrow className="rotate-90" weight="bold" />
+            {(location.distance * 0.000621371).toFixed(1)} miles
+          </div>
+        </div>
+        <div className="mt-6 flex flex-wrap items-center gap-2 text-gray-secondary">
+          {location.content.services.map((item, idx) => {
+            return (
+              <React.Fragment key={item._uid}>
+                <span>{item.content.name}</span>
+                {idx < location.content.services.length - 1 ? (
+                  <span className="h-1.5 w-1.5 rounded-full bg-blue" />
+                ) : null}
+              </React.Fragment>
+            );
+          })}
+        </div>
+        {console.log(location)}
+        <div className="mt-10 flex flex-col gap-4 md:flex-row md:items-center">
+          <Button outline href={`${location.full_slug}`}>
+            Find out more
+          </Button>
+          {location.content.google_directions.cached_url ? (
+            <TextButton
+              className="self-center"
+              target="_blank"
+              href={linkResolver(location.content.google_directions)}
+            >
+              Get Directions
+            </TextButton>
+          ) : null}
+        </div>
+      </div>
+    </div>
+  );
+};
 export default function FindYourLocationPage({ preview, story, locations, globalDocs }) {
   story = useStoryblokState(story);
 
@@ -120,57 +170,7 @@ export default function FindYourLocationPage({ preview, story, locations, global
                         <div className="grid grid-cols-1 gap-6 md:gap-12">
                           {closestLocations.map((location) => {
                             if (location?.content) {
-                              return (
-                                <div key={location.content.uuid} className="">
-                                  <StoryblokImage image={location.content.image} />
-                                  <div className="bg-stone p-6">
-                                    <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:gap-20">
-                                      <div className="flex-1">
-                                        <StoryblokLink
-                                          className="duration-150 hover:opacity-75"
-                                          link={location}
-                                        >
-                                          <Heading className="mb-2" level={4} size="large">
-                                            {location.content.clinic_name}
-                                          </Heading>
-                                        </StoryblokLink>
-                                        <p>{location.content.address}</p>
-                                      </div>
-                                      <div className="flex items-center gap-2 text-blue">
-                                        <NavigationArrow className="rotate-90" weight="bold" />
-                                        {(location.distance * 0.000621371).toFixed(1)} miles
-                                      </div>
-                                    </div>
-                                    <div className="mt-6 flex flex-wrap items-center gap-2 text-gray-secondary">
-                                      {location.content.services.map((item, idx) => {
-                                        return (
-                                          <React.Fragment key={item._uid}>
-                                            <span>{item.content.name}</span>
-                                            {idx < location.content.services.length - 1 ? (
-                                              <span className="h-1.5 w-1.5 rounded-full bg-blue" />
-                                            ) : null}
-                                          </React.Fragment>
-                                        );
-                                      })}
-                                    </div>
-
-                                    <div className="mt-10 flex flex-col gap-4 md:flex-row md:items-center">
-                                      <Button outline href={linkResolver(location)}>
-                                        Find out more
-                                      </Button>
-                                      {location.content.google_directions.cached_url ? (
-                                        <TextButton
-                                          className="self-center"
-                                          target="_blank"
-                                          href={linkResolver(location.content.google_directions)}
-                                        >
-                                          Get Directions
-                                        </TextButton>
-                                      ) : null}
-                                    </div>
-                                  </div>
-                                </div>
-                              );
+                              return <LocationCard key={location.uuid} location={location} />;
                             }
                             return null;
                           })}
