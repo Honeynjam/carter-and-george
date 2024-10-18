@@ -42,7 +42,7 @@ export default function Home({ preview, story, globalDocs }) {
                   <Phone className="mt-1" size={24} />
                   <div className="flex flex-1 flex-col">
                     <span className="font-semibold">Phone</span>
-                    <a href={`tel:${story.content.email}`} className="mt-1 hover:underline">
+                    <a href={`tel:${story.content.phone}`} className="mt-1 hover:underline">
                       {story.content.phone}
                     </a>
                   </div>

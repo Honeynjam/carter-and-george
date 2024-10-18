@@ -52,7 +52,7 @@ const LocationCard = ({ location }) => {
             );
           })}
         </div>
-        {console.log(location)}
+
         <div className="mt-10 flex flex-col gap-4 md:flex-row md:items-center">
           <Button outline href={`${location.full_slug}`}>
             Find out more
