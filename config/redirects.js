@@ -665,6 +665,16 @@ const redirects = [
     destination: "/",
     permanent: true,
   },
+  {
+    source: "/physiotherapy/taping-strapping/",
+    destination: "/",
+    permanent: true,
+  },
+  {
+    source: "/price-list/",
+    destination: "/",
+    permanent: true,
+  },
 ];
 
 module.exports = redirects;
