@@ -191,7 +191,7 @@ const redirects = [
   },
   {
     source: "/staff-category/congleton/",
-    destination: "/locations/congleton-cheshire/",
+    destination: "/locations/congleton/",
     permanent: true,
   },
   {
