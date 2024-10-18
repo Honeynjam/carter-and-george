@@ -58,11 +58,11 @@ const TeamMember = ({ blok, location }) => {
                   <DialogTitle className="mb-2" size="xl" as={Heading}>
                     {blok.name}
                   </DialogTitle>
-                  <div className="flex items-center justify-between">
-                    <span>{blok.position}</span>
+                  <div className="flex items-center justify-between gap-4">
+                    <span className="flex-1">{blok.position}</span>
                     <span className="flex items-center gap-1">
                       <MapPin weight="bold" className="text-blue" />
-                      <span>{location?.clinic_name}</span>
+                      <span className="flex-1">{location?.clinic_name}</span>
                     </span>
                   </div>
                   {location?.nookal_link?.cached_url ? (
