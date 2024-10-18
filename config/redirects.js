@@ -61,7 +61,7 @@ const redirects = [
   },
   {
     source: "/staff/craig-rosenbloom/",
-    destination: "/about/",
+    destination: "/locations/hertford/",
     permanent: true,
   },
   {
