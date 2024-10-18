@@ -122,7 +122,12 @@ const ScrollerSection = ({ blok }) => {
         <div className="mt-12">
           {blok.buttons.map((button, index) => {
             return (
-              <Button key={index} color="white" outline href={linkResolver(button.link)}>
+              <Button
+                key={index}
+                color={blok.background === "dark" ? "white" : "black"}
+                outline
+                href={linkResolver(button.link)}
+              >
                 {button.text}
               </Button>
             );
