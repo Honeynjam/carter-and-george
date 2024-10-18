@@ -15,7 +15,7 @@ const defaultMeta = {
     "Physiotherapy practice, offering elite physiotherapy treatment in a state of the art environment.",
   description:
     "The Carter & George Practice is an elite healthcare facility, with the aim to treat everyone as if they were a professional athlete.",
-  image: "/images/og_image.jpg",
+  image: "/og_image.webp",
 };
 
 const getUrl = (path) => `${settings.baseUrl}${path}`;
