@@ -193,7 +193,7 @@ const MobileMenu = ({ data }) => {
                           </div>
                           <div className="absolute bottom-8 left-0 right-0 z-20 flex flex-col gap-4 border-t border-stroke-light bg-white px-8 pt-6 pb-safe-offset-12">
                             <div className="flex flex-col gap-4">
-                              <Button outline href={linkResolver(primaryButton.link)}>
+                              <Button outline href={linkResolver(secondaryButton.link)}>
                                 {secondaryButton.text}
                               </Button>
                               <Button color={"black"} href={linkResolver(primaryButton.link)}>
