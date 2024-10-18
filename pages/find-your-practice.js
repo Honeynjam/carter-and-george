@@ -128,7 +128,7 @@ export default function FindYourLocationPage({ preview, story, locations, global
                                       <div className="flex-1">
                                         <StoryblokLink
                                           className="duration-150 hover:opacity-75"
-                                          href={location}
+                                          link={location}
                                         >
                                           <Heading className="mb-2" level={4} size="large">
                                             {location.content.clinic_name}
