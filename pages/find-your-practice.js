@@ -180,7 +180,7 @@ export default function FindYourLocationPage({ preview, story, locations, global
                         {apiIsLoaded && coordinates.lat !== 0 && coordinates.lng !== 0 ? (
                           <Map
                             style={containerStyle}
-                            defaultCenter={coordinates}
+                            center={coordinates}
                             defaultZoom={9}
                             mapId="DEMO_MAP_ID"
                           >
