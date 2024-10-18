@@ -325,6 +325,11 @@ const redirects = [
     permanent: true,
   },
   {
+    source: "/wellbeing/",
+    destination: "/",
+    permanent: true,
+  },
+  {
     source: "/wellbeing/massage/",
     destination: "/services/physiotherapy/massage/",
     permanent: true,
@@ -396,7 +401,7 @@ const redirects = [
   },
   {
     source: "/metabolic-testing-vo2-max/",
-    destination: "/services/testing/metabolic-screening/",
+    destination: "/services/testing/metabolic-testing/",
     permanent: true,
   },
   {
@@ -411,7 +416,7 @@ const redirects = [
   },
   {
     source: "/wellbeing/pregnancy-and-post-natal-massage/",
-    destination: "/services/womens-health/pregnancy-and-post-natal-massage/",
+    destination: "/services/womens-health/pregnancy-massage/",
     permanent: true,
   },
   {
