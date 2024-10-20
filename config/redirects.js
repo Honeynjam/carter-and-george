@@ -691,7 +691,7 @@ const redirects = [
     permanent: true,
   },
   {
-    source: "contact-us/book-online/",
+    source: "/contact-us/book-online/",
     destination: "/find-your-practice/",
     permanent: true,
   },
