@@ -740,6 +740,219 @@ const redirects = [
     destination: "/services/personal-training/",
     permanent: true,
   },
+
+  {
+    source:
+      "/2024/01/25/discover-top-tier-physiotherapy-in-harpenden-your-go-to-for-sports-injury-rehab/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/2020/02/04/food-allergy-and-intolerance/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/2024/01/02/evolve-what-is-it/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/2023/01/26/the-benefits-of-shockwave-therapy-for-tendon-injuries/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/2017/12/20/all-you-need-to-know-about-cryotherapy/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/2023/11/01/sports-therapy-in-hitchin/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/2018/02/06/pop-up-physiotherapy-clinics-in-hertford-this-month/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/2023/07/20/personal-training-in-hitchin-2/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/2018/09/20/the-most-effective-treatment-of-lower-back-pain/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/2018/09/14/psychology-of-injury-and-rehabilitation/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/2023/05/06/injury-screening/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/2018/01/16/the-only-shock-about-shockwave-therapy-is-its-healing-capacity/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/2018/04/03/official-opening-date-introductory-offers/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/2023/03/01/musculoskeletal-physiotherapy-and-sports-injuries/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/2020/03/08/top-3-ways-to-prevent-and-treat-back-pain/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/2019/08/15/5-ways-to-burn-calories-at-work-jamie-donmall/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source:
+      "/2019/04/09/its-never-too-late-to-start-why-getting-fit-in-your-50s-is-as-beneficial-as-starting-early/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/2023/03/24/bracing-for-knees-and-ankles/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/2022/06/15/pillows-the-most-common-question-we-get-about-neck-pain/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/2018/07/11/an-evening-with-jamie-george/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/2018/06/14/optimizing-performance/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/2018/04/18/were-open-for-business/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/2018/03/23/how-keeping-active-will-help-you-get-the-most-out-of-spring/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/2023/03/17/sports-physiotherapy-in-hitchin/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/2017/11/24/welcome-to-the-carter-george-practice/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/1970/01/01/5-ways-to-burn-calories-at-work-jamie-donmall-physiotherapist/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/2019/06/03/whats-new-in-healthcare/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/2020/05/27/sports-injuries-at-home/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/2023/06/05/covid-19-and-football-injuries/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/2019/10/24/how-can-i-make-my-heart-stronger/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/2018/04/12/running-and-recovery-tips-from-our-personal-trainer/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/2023/04/27/running-injuries/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/2019/04/25/7dailymistakes/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/2020/01/05/diet-supplements-and-inflammation/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/2019/12/16/exercising-for-mental-health/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/2019/11/11/hip-pain-surgery-or-physio/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/2019/10/10/does-foam-rolling-work/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/2019/09/02/why-are-we-spending-so-much-on-orthotics/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/2019/05/16/rocktape/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/2019/05/05/cheshunt-fc-champions/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/2018/02/28/warm-ups-that-will-make-you-less-susceptible-to-sporting-injury/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/2018/01/04/how-physiotherapy-could-benefit-you-in-2018/",
+    destination: "/blog/",
+    permanent: true,
+  },
 ];
 
 module.exports = redirects;
