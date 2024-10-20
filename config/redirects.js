@@ -16,7 +16,7 @@ const redirects = [
   },
   {
     source: "/staff/natalie-pigott/",
-    destination: "/about/",
+    destination: "/locations/amersham/",
     permanent: true,
   },
   {
@@ -26,22 +26,22 @@ const redirects = [
   },
   {
     source: "/staff/chris-gillespie/",
-    destination: "/about/",
+    destination: "/about/chris-gillespie/",
     permanent: true,
   },
   {
     source: "/staff/will-harding/",
-    destination: "/about/",
+    destination: "/locations/congleton/",
     permanent: true,
   },
   {
     source: "/staff/pin-khor/",
-    destination: "/about/",
+    destination: "/locations/radlett/",
     permanent: true,
   },
   {
     source: "/staff/jasmin-kazittis/",
-    destination: "/about/",
+    destination: "/locations/radlett/",
     permanent: true,
   },
   {
@@ -51,12 +51,12 @@ const redirects = [
   },
   {
     source: "/staff/grainne-kellett/",
-    destination: "/about/",
+    destination: "/locations/harpenden/",
     permanent: true,
   },
   {
     source: "/staff/sophie-pyle/",
-    destination: "/about/",
+    destination: "/locations/hertford/",
     permanent: true,
   },
   {
@@ -66,22 +66,22 @@ const redirects = [
   },
   {
     source: "/staff/tim-scully/",
-    destination: "/about/",
+    destination: "/locations/harpenden/",
     permanent: true,
   },
   {
     source: "/staff/ryan-smith/",
-    destination: "/about/",
+    destination: "/locations/hertford/",
     permanent: true,
   },
   {
     source: "/staff/sophie-gregory/",
-    destination: "/about/",
+    destination: "/locations/hertford/",
     permanent: true,
   },
   {
     source: "/staff/lauren-ayers/",
-    destination: "/about/",
+    destination: "/locations/hertford/",
     permanent: true,
   },
   {
@@ -91,17 +91,17 @@ const redirects = [
   },
   {
     source: "/staff/maddie-hayes/",
-    destination: "/about/",
+    destination: "/locations/hitchin/",
     permanent: true,
   },
   {
     source: "/staff/sophie-slope/",
-    destination: "/about/",
+    destination: "/locations/hitchin/",
     permanent: true,
   },
   {
     source: "/staff/aby-tobin/",
-    destination: "/about/",
+    destination: "/locations/hertford/",
     permanent: true,
   },
   {
@@ -346,7 +346,7 @@ const redirects = [
   },
   {
     source: "/physiotherapy/specialist-services/arthrosamid-injection/",
-    destination: "/services/specialist-services/arthrosamid-injection/",
+    destination: "/services/specialist-services/arthrosamid-injections/",
     permanent: true,
   },
   {
@@ -673,6 +673,71 @@ const redirects = [
   {
     source: "/price-list/",
     destination: "/",
+    permanent: true,
+  },
+  {
+    source: "/2019/01/03/ankle-sprains-phoenixs-story/",
+    destination: "/patient-stories/phoenix-ankle-sprain/",
+    permanent: true,
+  },
+  {
+    source: "/2019/01/03/ankle-sprains-phoenixs-story/",
+    destination: "/patient-stories/phoenix-ankle-sprain/",
+    permanent: true,
+  },
+  {
+    source: "/wellbeing/reflexology/",
+    destination: "/",
+    permanent: true,
+  },
+  {
+    source: "contact-us/book-online/",
+    destination: "/find-your-practice/",
+    permanent: true,
+  },
+  {
+    source: "/staff/adele-cole/",
+    destination: "/locations/harpenden/",
+    permanent: true,
+  },
+  {
+    source: "/personal-training/falls-prevention-and-elderly-rehabilitation/",
+    destination: "/services/personal-training/",
+    permanent: true,
+  },
+  {
+    source: "/personal-training/golfers-club/",
+    destination: "/services/personal-training/",
+    permanent: true,
+  },
+  {
+    source: "/2023/04/19/lower-back-pain-treatment-in-hitchin/",
+    destination: "/common-conditions/lower-back-pain/",
+    permanent: true,
+  },
+  {
+    source: "/evolve-by-carter-george/",
+    destination: "/services/personal-training/evolve/",
+    permanent: true,
+  },
+  {
+    source: "/2023/05/09/athlete-confidentiality-sports-injuries/",
+    destination: "/blog/professional-athlete-injury-confidentiality/",
+    permanent: true,
+  },
+  {
+    source: "/physiotherapy/arthrosamid-injection/",
+    destination: "/services/specialist-services/arthrosamid-injections/",
+    permanent: true,
+  },
+  {
+    source: "/online-booking/",
+    destination: "/find-your-practice/",
+    permanent: true,
+  },
+  {
+    source: "/2023/03/22/personal-training-in-hitchin/",
+    destination: "/services/personal-training/",
     permanent: true,
   },
 ];
