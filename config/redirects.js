@@ -170,6 +170,11 @@ const redirects = [
     permanent: true,
   },
   {
+    source: "/policies//",
+    destination: "/legal/policies//",
+    permanent: true,
+  },
+  {
     source: "/about/faqs/",
     destination: "/faqs/",
     permanent: true,
@@ -677,12 +682,7 @@ const redirects = [
   },
   {
     source: "/2019/01/03/ankle-sprains-phoenixs-story/",
-    destination: "/patient-stories/phoenix-ankle-sprain/",
-    permanent: true,
-  },
-  {
-    source: "/2019/01/03/ankle-sprains-phoenixs-story/",
-    destination: "/patient-stories/phoenix-ankle-sprain/",
+    destination: "/blog/ankle-sprain-phoenixs-story/",
     permanent: true,
   },
   {
@@ -951,6 +951,51 @@ const redirects = [
   {
     source: "/2018/01/04/how-physiotherapy-could-benefit-you-in-2018/",
     destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/staff-category/hurstpierpoint/",
+    destination: "/locations/hurstpierpoint/",
+    permanent: true,
+  },
+  {
+    source: "/staff/angie-hulst/",
+    destination: "/locations/haywards-heath/",
+    permanent: true,
+  },
+  {
+    source: "/staff-category/amersham/",
+    destination: "/locations/amersham/",
+    permanent: true,
+  },
+  {
+    source: "/wellbeing/nutrition/",
+    destination: "/",
+    permanent: true,
+  },
+  {
+    source: "/physiotherapy/chronic-pain-conditions/",
+    destination: "/",
+    permanent: true,
+  },
+  {
+    source: "/about/blog/",
+    destination: "/blog/",
+    permanent: true,
+  },
+  {
+    source: "/wellbeing/counselling/",
+    destination: "/",
+    permanent: true,
+  },
+  {
+    source: "/about/book-online/",
+    destination: "/find-your-practice/",
+    permanent: true,
+  },
+  {
+    source: "/staff/kamie-lowe/",
+    destination: "/locations/amersham/",
     permanent: true,
   },
 ];
