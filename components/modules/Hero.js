@@ -1,4 +1,5 @@
 import cn from "classnames";
+import { render } from "storyblok-rich-text-react-renderer";
 
 import GoogleRating from "components/base/GoogleRating";
 import Container from "components/common/Container";
@@ -40,8 +41,13 @@ const Hero = ({
               <Heading className="mb-4" level={1} size="4xl">
                 {title}
               </Heading>
-              <Subtitle color="white" size="medium">
-                {subtitle}
+              <Subtitle
+                as={typeof subtitle === "string" ? "p" : "div"}
+                className="prose prose-invert"
+                color="white"
+                size="medium"
+              >
+                {typeof subtitle === "string" ? subtitle : render(subtitle)}
               </Subtitle>
             </div>
             {postcodeCta ? (
