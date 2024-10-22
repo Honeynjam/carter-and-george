@@ -10,7 +10,7 @@ const AnnouncementBanner = () => {
     return (
       <StoryblokLink
         link={global.banner_link}
-        className="block border-b border-stroke-light bg-stone py-5 duration-150 hover:brightness-95"
+        className="relative z-50 block border-b border-stroke-light bg-stone py-5 duration-150 hover:brightness-95"
       >
         <Container>
           <p className="text-center text-small font-semibold">{global.banner_text}</p>
