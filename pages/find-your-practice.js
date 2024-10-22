@@ -23,8 +23,8 @@ import StoryblokLink from "components/storyblok/StoryblokLink";
 
 const LocationCard = ({ location }) => {
   return (
-    <div key={location.content._uid} className="">
-      <StoryblokImage image={location.content.image} />
+    <div key={location.content._uid} className="overflow-hidden rounded">
+      <StoryblokImage className="aspect-[16/9] object-cover" image={location.content.image} />
       <div className="bg-stone p-6">
         <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:gap-20">
           <div className="flex-1">
