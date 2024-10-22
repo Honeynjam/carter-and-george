@@ -7,7 +7,7 @@ import { queryAllPages } from "utils/queryAllPages";
 const SitemapIndex = () => null;
 
 const includePage = (page) => {
-  if (["register_page", "sign_up", "video"].includes(page.content.component)) {
+  if (["quotes", "quote_media"].includes(page.content.component)) {
     return false;
   }
 

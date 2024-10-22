@@ -1,4 +1,8 @@
-export const nonPageFolders = ["global/"];
+export const nonPageFolders = [
+  "global/",
+  "patient-stories/quotes/",
+  "patient-stories/quotes-media/",
+];
 
 export const pageWithCodeFolders = ["blog/", "patient-stories/", "legal/"];
 

@@ -38,6 +38,10 @@ export async function getStaticProps({ params, preview = null }) {
     return { notFound: true };
   }
 
+  if (skipPageCreationWithinCatchAllPage.some((v) => slug.includes(v))) {
+    return { notFound: true };
+  }
+
   let sbParams = {
     version: preview ? "draft" : "published",
     resolve_relations: [
@@ -96,12 +100,12 @@ export async function getStaticPaths() {
     if (data.links[linkKey].is_folder || slug === "home") {
       return;
     }
-
     if (skipPageCreationWithinCatchAllPage.some((v) => slug.includes(v))) {
       return;
     }
 
     let splittedSlug = slug.split("/");
+
     paths.push({ params: { slug: splittedSlug } });
   });
 
