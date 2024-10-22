@@ -19,7 +19,7 @@ export const Eyebrow = ({ className = "", color = "blue", text }) => {
 
 export const Heading = ({
   className = "",
-  level = 1,
+  level = 2,
   size = "large",
   color = "black",
   ...props
