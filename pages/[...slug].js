@@ -1,6 +1,6 @@
 import { StoryblokComponent, getStoryblokApi, useStoryblokState } from "@storyblok/react";
 
-import { skipPageCreationWithinCatchAllPage } from "config/storyblok";
+import { nonPageFolders, skipPageCreationWithinCatchAllPage } from "config/storyblok";
 
 import { determineNavbarType } from "utils/determineNavbarType";
 import getGlobalDocs from "utils/getGlobalDocs";
@@ -38,7 +38,7 @@ export async function getStaticProps({ params, preview = null }) {
     return { notFound: true };
   }
 
-  if (skipPageCreationWithinCatchAllPage.some((v) => slug.includes(v))) {
+  if (nonPageFolders.some((v) => slug.includes(v))) {
     return { notFound: true };
   }
 
