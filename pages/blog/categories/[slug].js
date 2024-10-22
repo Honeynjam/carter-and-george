@@ -117,7 +117,7 @@ export async function getStaticProps({ preview = null, params }) {
     });
     categoryData = doc.data;
   } catch (e) {
-    if (JSON.parse(e).status === 404) {
+    if (e?.status === 404 || JSON.parse(e)?.status === 404) {
       return { notFound: true };
     }
   }
