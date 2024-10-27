@@ -33,6 +33,8 @@ const Seo = ({
   const finalTitle = `${title || defaultMeta.title} ${settings.titleEnding}`;
   const socialTitleTag = socialTitle ? `${socialTitle} ${settings.titleEnding}` : finalTitle;
 
+  const canonicalUrl = getUrl(router.asPath).split("?")[0];
+
   return (
     <>
       <Head>
@@ -65,7 +67,7 @@ const Seo = ({
         {/* Technical tags */}
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <meta charSet="utf-8" />
-        <link rel="canonical" href={getUrl(router.asPath)} />
+        <link rel="canonical" href={canonicalUrl} />
         <meta name="theme-color" content={settings.themeColor} />
         <meta name="publisher" content={settings.company} />
         <meta name="copyright" content={settings.company} />
