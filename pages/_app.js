@@ -12,7 +12,7 @@ import StoryblokWrapper from "components/storyblok/StoryblokWrapper";
 
 export default function App({ Component, pageProps }) {
   return (
-    <APIProvider apiKey={"AIzaSyBELN_3if61U7k0iO6IzMe7aDVb6kXQmJI"}>
+    <APIProvider apiKey={"AIzaSyCQm4y_CgaoI1XKXJxTpVY3B1EEEC7G4UY"}>
       <Script
         id="iubenda"
         dangerouslySetInnerHTML={{
