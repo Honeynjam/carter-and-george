@@ -47,12 +47,14 @@ export const DesktopNavbarDropdown = ({ blok }) => {
                     <hr className="mb-6 mt-2 text-stroke-light" />
                     <div className="relative">
                       <div
-                        className={cn("grid grid-cols-1 gap-12", {
+                        className={cn("grid gap-12", {
                           "grid-cols-1": blok.columns.length === 1,
                           "grid-cols-2": blok.columns.length === 2,
                           "grid-cols-3": blok.columns.length === 3,
                           "grid-cols-4": blok.columns.length === 4,
                           "grid-cols-5": blok.columns.length === 5,
+                          "grid-cols-6": blok.columns.length === 6,
+                          "grid-cols-7": blok.columns.length === 7,
                         })}
                       >
                         {blok.columns.map((column, idx) => {
