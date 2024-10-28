@@ -36,7 +36,7 @@ const ServicesOverview = ({ blok }) => {
                   <h3 className="cursor-pointer text-xl font-medium">{service.name}</h3>
                   <TextButton className="mt-2 self-start">Read more</TextButton>
                   <StoryblokImage
-                    className="mt-6 h-full w-full rounded object-cover"
+                    className="mt-6 h-[369px] w-full rounded object-cover"
                     image={service.image}
                   />
                 </div>
