@@ -7,7 +7,7 @@ const settings = {
   author: "Carter & George",
   language: "en-gb",
   themeColor: "#00A9E0",
-  baseUrl: "https://www.carterandgeorge.co.uk/",
+  baseUrl: "https://www.carterandgeorge.co.uk",
 };
 
 const defaultMeta = {
