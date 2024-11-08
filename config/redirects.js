@@ -998,6 +998,31 @@ const redirects = [
     destination: "/locations/amersham/",
     permanent: true,
   },
+  {
+    source: "/dry-needlingims/",
+    destination: "//",
+    permanent: true,
+  },
+  {
+    source: "/massage/",
+    destination: "/services/physiotherapy/massage/",
+    permanent: true,
+  },
+  {
+    source: "/shockwave/",
+    destination: "/services/physiotherapy/shockwave/",
+    permanent: true,
+  },
+  {
+    source: "/cryotherapy/",
+    destination: "/",
+    permanent: true,
+  },
+  {
+    source: "/arthritis-acupuncture-group/",
+    destination: "/",
+    permanent: true,
+  },
 ];
 
 module.exports = redirects;
