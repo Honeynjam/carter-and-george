@@ -26,7 +26,7 @@ const HeroTwoCols = ({ blok }) => {
                 {blok.postcode_cta ? (
                   <PostcodeForm onWhite />
                 ) : (
-                  <>
+                  <div className="flex items-center gap-2.5">
                     {blok.buttons.map((button) => {
                       return (
                         <Button key={button._uid} href={linkResolver(button.link)}>
@@ -34,7 +34,7 @@ const HeroTwoCols = ({ blok }) => {
                         </Button>
                       );
                     })}
-                  </>
+                  </div>
                 )}
               </div>
             </div>
