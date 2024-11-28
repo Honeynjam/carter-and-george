@@ -26,7 +26,7 @@ const JobPosition = ({ blok }) => (
           ))}
         </div>
         <div className="mt-12 lg:mt-20">
-          <Button href={linkResolver(blok.apple_url)}>Apply now</Button>
+          <Button href={linkResolver(blok.apply_url)}>Apply now</Button>
         </div>
       </div>
     </Container>
