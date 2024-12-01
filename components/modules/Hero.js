@@ -1,7 +1,10 @@
 import cn from "classnames";
 import { render } from "storyblok-rich-text-react-renderer";
 
+import { linkResolver } from "utils/linkResolver";
+
 import GoogleRating from "components/base/GoogleRating";
+import Button from "components/common/Button";
 import Container from "components/common/Container";
 import PostcodeForm from "components/common/PostcodeForm";
 import { Eyebrow, Heading, Subtitle } from "components/common/Typography";
@@ -16,6 +19,7 @@ const Hero = ({
   align = "left",
   eyebrowColor = "blue",
   postcodeCta = false,
+  buttons = [],
 }) => {
   return (
     <div className="relative z-10 mt-[-103px] lg:min-h-screen">
@@ -43,13 +47,14 @@ const Hero = ({
               </Heading>
               <Subtitle
                 as={typeof subtitle === "string" ? "p" : "div"}
-                className="prose prose-invert"
+                className="prose prose-invert max-w-none"
                 color="white"
                 size="medium"
               >
                 {typeof subtitle === "string" ? subtitle : render(subtitle)}
               </Subtitle>
             </div>
+
             {postcodeCta ? (
               <PostcodeForm
                 className={cn("mt-12", {
@@ -57,7 +62,30 @@ const Hero = ({
                 })}
                 buttonText="Search"
               />
-            ) : null}
+            ) : (
+              <>
+                {buttons?.length > 0 ? (
+                  <div
+                    className={cn("mt-12 flex flex-col gap-2.5 sm:flex-row lg:items-center", {
+                      "justify-center": align === "center",
+                    })}
+                  >
+                    {buttons?.map((button, idx) => {
+                      return (
+                        <Button
+                          color="white"
+                          outline={idx !== 0}
+                          key={button._uid}
+                          href={linkResolver(button.link)}
+                        >
+                          {button.text}
+                        </Button>
+                      );
+                    })}
+                  </div>
+                ) : null}
+              </>
+            )}
           </Container>
         </div>
         <div>

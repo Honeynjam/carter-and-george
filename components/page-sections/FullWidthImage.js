@@ -26,7 +26,7 @@ const FullWidthImage = ({ blok }) => {
               {blok.subtitle}
             </Subtitle>
             {arrayNotEmpty(blok.buttons) ? (
-              <div className="mt-10">
+              <div className="mt-10 flex flex-col gap-2.5 lg:flex-row lg:items-center">
                 {blok.buttons.map((button) => {
                   return (
                     <Button key={button._uid} color="white" href={linkResolver(button.link)}>
@@ -48,7 +48,7 @@ const FullWidthImage = ({ blok }) => {
             >
               {blok.title}
             </Heading>
-            <div className="flex justify-center">
+            <div className="flex flex-col justify-center gap-2.5 lg:flex-row lg:items-center">
               {blok.buttons.map((button) => {
                 return (
                   <Button key={button._uid} color="white" href={linkResolver(button.link)}>

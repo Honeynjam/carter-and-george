@@ -77,12 +77,12 @@ const Button = ({
     return (
       <Link className={classNames} href={finalHref} {...props}>
         <span className="relative inline-flex overflow-hidden">
-          <div className="translate-y-0 skew-y-0 transition-transform duration-500 group-hover:-translate-y-[125%] group-hover:skew-y-6">
+          <div className="translate-y-0 skew-y-0 transition-transform duration-500 group-hover:-translate-y-[150%] group-hover:skew-y-6">
             {children}
           </div>
           <div
             aria-hidden={true}
-            className="absolute translate-y-[125%] skew-y-6 transition-transform duration-500 group-hover:translate-y-0 group-hover:skew-y-0"
+            className="absolute translate-y-[150%] skew-y-6 transition-transform duration-500 group-hover:translate-y-0 group-hover:skew-y-0"
           >
             {children}
           </div>
@@ -93,12 +93,12 @@ const Button = ({
     return (
       <button className={classNames} {...props}>
         <span className="relative inline-flex overflow-hidden">
-          <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[125%] group-hover:skew-y-6">
+          <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[150%] group-hover:skew-y-6">
             {children}
           </div>
           <div
             aria-hidden={true}
-            className="absolute translate-y-[125%] skew-y-6 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0"
+            className="absolute translate-y-[150%] skew-y-6 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0"
           >
             {children}
           </div>

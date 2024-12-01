@@ -12,6 +12,7 @@ const HeroBlok = ({ blok }) => {
         image={blok.bg_image}
         align={blok.align}
         postcodeCta={blok.postcode_cta}
+        buttons={blok.buttons}
       />
     </section>
   );

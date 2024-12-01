@@ -24,7 +24,7 @@ const CtaSection = ({ blok }) => {
               {blok.postcode_cta ? (
                 <PostcodeForm hideLabel />
               ) : (
-                <>
+                <div className="flex flex-col gap-2.5 lg:flex-row lg:items-center">
                   {blok.buttons.map((button) => {
                     return (
                       <Button key={button._uid} color="white" href={linkResolver(button.link)}>
@@ -32,7 +32,7 @@ const CtaSection = ({ blok }) => {
                       </Button>
                     );
                   })}
-                </>
+                </div>
               )}
             </div>
           </div>

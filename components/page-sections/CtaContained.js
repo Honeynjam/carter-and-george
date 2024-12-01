@@ -44,7 +44,7 @@ const CtaContained = ({ blok }) => {
                 {blok.postcode_cta ? (
                   <PostcodeForm hideLabel onWhite={blok.background !== "dark"} />
                 ) : (
-                  <>
+                  <div className="flex flex-col gap-2.5 lg:flex-row lg:items-center">
                     {blok.buttons.map((button) => {
                       return (
                         <Button
@@ -56,7 +56,7 @@ const CtaContained = ({ blok }) => {
                         </Button>
                       );
                     })}
-                  </>
+                  </div>
                 )}
               </div>
             </div>
