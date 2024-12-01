@@ -115,8 +115,8 @@ export default function FindYourLocationPage({ preview, story, locations, global
           });
           distances.sort((a, b) => a.distance - b.distance);
           const filteredLocations = distances.filter(
-            (location) => location.distance <= 30 * 1609.34
-          ); // Filter locations within 30 miles
+            (location) => location.distance <= Number(location.content.location_distance) * 1609.34
+          ); // Filter locations within X miles
           setClosestLocations(filteredLocations.slice(0, 3)); // Get the closest 3 locations within 50 miles
           setLoaded(true);
         } else {
