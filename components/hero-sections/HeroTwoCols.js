@@ -26,11 +26,11 @@ const HeroTwoCols = ({ blok }) => {
                 {blok.postcode_cta ? (
                   <PostcodeForm onWhite />
                 ) : (
-                  <div className="flex flex-col gap-2.5 sm:flex-row md:flex-col lg:flex-row lg:items-center">
+                  <div className="flex flex-col flex-wrap gap-2.5 sm:flex-row md:flex-col lg:flex-row lg:items-center">
                     {blok.buttons.map((button, idx) => {
                       return (
                         <Button
-                          outline={idx !== 0}
+                          outline={blok.buttons.length === 2 && idx !== 0}
                           key={button._uid}
                           href={linkResolver(button.link)}
                         >

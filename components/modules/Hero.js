@@ -66,15 +66,18 @@ const Hero = ({
               <>
                 {buttons?.length > 0 ? (
                   <div
-                    className={cn("mt-12 flex flex-col gap-2.5 sm:flex-row lg:items-center", {
-                      "justify-center": align === "center",
-                    })}
+                    className={cn(
+                      "mt-12 flex flex-col flex-wrap gap-2.5 sm:flex-row lg:items-center",
+                      {
+                        "justify-center": align === "center",
+                      }
+                    )}
                   >
                     {buttons?.map((button, idx) => {
                       return (
                         <Button
                           color="white"
-                          outline={idx !== 0}
+                          outline={buttons.length === 2 && idx !== 0}
                           key={button._uid}
                           href={linkResolver(button.link)}
                         >
