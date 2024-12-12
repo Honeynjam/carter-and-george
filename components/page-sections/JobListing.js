@@ -28,33 +28,37 @@ const JobListing = ({ blok }) => {
 
           <div className="md:col-span-7">
             {blok.open_positions.map((item) => {
-              return (
-                <div
-                  className="border-b border-stroke-light py-4 lg:py-8"
-                  {...storyblokEditable(item)}
-                  key={item.content._uid}
-                >
-                  <Heading level={3} className="mb-2">
-                    {item.content.title}
-                  </Heading>
+              if (item.content?._uid) {
+                return (
+                  <div
+                    className="border-b border-stroke-light py-4 lg:py-8"
+                    {...storyblokEditable(item)}
+                    key={item.content._uid}
+                  >
+                    <Heading level={3} className="mb-2">
+                      {item.content.title}
+                    </Heading>
 
-                  <p className="text-gray-secondary">{item.content.subtitle}</p>
+                    <p className="text-gray-secondary">{item.content.subtitle}</p>
 
-                  <div className="mt-6 flex items-center gap-6">
-                    <div className="flex items-center gap-2">
-                      <MapPin className="text-blue" weight="bold" />
-                      {item.content.Location}
+                    <div className="mt-6 flex items-center gap-6">
+                      <div className="flex items-center gap-2">
+                        <MapPin className="text-blue" weight="bold" />
+                        {item.content.Location}
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Clock className="text-blue" weight="bold" />
+                        {item.content.contract_type}
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <Clock className="text-blue" weight="bold" />
-                      {item.content.contract_type}
-                    </div>
+                    <Button className="mt-8" outline href={linkResolver(item)}>
+                      Learn more
+                    </Button>
                   </div>
-                  <Button className="mt-8" outline href={linkResolver(item)}>
-                    Learn more
-                  </Button>
-                </div>
-              );
+                );
+              }
+
+              return null;
             })}
           </div>
         </div>
