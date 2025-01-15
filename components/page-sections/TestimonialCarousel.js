@@ -99,21 +99,23 @@ const TestimonialCarousel = ({ blok }) => {
             className="mt-12 flex items-center justify-center gap-10 md:justify-between"
           >
             <div className="hidden space-x-3 md:flex">
-              {[...Array(instanceRef.current.track.details.slides.length).keys()].map((idx) => {
-                return (
-                  <button
-                    aria-label={`Slide ${idx + 1}`}
-                    key={idx}
-                    onClick={() => {
-                      instanceRef.current?.moveToIdx(idx);
-                    }}
-                    className={
-                      "h-2.5 w-2.5 rounded-full " +
-                      (currentSlide === idx ? "bg-black" : "bg-stroke-light")
-                    }
-                  ></button>
-                );
-              })}
+              {[...Array(instanceRef?.current?.track?.details?.slides?.length).keys()].map(
+                (idx) => {
+                  return (
+                    <button
+                      aria-label={`Slide ${idx + 1}`}
+                      key={idx}
+                      onClick={() => {
+                        instanceRef.current?.moveToIdx(idx);
+                      }}
+                      className={
+                        "h-2.5 w-2.5 rounded-full " +
+                        (currentSlide === idx ? "bg-black" : "bg-stroke-light")
+                      }
+                    ></button>
+                  );
+                }
+              )}
             </div>
 
             <div className="flex items-center gap-4">
@@ -132,7 +134,7 @@ const TestimonialCarousel = ({ blok }) => {
               <button
                 className="rounded-full border border-stroke-light bg-white p-5 duration-150 hover:bg-stone"
                 tabIndex={
-                  currentSlide === instanceRef.current.track.details.slides.length - 3 ? -1 : 0
+                  currentSlide === instanceRef?.current?.track?.details?.slides?.length - 3 ? -1 : 0
                 }
                 onClick={(e) => e.stopPropagation() || instanceRef.current?.next()}
                 aria-label="Next item"
