@@ -50,9 +50,11 @@ const SubMenu = ({ blok }) => {
                   </div>
                 );
               })}
-              <StoryblokLink className="mb-2.5 font-semibold" link={blok.link}>
-                Overview
-              </StoryblokLink>
+              {blok.name ? (
+                <StoryblokLink className="mb-2.5 font-semibold" link={blok.link}>
+                  Overview
+                </StoryblokLink>
+              ) : null}
             </div>
           </Disclosure.Panel>
         </>
@@ -104,11 +106,35 @@ const MobileNavbarDropdown = ({ blok }) => {
                 }
 
                 if (column.component === "navbar_dropdown_column") {
-                  return (
-                    <div className="pl-4" key={column.id}>
-                      <SubMenu blok={column} />
-                    </div>
-                  );
+                  // Don't have additional submenu if there is only one column
+                  if (blok.columns.length === 1) {
+                    return (
+                      <div className="pl-4" key={column.id}>
+                        <div className="grid grid-cols-1 gap-4 pl-4">
+                          {column.links.map((item) => {
+                            return (
+                              <div key={item.id}>
+                                <StoryblokLink className="mb-2.5" link={item.link}>
+                                  {item.text}
+                                </StoryblokLink>
+                              </div>
+                            );
+                          })}
+                          {blok.name ? (
+                            <StoryblokLink className="mb-2.5 font-semibold" link={blok.link}>
+                              Overview
+                            </StoryblokLink>
+                          ) : null}
+                        </div>
+                      </div>
+                    );
+                  } else {
+                    return (
+                      <div className="pl-4" key={column.id}>
+                        <SubMenu blok={column} />
+                      </div>
+                    );
+                  }
                 }
               })}
             </div>

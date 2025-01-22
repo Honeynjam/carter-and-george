@@ -84,13 +84,16 @@ export const DesktopNavbarDropdown = ({ blok }) => {
                           if (column.component === "navbar_dropdown_column") {
                             return (
                               <div key={column.id}>
-                                <StoryblokLink
-                                  className="font-petite-caps group mb-6 flex items-center gap-2 text-button font-medium text-[#6E6E6E]"
-                                  link={column.link}
-                                >
-                                  <span>{column.name}</span>
-                                  <ArrowRight className="duration-150 ease-in-out group-hover:translate-x-0.5" />
-                                </StoryblokLink>
+                                {column.name ? (
+                                  <StoryblokLink
+                                    className="font-petite-caps group mb-6 flex items-center gap-2 text-button font-medium text-[#6E6E6E]"
+                                    link={column.link}
+                                  >
+                                    <span>{column.name}</span>
+                                    <ArrowRight className="duration-150 ease-in-out group-hover:translate-x-0.5" />
+                                  </StoryblokLink>
+                                ) : null}
+
                                 <div className="grid grid-cols-1 gap-4">
                                   {column.links.map((item) => {
                                     return (
