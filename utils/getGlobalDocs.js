@@ -18,7 +18,7 @@ const getGlobalDocs = async (preview = false) => {
     is_startpage: 0,
   });
 
-  const locations = locationsData.stories.map((location) => location.content.clinic_name);
+  const locations = locationsData.stories;
 
   const { data: articlesData } = await storyblokApi.get("cdn/stories/", {
     version: preview ? "draft" : "published",

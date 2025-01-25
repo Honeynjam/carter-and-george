@@ -47,8 +47,8 @@ const NewsletterForm = () => {
           >
             <option value="">Your local practice</option>
             {locations.map((location) => (
-              <option key={location} value={location}>
-                {location}
+              <option key={location.content.clinic_name} value={location.content.clinic_name}>
+                {location.content.clinic_name}
               </option>
             ))}
           </select>
