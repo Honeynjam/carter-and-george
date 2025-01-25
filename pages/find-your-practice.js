@@ -72,7 +72,7 @@ const LocationCard = ({ location }) => {
   );
 };
 export default function FindYourLocationPage({ preview, story, locations, globalDocs }) {
-  story = useStoryblokState(story);
+  story = useStoryblokState(story, { resolveRelations: ["location.services"] });
 
   const apiIsLoaded = useApiIsLoaded();
   useMapsLibrary("geometry");

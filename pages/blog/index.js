@@ -16,7 +16,9 @@ import Layout from "components/global/Layout";
 import Hero from "components/modules/Hero";
 
 export default function BlogFolder({ story, articles, categories, globalDocs, preview }) {
-  story = useStoryblokState(story);
+  story = useStoryblokState(story, {
+    resolveRelations: ["blog_hub.featured_articles", "blog_post.category"],
+  });
   const router = useRouter();
 
   return (

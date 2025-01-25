@@ -15,7 +15,7 @@ import StoryblokImage from "components/storyblok/StoryblokImage";
 import StoryblokLink from "components/storyblok/StoryblokLink";
 
 export default function PatientStoriesFolder({ story, globalDocs, preview, stories }) {
-  story = useStoryblokState(story);
+  story = useStoryblokState(story, { resolveRelations: ["patient_story.category"] });
 
   return (
     <>

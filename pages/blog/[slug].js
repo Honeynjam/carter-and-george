@@ -6,7 +6,7 @@ import Seo from "components/base/Seo";
 import Layout from "components/global/Layout";
 
 export default function Page({ story, globalDocs, articles, preview }) {
-  story = useStoryblokState(story);
+  story = useStoryblokState(story, { resolveRelations: ["blog_post.category"] });
 
   if (story.content) {
     return (

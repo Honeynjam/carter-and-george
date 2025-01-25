@@ -7,7 +7,17 @@ import Seo from "components/base/Seo";
 import Layout from "components/global/Layout";
 
 export default function Home({ preview, story, globalDocs }) {
-  story = useStoryblokState(story);
+  story = useStoryblokState(story, {
+    resolveRelations: [
+      "blog_post.category",
+      "service_cards.cards",
+      "leader_profile.recommended_services",
+      "blog_cards.blog_posts",
+      "location.services",
+      "testimonial_carousel.testimonials",
+      "testimonial_carousel_with_media.testimonials",
+    ],
+  });
 
   return (
     <>
