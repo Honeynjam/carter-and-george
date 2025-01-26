@@ -105,7 +105,7 @@ const PostcodeForm = ({
               <div className="relative flex-1">
                 <ComboboxInput
                   name="location"
-                  className="w-full rounded-[1px] border border-stroke-light py-3 uppercase text-black placeholder:normal-case"
+                  className="w-full rounded-[1px] border border-stroke-light py-3 text-black placeholder:normal-case"
                   onChange={(e) => {
                     setQuery(e.target.value);
                     handlePostcodeChange(e.target.value);
