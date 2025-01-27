@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 import { Combobox, ComboboxInput, ComboboxOption, ComboboxOptions, Label } from "@headlessui/react";
-import { Check } from "@phosphor-icons/react";
+import { Check } from "@phosphor-icons/react/dist/ssr/Check";
 import cn from "classnames";
 import { fix, parse } from "postcode";
 
