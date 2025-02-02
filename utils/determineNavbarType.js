@@ -1,4 +1,17 @@
 export const determineNavbarType = (story) => {
+  // Edge case for Location hero + image background layout
+  if (story.content.component === "location") {
+    if (story.content?.hero?.length > 0) {
+      const hero = story.content.hero[0];
+
+      if (["location_hero"].includes(hero.component)) {
+        if (hero.layout_type == "image") {
+          return "blur";
+        }
+      }
+    }
+  }
+
   // some page custom types will have white header by default
   if (
     [

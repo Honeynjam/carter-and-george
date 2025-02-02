@@ -2,6 +2,7 @@ import { Clock } from "@phosphor-icons/react/dist/ssr/Clock";
 import { MapPin } from "@phosphor-icons/react/dist/ssr/MapPin";
 import { Phone } from "@phosphor-icons/react/dist/ssr/Phone";
 import { storyblokEditable } from "@storyblok/react";
+import cn from "classnames";
 import { render } from "storyblok-rich-text-react-renderer";
 
 import { linkResolver } from "utils/linkResolver";
@@ -11,6 +12,7 @@ import Button from "components/common/Button";
 import Container from "components/common/Container";
 import TextButton from "components/common/TextButton";
 import { Heading, Subtitle } from "components/common/Typography";
+import StoryblokImage from "components/storyblok/StoryblokImage";
 
 const OpeningHour = ({ day, time }) => {
   return (
@@ -22,20 +24,53 @@ const OpeningHour = ({ day, time }) => {
 };
 
 const LocationHero = ({ blok, location }) => {
+  const isImageLayout = blok.layout_type === "image";
+
   return (
     <section {...storyblokEditable(blok)}>
-      <div className="my-20">
+      <div
+        className={cn("", {
+          "my-20": !isImageLayout,
+          "relative z-10 mt-[-103px]": isImageLayout,
+        })}
+      >
+        {isImageLayout ? (
+          <div className="relative z-10 mb-12 h-[400px] overflow-hidden lg:mb-20 lg:h-[500px]">
+            <StoryblokImage
+              fill
+              priority={true}
+              image={blok.image}
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 z-20 h-full w-full bg-black bg-opacity-60"></div>
+            <div className="relative z-30 flex h-full items-end py-12 text-white">
+              <Container>
+                <GoogleRating color="white" rating={location.google_score} />
+                <Heading className="mb-2 mt-6 max-w-2xl" size="3xl" level={1}>
+                  {blok.title || location.clinic_name}
+                </Heading>
+                <Subtitle as="div" className="prose max-w-none" color="white" size="medium">
+                  {render(blok.subtitle)}
+                </Subtitle>
+              </Container>
+            </div>
+          </div>
+        ) : null}
+
         <Container>
           <div className="grid gap-20 lg:grid-cols-2">
             <div>
-              <GoogleRating color="blue" rating={location.google_score} />
-              <Heading className="mb-2 mt-6" size="3xl" level={1}>
-                {blok.title || location.clinic_name}
-              </Heading>
-
-              <Subtitle as="div" className="prose max-w-none" color="grey" size="medium">
-                {render(blok.subtitle)}
-              </Subtitle>
+              {!isImageLayout ? (
+                <>
+                  <GoogleRating color="blue" rating={location.google_score} />
+                  <Heading className="mb-2 mt-6" size="3xl" level={1}>
+                    {blok.title || location.clinic_name}
+                  </Heading>
+                  <Subtitle as="div" className="prose max-w-none" color="grey" size="medium">
+                    {render(blok.subtitle)}
+                  </Subtitle>
+                </>
+              ) : null}
 
               <div className="mt-4">
                 <div className="flex items-center gap-4">
