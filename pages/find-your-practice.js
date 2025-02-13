@@ -42,14 +42,18 @@ const LocationCard = ({ location }) => {
         </div>
         <div className="mt-6 flex flex-wrap items-center gap-2 text-gray-secondary">
           {location.content.services.map((item, idx) => {
-            return (
-              <React.Fragment key={item._uid}>
-                <span>{item.content.name}</span>
-                {idx < location.content.services.length - 1 ? (
-                  <span className="h-1.5 w-1.5 rounded-full bg-blue" />
-                ) : null}
-              </React.Fragment>
-            );
+            if (item.content?.name) {
+              return (
+                <React.Fragment key={item._uid}>
+                  <span>{item.content?.name}</span>
+                  {idx < location.content.services.length - 1 ? (
+                    <span className="h-1.5 w-1.5 rounded-full bg-blue" />
+                  ) : null}
+                </React.Fragment>
+              );
+            }
+
+            return null;
           })}
         </div>
 
