@@ -49,7 +49,12 @@ const LocationHero = ({ blok, location }) => {
                 <Heading className="mb-2 mt-6 max-w-2xl" size="3xl" level={1}>
                   {blok.title || location.clinic_name}
                 </Heading>
-                <Subtitle as="div" className="prose max-w-none" color="white" size="medium">
+                <Subtitle
+                  as="div"
+                  className="prose max-w-3xl prose-a:text-white"
+                  color="white"
+                  size="medium"
+                >
                   {render(blok.subtitle)}
                 </Subtitle>
               </Container>
