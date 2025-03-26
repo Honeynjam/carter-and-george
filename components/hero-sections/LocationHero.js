@@ -75,7 +75,12 @@ const LocationHero = ({ blok, location }) => {
               <div className="mt-4">
                 <div className="flex items-center gap-4">
                   <Phone size={20} weight="bold" />
-                  <p>{location.phone_number}</p>
+                  <a
+                    href={`tel:${location.phone_number.replace(/\D/g, "")}`}
+                    className="hover:underline"
+                  >
+                    {location.phone_number}
+                  </a>
                 </div>
 
                 <div className="mt-4 flex items-center gap-4">
