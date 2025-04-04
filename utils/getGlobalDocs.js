@@ -16,6 +16,7 @@ const getGlobalDocs = async (preview = false) => {
     version: preview ? "draft" : "published",
     starts_with: "locations",
     is_startpage: 0,
+    sort_by: "content.clinic_name:asc",
   });
 
   const locations = locationsData.stories;
